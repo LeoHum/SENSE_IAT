@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on mai 24, 2024, at 11:04
+    on mai 29, 2024, at 15:48
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -33,8 +33,6 @@ import sys  # to get file system encoding
 import psychopy.iohub as io
 from psychopy.hardware import keyboard
 
-# Run 'Before Experiment' code from score
-import numpy as np
 # --- Setup global variables (available in all functions) ---
 # create a device manager to handle hardware (keyboards, mice, mirophones, speakers, etc.)
 deviceManager = hardware.DeviceManager()
@@ -284,6 +282,12 @@ def setupDevices(expInfo, thisExp, win):
             deviceClass='keyboard',
             deviceName='end_score',
         )
+    if deviceManager.getDevice('key_resp') is None:
+        # initialise key_resp
+        key_resp = deviceManager.addDevice(
+            deviceClass='keyboard',
+            deviceName='key_resp',
+        )
     # return True if completed successfully
     return True
 
@@ -447,35 +451,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         depth=-3.0);
     
     # --- Initialize components for Routine "trial" ---
-    text_stim = visual.TextStim(win=win, name='text_stim',
-        text='',
-        font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-1.0);
-    trial_cat_left = visual.TextStim(win=win, name='trial_cat_left',
-        text='',
-        font='Arial',
-        pos=(-0.4, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-2.0);
-    trial_cat_right = visual.TextStim(win=win, name='trial_cat_right',
-        text='',
-        font='Arial',
-        pos=(0.4, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-3.0);
-    keyboard_resp = keyboard.Keyboard(deviceName='keyboard_resp')
-    fixation = visual.TextStim(win=win, name='fixation',
-        text='+',
-        font='Arial',
-        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-5.0);
     # Run 'Begin Experiment' code from compute_score
     rt_block3 = []
     err_block3 = 0 
@@ -485,6 +460,35 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     slow_responses = 0
     total_responses = 0
     num_errors = 0
+    fixation = visual.TextStim(win=win, name='fixation',
+        text='+',
+        font='Arial',
+        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-2.0);
+    trial_cat_left = visual.TextStim(win=win, name='trial_cat_left',
+        text='',
+        font='Arial',
+        pos=(-0.4, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-3.0);
+    trial_cat_right = visual.TextStim(win=win, name='trial_cat_right',
+        text='',
+        font='Arial',
+        pos=(0.4, 0.4), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-4.0);
+    text_stim = visual.TextStim(win=win, name='text_stim',
+        text='',
+        font='Arial',
+        pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
+    keyboard_resp = keyboard.Keyboard(deviceName='keyboard_resp')
     error_msg = visual.TextStim(win=win, name='error_msg',
         text='',
         font='Arial',
@@ -504,7 +508,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # --- Initialize components for Routine "score" ---
     # Run 'Begin Experiment' code from score
-    numRep = 1
     finish_cond = False
     score_feedback = visual.TextStim(win=win, name='score_feedback',
         text='',
@@ -514,7 +517,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         languageStyle='LTR',
         depth=-1.0);
     score_meaning = visual.TextStim(win=win, name='score_meaning',
-        text='Un score positif indique que vous avez tendance à associer les hommes aux sciences et les femmes aux lettres, ce qui correspond à la vision stéréotypée. Plus il est élevé, plus les associations sont fortes. \nA l\'inverse, un score négatif indique une association forte entre les femmes et les sciences et les hommes et les lettres.\nSi vous souhaitez recommencer le test, appuyez sur la touche "R" de votre clavier.\nPour terminer le test, appuyez sur la barre espace.',
+        text="Un score positif indique que vous avez tendance à associer les hommes aux sciences et les femmes aux lettres, ce qui correspond à la vision stéréotypée. Plus il est élevé, plus les associations sont fortes. \nA l'inverse, un score négatif indique une association forte entre les femmes et les sciences et les hommes et les lettres.\n\nPour terminer le test, appuyez sur la barre espace.",
         font='Arial',
         pos=(0, -0.1), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
@@ -528,17 +531,25 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-4.0);
+    score_bis = visual.TextStim(win=win, name='score_bis',
+        text='',
+        font='Arial',
+        pos=(0, -0.4), height=0.05, wrapWidth=None, ori=0.0, 
+        color='white', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
     
     # --- Initialize components for Routine "check_end" ---
     
     # --- Initialize components for Routine "end" ---
     text = visual.TextStim(win=win, name='text',
-        text="Ce test d'associations implicites est terminé. Nous vous remercions d'y avoir pris part. Aucune donnée n'est conservée à l'issue de ce test, qui ne sert qu'à rendre compte de ses propres stéréotypes. Ainsi, si votre score est positif, vous êtes sujets aux stéréotypes sur les femmes dans les sciences.\n\nVous pouvez quitter l'expérience en appuyant sur la touche échap.",
+        text="Ce test d'associations implicites est terminé. Nous vous remercions d'y avoir pris part. Aucune donnée n'est conservée à l'issue de ce test, qui ne sert qu'à rendre compte de ses propres stéréotypes. Ainsi, si votre score est positif, vous êtes sujets aux stéréotypes sur les femmes dans les sciences.\n\nVous pouvez quitter l'expérience en appuyant sur n'importe quelle touche.",
         font='Arial',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
         color='white', colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=0.0);
+    key_resp = keyboard.Keyboard(deviceName='key_resp')
     
     # create some handy timers
     
@@ -569,9 +580,9 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     )
     
     # set up handler to look after randomisation of conditions etc
-    restart = data.TrialHandler(nReps=5.0, method='sequential', 
+    restart = data.TrialHandler(nReps=7.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
-        trialList=data.importConditions('Repetitions.xlsx'),
+        trialList=[None],
         seed=None, name='restart')
     thisExp.addLoop(restart)  # add the loop to the experiment
     thisRestart = restart.trialList[0]  # so we can initialise stimuli with some values
@@ -599,7 +610,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Prepare to start Routine "welcome" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('welcome.started', globalClock.getTime(format='float'))
         welcome_end.keys = []
         welcome_end.rt = []
         _welcome_end_allKeys = []
@@ -630,7 +640,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # *welcome_text* updates
             
             # if welcome_text is starting this frame...
-            if welcome_text.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+            if welcome_text.status == NOT_STARTED and t >= 0-frameTolerance:
                 # keep track of start time/frame for later
                 welcome_text.frameNStart = frameN  # exact frame index
                 welcome_text.tStart = t  # local t and not account for scr refresh
@@ -693,7 +703,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         for thisComponent in welcomeComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('welcome.stopped', globalClock.getTime(format='float'))
         # the Routine "welcome" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -728,7 +737,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # --- Prepare to start Routine "instructions" ---
             continueRoutine = True
             # update component parameters for each repeat
-            thisExp.addData('instructions.started', globalClock.getTime(format='float'))
             instructions_text.setText(instruct_text)
             instructions_end.keys = []
             instructions_end.rt = []
@@ -841,7 +849,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             for thisComponent in instructionsComponents:
                 if hasattr(thisComponent, "setAutoDraw"):
                     thisComponent.setAutoDraw(False)
-            thisExp.addData('instructions.stopped', globalClock.getTime(format='float'))
             # the Routine "instructions" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
         # completed 1.0 repeats of 'instructions_loop'
@@ -850,7 +857,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # --- Prepare to start Routine "words" ---
         continueRoutine = True
         # update component parameters for each repeat
-        thisExp.addData('words.started', globalClock.getTime(format='float'))
         words_end.keys = []
         words_end.rt = []
         _words_end_allKeys = []
@@ -946,7 +952,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         for thisComponent in wordsComponents:
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
-        thisExp.addData('words.stopped', globalClock.getTime(format='float'))
         # the Routine "words" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -1149,14 +1154,17 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 continueRoutine = True
                 # update component parameters for each repeat
                 thisExp.addData('trial.started', globalClock.getTime(format='float'))
-                text_stim.setText(stimWord)
+                # Run 'Begin Routine' code from check_corr
+                cor_resp = 1
                 trial_cat_left.setText(label_left)
                 trial_cat_right.setText(label_right)
+                text_stim.setText(stimWord)
                 keyboard_resp.keys = []
                 keyboard_resp.rt = []
                 _keyboard_resp_allKeys = []
+                error_msg.setText('Erreur')
                 # keep track of which components have finished
-                trialComponents = [text_stim, trial_cat_left, trial_cat_right, keyboard_resp, fixation, error_msg]
+                trialComponents = [fixation, trial_cat_left, trial_cat_right, text_stim, keyboard_resp, error_msg]
                 for thisComponent in trialComponents:
                     thisComponent.tStart = None
                     thisComponent.tStop = None
@@ -1179,32 +1187,47 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
                     # update/draw components on each frame
                     # Run 'Each Frame' code from check_corr
-                    if len(keyboard_resp.keys) > 0 and keyboard_resp.keys[-1] == CorrAns: #vérifie si la touche est correcte et passe à l'essai suivant le cas échéant
-                        keyboard_resp.corr = True
-                        continueRoutine = False
-                        
-                    if len(keyboard_resp.keys) > 0 and keyboard_resp.keys[0] != CorrAns: #affiche le message "erreur" si la première touche appuyée n'est pas la bonne
-                        err_opacity = 100
-                    else:
-                        err_opacity = 0
+                    if keyboard_resp.keys:
+                        if keyboard_resp.keys[0] != CorrAns and len(keyboard_resp.keys) >  0 : #affiche le message "erreur" si la première touche appuyée n'est pas la bonne
+                            cor_resp = 0
+                        else:
+                            cor_resp = 1
                     
-                    # *text_stim* updates
                     
-                    # if text_stim is starting this frame...
-                    if text_stim.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+                    if keyboard_resp.keys:
+                        if len(keyboard_resp.keys) > 0 and keyboard_resp.keys[-1] == CorrAns: #vérifie si la touche est correcte et passe à l'essai suivant le cas échéant
+                            keyboard_resp.corr = True
+                            continueRoutine = False
+                    
+                    # *fixation* updates
+                    
+                    # if fixation is starting this frame...
+                    if fixation.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                         # keep track of start time/frame for later
-                        text_stim.frameNStart = frameN  # exact frame index
-                        text_stim.tStart = t  # local t and not account for scr refresh
-                        text_stim.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(text_stim, 'tStartRefresh')  # time at next scr refresh
+                        fixation.frameNStart = frameN  # exact frame index
+                        fixation.tStart = t  # local t and not account for scr refresh
+                        fixation.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(fixation, 'tStartRefresh')  # time at next scr refresh
                         # update status
-                        text_stim.status = STARTED
-                        text_stim.setAutoDraw(True)
+                        fixation.status = STARTED
+                        fixation.setAutoDraw(True)
                     
-                    # if text_stim is active this frame...
-                    if text_stim.status == STARTED:
+                    # if fixation is active this frame...
+                    if fixation.status == STARTED:
                         # update params
                         pass
+                    
+                    # if fixation is stopping this frame...
+                    if fixation.status == STARTED:
+                        # is it time to stop? (based on global clock, using actual start)
+                        if tThisFlipGlobal > fixation.tStartRefresh + 0.5-frameTolerance:
+                            # keep track of stop time/frame for later
+                            fixation.tStop = t  # not accounting for scr refresh
+                            fixation.tStopRefresh = tThisFlipGlobal  # on global time
+                            fixation.frameNStop = frameN  # exact frame index
+                            # update status
+                            fixation.status = FINISHED
+                            fixation.setAutoDraw(False)
                     
                     # *trial_cat_left* updates
                     
@@ -1242,6 +1265,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         # update params
                         pass
                     
+                    # *text_stim* updates
+                    
+                    # if text_stim is starting this frame...
+                    if text_stim.status == NOT_STARTED and tThisFlip >= 0.5-frameTolerance:
+                        # keep track of start time/frame for later
+                        text_stim.frameNStart = frameN  # exact frame index
+                        text_stim.tStart = t  # local t and not account for scr refresh
+                        text_stim.tStartRefresh = tThisFlipGlobal  # on global time
+                        win.timeOnFlip(text_stim, 'tStartRefresh')  # time at next scr refresh
+                        # update status
+                        text_stim.status = STARTED
+                        text_stim.setAutoDraw(True)
+                    
+                    # if text_stim is active this frame...
+                    if text_stim.status == STARTED:
+                        # update params
+                        pass
+                    
                     # *keyboard_resp* updates
                     waitOnFlip = False
                     
@@ -1252,8 +1293,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         keyboard_resp.tStart = t  # local t and not account for scr refresh
                         keyboard_resp.tStartRefresh = tThisFlipGlobal  # on global time
                         win.timeOnFlip(keyboard_resp, 'tStartRefresh')  # time at next scr refresh
-                        # add timestamp to datafile
-                        thisExp.timestampOnFlip(win, 'keyboard_resp.started')
                         # update status
                         keyboard_resp.status = STARTED
                         # keyboard checking is just starting
@@ -1273,40 +1312,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                             else:
                                 keyboard_resp.corr = 0
                     
-                    # *fixation* updates
-                    
-                    # if fixation is starting this frame...
-                    if fixation.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-                        # keep track of start time/frame for later
-                        fixation.frameNStart = frameN  # exact frame index
-                        fixation.tStart = t  # local t and not account for scr refresh
-                        fixation.tStartRefresh = tThisFlipGlobal  # on global time
-                        win.timeOnFlip(fixation, 'tStartRefresh')  # time at next scr refresh
-                        # update status
-                        fixation.status = STARTED
-                        fixation.setAutoDraw(True)
-                    
-                    # if fixation is active this frame...
-                    if fixation.status == STARTED:
-                        # update params
-                        pass
-                    
-                    # if fixation is stopping this frame...
-                    if fixation.status == STARTED:
-                        # is it time to stop? (based on global clock, using actual start)
-                        if tThisFlipGlobal > fixation.tStartRefresh + 0.5-frameTolerance:
-                            # keep track of stop time/frame for later
-                            fixation.tStop = t  # not accounting for scr refresh
-                            fixation.tStopRefresh = tThisFlipGlobal  # on global time
-                            fixation.frameNStop = frameN  # exact frame index
-                            # update status
-                            fixation.status = FINISHED
-                            fixation.setAutoDraw(False)
-                    
                     # *error_msg* updates
                     
                     # if error_msg is starting this frame...
-                    if error_msg.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+                    if error_msg.status == NOT_STARTED and cor_resp == 0:
                         # keep track of start time/frame for later
                         error_msg.frameNStart = frameN  # exact frame index
                         error_msg.tStart = t  # local t and not account for scr refresh
@@ -1319,8 +1328,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     # if error_msg is active this frame...
                     if error_msg.status == STARTED:
                         # update params
-                        error_msg.setOpacity(err_opacity, log=False)
-                        error_msg.setText('Erreur', log=False)
+                        pass
                     
                     # check for quit (typically the Esc key)
                     if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1348,20 +1356,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     if hasattr(thisComponent, "setAutoDraw"):
                         thisComponent.setAutoDraw(False)
                 thisExp.addData('trial.stopped', globalClock.getTime(format='float'))
-                # check responses
-                if keyboard_resp.keys in ['', [], None]:  # No response was made
-                    keyboard_resp.keys = None
-                    # was no response the correct answer?!
-                    if str(CorrAns).lower() == 'none':
-                       keyboard_resp.corr = 1;  # correct non-response
-                    else:
-                       keyboard_resp.corr = 0;  # failed to respond (incorrectly)
-                # store data for trials (TrialHandler)
-                trials.addData('keyboard_resp.keys',keyboard_resp.keys)
-                trials.addData('keyboard_resp.corr', keyboard_resp.corr)
-                if keyboard_resp.keys != None:  # we had a response
-                    trials.addData('keyboard_resp.rt', keyboard_resp.rt)
-                    trials.addData('keyboard_resp.duration', keyboard_resp.duration)
                 # Run 'End Routine' code from compute_score
                 if conds_file == "cong_test.xlsx": #ajout du temps de réponse pour le bloc congruent
                     if isinstance(keyboard_resp.rt[-1], float):
@@ -1378,13 +1372,30 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                         if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc incongruent
                             err_block5 = err_block5 + 1
                 
-                if keyboard_resp.keys[0] != CorrAns:
+                if keyboard_resp.keys[0] != CorrAns and keyboard_resp.keys:
                     num_errors = num_errors+ 1
                     
-                if keyboard_resp.rt[-1] > 1:
+                if keyboard_resp.rt[-1] > 3 and keyboard_resp.keys:
                     slow_responses = slow_responses + 1 
                 
                 total_responses = total_responses + 1
+                
+                
+                keyboard_resp.keys = []
+                # check responses
+                if keyboard_resp.keys in ['', [], None]:  # No response was made
+                    keyboard_resp.keys = None
+                    # was no response the correct answer?!
+                    if str(CorrAns).lower() == 'none':
+                       keyboard_resp.corr = 1;  # correct non-response
+                    else:
+                       keyboard_resp.corr = 0;  # failed to respond (incorrectly)
+                # store data for trials (TrialHandler)
+                trials.addData('keyboard_resp.keys',keyboard_resp.keys)
+                trials.addData('keyboard_resp.corr', keyboard_resp.corr)
+                if keyboard_resp.keys != None:  # we had a response
+                    trials.addData('keyboard_resp.rt', keyboard_resp.rt)
+                    trials.addData('keyboard_resp.duration', keyboard_resp.duration)
                 # the Routine "trial" was not non-slip safe, so reset the non-slip timer
                 routineTimer.reset()
                 
@@ -1496,40 +1507,93 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update component parameters for each repeat
         thisExp.addData('score.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from score
+        rt_block3_cleaned = []
+        rt_block5_cleaned = []
+        mean_rt_block3 = 0
+        mean_rt_block5 = 0
+        std_rt_block3 = 0
+        std_rt_block5 = 0
+        pooled_std = 0
+        iat_score = 0
+        
+        # Calcul des données
         if (fast_responses / total_responses) > 0.1:
-            score_msg = "Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test avec 'R' en répondant correctement et sans vous précipiter avec échap"
-            err_msg = "Vous avez fait "+str(num_errors)+" erreurs"
-        elif (slow_responses / total_responses) > 0.1:
-            score_msg = "Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test avec 'R' en répondant correctement le plus rapidement possible ou quittez avec échap"
-            err_msg = "Vous avez fait "+str(num_errors)+" erreurs"
+            score_msg = "Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter."
+            err_msg = "Vous avez fait " + str(num_errors) + " erreurs."
+        elif (slow_responses / total_responses) > 0.05:
+            score_msg = "Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible."
+            err_msg = "Vous avez fait " + str(num_errors) + " erreurs."
         else:
-            # Calcul du score IAT
-            std_rt_block3 = np.std(rt_block3, ddof=1)
-            std_rt_block5 = np.std(rt_block5, ddof=1)
-            mean_rt_block3 = sum(rt_block3)/len(rt_block3)
-            mean_rt_block5 = sum(rt_block5)/len(rt_block5)
-            
-            # Calcul de l'écart type groupé
-            pooled_std = np.sqrt(((len(rt_block3) - 1) * std_rt_block3**2 + (len(rt_block5) - 1) * std_rt_block5**2) / (len(rt_block3) + len(rt_block5) - 2))
-            
-            #Calcul du score
-            if num_errors == 0 :
-                iat_score = (mean_rt_block5 - mean_rt_block3)/pooled_std #calcul à partir du temps de réponse entre bloc incongruent et bloc congruent
+            # Retirer les éléments aberrants
+            rt_block3_cleaned = [rt for rt in rt_block3 if 0.2 <= rt <= 2]
+            rt_block5_cleaned = [rt for rt in rt_block5 if 0.2 <= rt <= 2]
+        
+            # Calcul des moyennes
+            if rt_block3_cleaned:
+                mean_rt_block3 = sum(rt_block3_cleaned) / len(rt_block3_cleaned)
             else:
-                iat_score = ((mean_rt_block5 + err_block5/num_errors) - (mean_rt_block3 + err_block3/num_errors))/pooled_std #calcul à partir du temps de réponse et du nombre d'erreurs entre bloc incongruent et bloc congruent
-            
+                mean_rt_block3 = 0
+        
+            if rt_block5_cleaned:
+                mean_rt_block5 = sum(rt_block5_cleaned) / len(rt_block5_cleaned)
+            else:
+                mean_rt_block5 = 0
+        
+            # Calcul des écarts types
+            #POSE PROBLEME DANS LA TRANSCRIPTION - CORRIGER
+            if len(rt_block3_cleaned) > 1:
+                print('ok')
+                #std_rt_block3 = 1
+                std_rt_block3 = (sum((x - mean_rt_block3) ** 2 for x in rt_block3_cleaned) / (len(rt_block3_cleaned) - 1)) ** 0.5
+            else:
+                std_rt_block3 = 0
+        
+            if len(rt_block5_cleaned) > 1:
+                print('ok')
+                #std_rt_block5 = 1
+                std_rt_block5 = (sum((x - mean_rt_block5) ** 2 for x in rt_block5_cleaned) / (len(rt_block5_cleaned) - 1)) ** 0.5
+            else:
+                std_rt_block5 = 0
+        
+            # Calcul de l'écart type groupé
+            if len(rt_block3_cleaned) > 1 and len(rt_block5_cleaned) > 1:
+                pooled_std = ((len(rt_block3_cleaned) - 1) * std_rt_block3 ** 2 + (len(rt_block5_cleaned) - 1) * std_rt_block5 ** 2) / (len(rt_block3_cleaned) + len(rt_block5_cleaned) - 2) ** 0.5
+            else:
+                pooled_std = 0
+        
+            # Calcul du score IAT
+            if num_errors == 0 and pooled_std != 0:
+                iat_score = (mean_rt_block5 - mean_rt_block3) / pooled_std
+            elif pooled_std != 0:
+                iat_score = ((mean_rt_block5 + err_block5 / num_errors) - (mean_rt_block3 + err_block3 / num_errors)) / pooled_std
+            else:
+                iat_score = 0
+        
             # Affichage des résultats
             score_msg = "Votre score à l'IAT est de "+str(iat_score)[:5]
             err_msg = "Vous avez fait "+str(num_errors)+" erreurs"
         
+        ''' DEBUG '''
+        m3 = str(mean_rt_block3)
+        m5 = str(mean_rt_block5)
         
+        s3 = str(std_rt_block3)
+        s5 = str(std_rt_block5)
+        
+        ps = str(pooled_std)
+        iscore = str(iat_score)
+        
+        sOs = str(2)
+        variance = str(2)
+        sse = str((mean_rt_block5 - mean_rt_block3) / pooled_std)
         score_feedback.setText(score_msg)
         end_score.keys = []
         end_score.rt = []
         _end_score_allKeys = []
         err_feedback.setText(err_msg)
+        score_bis.setText(sse)
         # keep track of which components have finished
-        scoreComponents = [score_feedback, score_meaning, end_score, err_feedback]
+        scoreComponents = [score_feedback, score_meaning, end_score, err_feedback, score_bis]
         for thisComponent in scoreComponents:
             thisComponent.tStart = None
             thisComponent.tStop = None
@@ -1552,16 +1616,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             # Run 'Each Frame' code from score
-            if end_score.corr == True:
-                finish_cond = True
-                #restart.finish = True
-                
-            #if end_score.keys == 'r' and end_score.keys:
-                #numRep = 2
-            if end_score.keys == 'space':
-                #numRep = 1
-                #restart.finish = True
-                finish_cond = True
+            '''
+            if 'space' in end_score.keys:
+                restart.finished = True
+                continueRoutine = False
+            '''
             
             # *score_feedback* updates
             
@@ -1615,14 +1674,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # keyboard checking is just starting
                 end_score.clock.reset()  # now t=0
             if end_score.status == STARTED:
-                theseKeys = end_score.getKeys(keyList=['space','r',], ignoreKeys=["escape"], waitRelease=False)
+                theseKeys = end_score.getKeys(keyList=['space',], ignoreKeys=["escape"], waitRelease=False)
                 _end_score_allKeys.extend(theseKeys)
                 if len(_end_score_allKeys):
                     end_score.keys = _end_score_allKeys[-1].name  # just the last key pressed
                     end_score.rt = _end_score_allKeys[-1].rt
                     end_score.duration = _end_score_allKeys[-1].duration
                     # was this correct?
-                    if (end_score.keys == str(CorrRepAns)) or (end_score.keys == CorrRepAns):
+                    if (end_score.keys == str("'space'")) or (end_score.keys == "'space'"):
                         end_score.corr = 1
                     else:
                         end_score.corr = 0
@@ -1644,6 +1703,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             
             # if err_feedback is active this frame...
             if err_feedback.status == STARTED:
+                # update params
+                pass
+            
+            # *score_bis* updates
+            
+            # if score_bis is starting this frame...
+            if score_bis.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                score_bis.frameNStart = frameN  # exact frame index
+                score_bis.tStart = t  # local t and not account for scr refresh
+                score_bis.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(score_bis, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'score_bis.started')
+                # update status
+                score_bis.status = STARTED
+                score_bis.setAutoDraw(True)
+            
+            # if score_bis is active this frame...
+            if score_bis.status == STARTED:
                 # update params
                 pass
             
@@ -1673,6 +1752,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         thisExp.addData('score.stopped', globalClock.getTime(format='float'))
+        # Run 'End Routine' code from score
+        if end_score.corr == True:
+            restart.finished = 1
+            finish_cond = True
         # the Routine "score" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -1682,7 +1765,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         thisExp.addData('check_end.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from code
         if finish_cond == True:
-            restart.finish = True
+            restart.finished = 1
         # keep track of which components have finished
         check_endComponents = []
         for thisComponent in check_endComponents:
@@ -1735,15 +1818,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         thisExp.addData('check_end.stopped', globalClock.getTime(format='float'))
         # the Routine "check_end" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
-    # completed 5.0 repeats of 'restart'
+    # completed 7.0 repeats of 'restart'
     
     
     # --- Prepare to start Routine "end" ---
     continueRoutine = True
     # update component parameters for each repeat
     thisExp.addData('end.started', globalClock.getTime(format='float'))
+    key_resp.keys = []
+    key_resp.rt = []
+    _key_resp_allKeys = []
     # keep track of which components have finished
-    endComponents = [text]
+    endComponents = [text, key_resp]
     for thisComponent in endComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1783,6 +1869,29 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if text.status == STARTED:
             # update params
             pass
+        
+        # *key_resp* updates
+        
+        # if key_resp is starting this frame...
+        if key_resp.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            key_resp.frameNStart = frameN  # exact frame index
+            key_resp.tStart = t  # local t and not account for scr refresh
+            key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(key_resp, 'tStartRefresh')  # time at next scr refresh
+            # update status
+            key_resp.status = STARTED
+            # keyboard checking is just starting
+            key_resp.clock.reset()  # now t=0
+        if key_resp.status == STARTED:
+            theseKeys = key_resp.getKeys(keyList=None, ignoreKeys=["escape"], waitRelease=False)
+            _key_resp_allKeys.extend(theseKeys)
+            if len(_key_resp_allKeys):
+                key_resp.keys = _key_resp_allKeys[-1].name  # just the last key pressed
+                key_resp.rt = _key_resp_allKeys[-1].rt
+                key_resp.duration = _key_resp_allKeys[-1].duration
+                # a response ends the routine
+                continueRoutine = False
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
