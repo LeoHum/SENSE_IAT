@@ -114,15 +114,12 @@ async function updateInfo() {
 var welcomeClock;
 var welcome_text;
 var welcome_end;
-var welcome_continue;
 var instructionsClock;
 var instructions_text;
 var instructions_end;
-var instr_continue;
 var wordsClock;
 var all_words;
 var words_end;
-var words_continue;
 var readyClock;
 var ready_text;
 var ready_end;
@@ -162,7 +159,7 @@ async function experimentInit() {
   welcome_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'welcome_text',
-    text: "Bienvenue dans ce Test d'Associations Implicites. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.",
+    text: "Bienvenue dans ce Test d'Associations Implicites. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -172,18 +169,6 @@ async function experimentInit() {
   });
   
   welcome_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  welcome_continue = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'welcome_continue',
-    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
-  });
   
   // Initialize components for Routine "instructions"
   instructionsClock = new util.Clock();
@@ -201,24 +186,12 @@ async function experimentInit() {
   
   instructions_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  instr_continue = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'instr_continue',
-    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
-  });
-  
   // Initialize components for Routine "words"
   wordsClock = new util.Clock();
   all_words = new visual.TextStim({
     win: psychoJS.window,
     name: 'all_words',
-    text: 'Voici les catégories et les mots associés utilisés lors de ce test : \nFéminin : Demoiselle, Femme, Tante, Fille, Féminin\n\nMasculin : Garçon, Homme, Oncle, Fils, Masculin\n\nSciences : Biologie, Physique, Chimie, Mathématiques, Informatique\n\nLettres : Philosophie, Humanités, Arts, Littérature, Latin',
+    text: "Voici les catégories et les mots associés utilisés lors de ce test : \nFéminin : Demoiselle, Femme, Tante, Fille, Féminin\n\nMasculin : Garçon, Homme, Oncle, Fils, Masculin\n\nSciences : Biologie, Physique, Chimie, Mathématiques, Informatique\n\nLettres : Philosophie, Humanités, Arts, Littérature, Latin\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -228,18 +201,6 @@ async function experimentInit() {
   });
   
   words_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  words_continue = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'words_continue',
-    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
-  });
   
   // Initialize components for Routine "ready"
   readyClock = new util.Clock();
@@ -738,7 +699,6 @@ function welcomeRoutineBegin(snapshot) {
     welcomeComponents = [];
     welcomeComponents.push(welcome_text);
     welcomeComponents.push(welcome_end);
-    welcomeComponents.push(welcome_continue);
     
     welcomeComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -788,16 +748,6 @@ function welcomeRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
-    }
-    
-    
-    // *welcome_continue* updates
-    if (t >= 0.0 && welcome_continue.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      welcome_continue.tStart = t;  // (not accounting for frame time here)
-      welcome_continue.frameNStart = frameN;  // exact frame index
-      
-      welcome_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -868,7 +818,6 @@ function instructionsRoutineBegin(snapshot) {
     instructionsComponents = [];
     instructionsComponents.push(instructions_text);
     instructionsComponents.push(instructions_end);
-    instructionsComponents.push(instr_continue);
     
     instructionsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -918,16 +867,6 @@ function instructionsRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
-    }
-    
-    
-    // *instr_continue* updates
-    if (t >= 0.0 && instr_continue.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      instr_continue.tStart = t;  // (not accounting for frame time here)
-      instr_continue.frameNStart = frameN;  // exact frame index
-      
-      instr_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -997,7 +936,6 @@ function wordsRoutineBegin(snapshot) {
     wordsComponents = [];
     wordsComponents.push(all_words);
     wordsComponents.push(words_end);
-    wordsComponents.push(words_continue);
     
     wordsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1047,16 +985,6 @@ function wordsRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
-    }
-    
-    
-    // *words_continue* updates
-    if (t >= 0.0 && words_continue.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      words_continue.tStart = t;  // (not accounting for frame time here)
-      words_continue.frameNStart = frameN;  // exact frame index
-      
-      words_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
