@@ -66,7 +66,7 @@ flowScheduler.add(restartLoopEnd);
 flowScheduler.add(endRoutineBegin());
 flowScheduler.add(endRoutineEachFrame());
 flowScheduler.add(endRoutineEnd());
-flowScheduler.add(quitPsychoJS, '', true);
+flowScheduler.add(quitPsychoJS, '', false);
 
 // quit if user presses Cancel in dialog box:
 dialogCancelScheduler.add(quitPsychoJS, '', false);
@@ -122,13 +122,15 @@ async function updateInfo() {
 var welcomeClock;
 var welcome_text;
 var welcome_end;
+var welcome_continue;
 var instructionsClock;
 var instructions_text;
 var instructions_end;
-var continuer;
+var instr_continue;
 var wordsClock;
 var all_words;
 var words_end;
+var words_continue;
 var readyClock;
 var ready_text;
 var ready_end;
@@ -159,7 +161,7 @@ var err_feedback;
 var score_bis;
 var endClock;
 var text;
-var key_resp;
+var end_key_resp;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -168,7 +170,7 @@ async function experimentInit() {
   welcome_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'welcome_text',
-    text: "Bienvenue dans ce Test d'Associations Implicites. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
+    text: "Bienvenue dans ce Test d'Associations Implicites. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -178,6 +180,18 @@ async function experimentInit() {
   });
   
   welcome_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  welcome_continue = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'welcome_continue',
+    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -2.0 
+  });
   
   // Initialize components for Routine "instructions"
   instructionsClock = new util.Clock();
@@ -195,10 +209,10 @@ async function experimentInit() {
   
   instructions_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  continuer = new visual.TextStim({
+  instr_continue = new visual.TextStim({
     win: psychoJS.window,
-    name: 'continuer',
-    text: 'Appuyez sur la barre espace pour continuer.',
+    name: 'instr_continue',
+    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
     font: 'Arial',
     units: undefined, 
     pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -212,7 +226,7 @@ async function experimentInit() {
   all_words = new visual.TextStim({
     win: psychoJS.window,
     name: 'all_words',
-    text: 'Voici les catégories et les mots associés utilisés lors de ce test : \nFéminin : Demoiselle, Femme, Tante, Fille, Féminin\n\nMasculin : Garçon, Homme, Oncle, Fils, Masculin\n\nSciences : Biologie, Physique, Chimie, Mathématiques, Informatique\n\nLettres : Philosophie, Humanités, Arts, Littérature, Latin\n\nAppuyez sur la barre espace pour continuer',
+    text: 'Voici les catégories et les mots associés utilisés lors de ce test : \nFéminin : Demoiselle, Femme, Tante, Fille, Féminin\n\nMasculin : Garçon, Homme, Oncle, Fils, Masculin\n\nSciences : Biologie, Physique, Chimie, Mathématiques, Informatique\n\nLettres : Philosophie, Humanités, Arts, Littérature, Latin',
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -222,6 +236,18 @@ async function experimentInit() {
   });
   
   words_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  words_continue = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'words_continue',
+    text: "Appuyez sur la barre espace pour passer à l'étape suivante.",
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -2.0 
+  });
   
   // Initialize components for Routine "ready"
   readyClock = new util.Clock();
@@ -417,7 +443,7 @@ async function experimentInit() {
     depth: 0.0 
   });
   
-  key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  end_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -716,6 +742,7 @@ function welcomeRoutineBegin(snapshot) {
     welcomeComponents = [];
     welcomeComponents.push(welcome_text);
     welcomeComponents.push(welcome_end);
+    welcomeComponents.push(welcome_continue);
     
     for (const thisComponent of welcomeComponents)
       if ('status' in thisComponent)
@@ -764,6 +791,16 @@ function welcomeRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    
+    // *welcome_continue* updates
+    if (t >= 0.0 && welcome_continue.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      welcome_continue.tStart = t;  // (not accounting for frame time here)
+      welcome_continue.frameNStart = frameN;  // exact frame index
+      
+      welcome_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -834,7 +871,7 @@ function instructionsRoutineBegin(snapshot) {
     instructionsComponents = [];
     instructionsComponents.push(instructions_text);
     instructionsComponents.push(instructions_end);
-    instructionsComponents.push(continuer);
+    instructionsComponents.push(instr_continue);
     
     for (const thisComponent of instructionsComponents)
       if ('status' in thisComponent)
@@ -863,7 +900,7 @@ function instructionsRoutineEachFrame() {
     
     
     // *instructions_end* updates
-    if (t >= 0.0 && instructions_end.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.0 && instructions_end.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       instructions_end.tStart = t;  // (not accounting for frame time here)
       instructions_end.frameNStart = frameN;  // exact frame index
@@ -886,13 +923,13 @@ function instructionsRoutineEachFrame() {
     }
     
     
-    // *continuer* updates
-    if (t >= 0.0 && continuer.status === PsychoJS.Status.NOT_STARTED) {
+    // *instr_continue* updates
+    if (t >= 0.0 && instr_continue.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      continuer.tStart = t;  // (not accounting for frame time here)
-      continuer.frameNStart = frameN;  // exact frame index
+      instr_continue.tStart = t;  // (not accounting for frame time here)
+      instr_continue.frameNStart = frameN;  // exact frame index
       
-      continuer.setAutoDraw(true);
+      instr_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -962,6 +999,7 @@ function wordsRoutineBegin(snapshot) {
     wordsComponents = [];
     wordsComponents.push(all_words);
     wordsComponents.push(words_end);
+    wordsComponents.push(words_continue);
     
     for (const thisComponent of wordsComponents)
       if ('status' in thisComponent)
@@ -990,7 +1028,7 @@ function wordsRoutineEachFrame() {
     
     
     // *words_end* updates
-    if (t >= 0.1 && words_end.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.0 && words_end.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       words_end.tStart = t;  // (not accounting for frame time here)
       words_end.frameNStart = frameN;  // exact frame index
@@ -1010,6 +1048,16 @@ function wordsRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    
+    // *words_continue* updates
+    if (t >= 0.0 && words_continue.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      words_continue.tStart = t;  // (not accounting for frame time here)
+      words_continue.frameNStart = frameN;  // exact frame index
+      
+      words_continue.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -1112,7 +1160,7 @@ function readyRoutineEachFrame() {
     
     
     // *ready_end* updates
-    if (t >= 0.0 && ready_end.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.0 && ready_end.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       ready_end.tStart = t;  // (not accounting for frame time here)
       ready_end.frameNStart = frameN;  // exact frame index
@@ -1640,20 +1688,16 @@ function scoreRoutineBegin(snapshot) {
                 mean_rt_block5 = 0;
             }
             if ((rt_block3_cleaned.length > 1)) {
-                //console.log("ok");
                 sumOfSquares3 = rt_block3_cleaned.reduce((sum, x) => sum + Math.pow(x - mean_rt_block3, 2), 0);
                 variance3 = sumOfSquares3 / (rt_block3_cleaned.length - 1);
                 std_rt_block3 = Math.sqrt(variance3);
-                //std_rt_block3 = 1;
             } else {
                 std_rt_block3 = 0;
             }
             if ((rt_block5_cleaned.length > 1)) {
-                //console.log("ok");
                 sumOfSquares5 = rt_block5_cleaned.reduce((sum, x) => sum + Math.pow(x - mean_rt_block5, 2), 0);
                 variance5 = sumOfSquares5 / (rt_block5_cleaned.length - 1);
                 std_rt_block5 = Math.sqrt(variance5);
-                //std_rt_block5 = 1;
             } else {
                 std_rt_block5 = 0;
             }
@@ -1841,7 +1885,7 @@ function scoreRoutineEnd(snapshot) {
 }
 
 
-var _key_resp_allKeys;
+var _end_key_resp_allKeys;
 var endComponents;
 function endRoutineBegin(snapshot) {
   return async function () {
@@ -1854,13 +1898,13 @@ function endRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('end.started', globalClock.getTime());
-    key_resp.keys = undefined;
-    key_resp.rt = undefined;
-    _key_resp_allKeys = [];
+    end_key_resp.keys = undefined;
+    end_key_resp.rt = undefined;
+    _end_key_resp_allKeys = [];
     // keep track of which components have finished
     endComponents = [];
     endComponents.push(text);
-    endComponents.push(key_resp);
+    endComponents.push(end_key_resp);
     
     for (const thisComponent of endComponents)
       if ('status' in thisComponent)
@@ -1888,24 +1932,24 @@ function endRoutineEachFrame() {
     }
     
     
-    // *key_resp* updates
-    if (t >= 0.0 && key_resp.status === PsychoJS.Status.NOT_STARTED) {
+    // *end_key_resp* updates
+    if (t >= 1.0 && end_key_resp.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      key_resp.tStart = t;  // (not accounting for frame time here)
-      key_resp.frameNStart = frameN;  // exact frame index
+      end_key_resp.tStart = t;  // (not accounting for frame time here)
+      end_key_resp.frameNStart = frameN;  // exact frame index
       
       // keyboard checking is just starting
-      key_resp.clock.reset();
-      key_resp.start();
+      end_key_resp.clock.reset();
+      end_key_resp.start();
     }
     
-    if (key_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = key_resp.getKeys({keyList: [], waitRelease: false});
-      _key_resp_allKeys = _key_resp_allKeys.concat(theseKeys);
-      if (_key_resp_allKeys.length > 0) {
-        key_resp.keys = _key_resp_allKeys[_key_resp_allKeys.length - 1].name;  // just the last key pressed
-        key_resp.rt = _key_resp_allKeys[_key_resp_allKeys.length - 1].rt;
-        key_resp.duration = _key_resp_allKeys[_key_resp_allKeys.length - 1].duration;
+    if (end_key_resp.status === PsychoJS.Status.STARTED) {
+      let theseKeys = end_key_resp.getKeys({keyList: [], waitRelease: false});
+      _end_key_resp_allKeys = _end_key_resp_allKeys.concat(theseKeys);
+      if (_end_key_resp_allKeys.length > 0) {
+        end_key_resp.keys = _end_key_resp_allKeys[_end_key_resp_allKeys.length - 1].name;  // just the last key pressed
+        end_key_resp.rt = _end_key_resp_allKeys[_end_key_resp_allKeys.length - 1].rt;
+        end_key_resp.duration = _end_key_resp_allKeys[_end_key_resp_allKeys.length - 1].duration;
         // a response ends the routine
         continueRoutine = false;
       }
@@ -1913,7 +1957,7 @@ function endRoutineEachFrame() {
     
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
-      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+      return quitPsychoJS('Vous avez appuyé sur la barre [Escape]. Au revoir !', false);
     }
     
     // check if the Routine should terminate
@@ -1947,7 +1991,7 @@ function endRoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('end.stopped', globalClock.getTime());
-    key_resp.stop();
+    end_key_resp.stop();
     // the Routine "end" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
