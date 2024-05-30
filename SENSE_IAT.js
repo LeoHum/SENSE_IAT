@@ -35,7 +35,7 @@ psychoJS.openWindow({
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
   dictionary: expInfo,
-  title: 'IAT'
+  title: expName
 }));
 
 const flowScheduler = new Scheduler(psychoJS);
