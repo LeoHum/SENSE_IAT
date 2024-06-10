@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on juin 07, 2024, at 11:18
+    on juin 07, 2024, at 13:55
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -23,6 +23,10 @@ from psychopy.tools import environmenttools
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER, priority)
 
+import numpy as np  # whole numpy lib is available, prepend 'np.'
+from numpy import (sin, cos, tan, log, log10, pi, average,
+                   sqrt, std, deg2rad, rad2deg, linspace, asarray)
+from numpy.random import random, randint, normal, shuffle, choice as randchoice
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
@@ -55,7 +59,7 @@ or run the experiment with `--pilot` as an argument. To change what pilot
 PILOTING = core.setPilotModeFromArgs()
 # start off with values from experiment settings
 _fullScr = True
-_winSize = [1280, 720]
+_winSize = [1920, 1080]
 _loggingLevel = logging.getLevel('warning')
 # if in pilot mode, apply overrides according to preferences
 if PILOTING:
@@ -126,7 +130,7 @@ def setupData(expInfo, dataDir=None):
     thisExp = data.ExperimentHandler(
         name=expName, version='',
         extraInfo=expInfo, runtimeInfo=None,
-        originPath='C:\\Users\\p00688\\Documents\\PsychoPy\\IAT 2.0\\SENSE_IAT.py',
+        originPath='C:\\Users\\p00688\\Documents\\PsychoPy\\IAT 2.0\\IAT_lastrun.py',
         savePickle=True, saveWideText=False,
         dataFileName=dataDir + os.sep + filename, sortColumns='time'
     )
@@ -176,7 +180,7 @@ def setupWindow(expInfo=None, win=None):
     if win is None:
         # if not given a window to setup, make one
         win = visual.Window(
-            size=_winSize, fullscr=_fullScr, screen=0,
+            size=_winSize, fullscr=_fullScr, screen=1,
             winType='pyglet', allowStencil=False,
             monitor='testMonitor', color=[0.9500, 0.9500, 0.9100], colorSpace='rgb',
             backgroundImage='', backgroundFit='none',
@@ -458,24 +462,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # --- Initialize components for Routine "ready" ---
     # Run 'Begin Experiment' code from text_color_2
     top_leftw = ''
-    top_leftw_color = 'black'
+    top_leftw_color = [-0.9137, -0.7490, -0.6941]
     bot_leftw = ''
-    bot_leftw_color = 'black'
+    bot_leftw_color = [-0.9137, -0.7490, -0.6941]
     leftw = ''
-    leftw_color = 'black'
+    leftw_color = [-0.9137, -0.7490, -0.6941]
     
     rightw = ''
-    rightw_color = 'black'
+    rightw_color = [-0.9137, -0.7490, -0.6941]
     top_rightw = ''
-    top_rightw_color = 'black'
+    top_rightw_color = [-0.9137, -0.7490, -0.6941]
     bot_rightw = ''
-    bot_rightw_color = 'black'
+    bot_rightw_color = [-0.9137, -0.7490, -0.6941]
     
     ready_text = visual.TextStim(win=win, name='ready_text',
         text='Voici les catégories dans lesquelles vous devrez classer les mots qui apparaîtront à l\'écran.\n\nPositionnez vos doigts sur les touches "E" et "I". \n\nAppuyez sur la barre espace pour commencer.',
         font='Arial',
         pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
-        color=[-0.4667, -0.0745, -0.9686], colorSpace='rgb', opacity=None, 
+        color=[-0.3490, -0.1373, -0.0196], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-1.0);
     ready_end = keyboard.Keyboard(deviceName='ready_end')
@@ -1217,26 +1221,26 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             #check couleur mots de gauche
             if '"E" = Sciences' in label_left:
                 leftw = '"E" = Sciences'
-                leftw_color = 'black'
+                leftw_color = [-0.9137, -0.7490, -0.6941]
             elif '"E" = Masculin  ' in label_left:
                 leftw = '"E" = Masculin'
-                leftw_color = 'green'
+                leftw_color = [-0.4667, -0.0745, -0.9686]
             elif '"E" = Masculin ou Sciences'  in label_left:
                 top_leftw = '"E" = Masculin'
-                top_leftw_color = 'green'
+                top_leftw_color = [-0.4667, -0.0745, -0.9686]
                 bot_leftw = 'ou Sciences'
-                bot_leftw_color = 'black'
+                bot_leftw_color = [-0.9137, -0.7490, -0.6941]
             elif '"E" = Lettres' in label_left:
                 leftw = '"E" = Lettres'
-                leftw_color = 'black'
+                leftw_color = [-0.9137, -0.7490, -0.6941]
             elif '"E" = Masculin ou Lettres' in label_left:
                 top_leftw = '"E" = Masculin'
-                top_leftw_color = 'green'
+                top_leftw_color = [-0.4667, -0.0745, -0.9686]
                 bot_leftw = 'ou Lettres'
-                bot_leftw_color = 'black'
+                bot_leftw_color = [-0.9137, -0.7490, -0.6941]
             else:
                 top_leftw = '"E" = elsem'
-                top_leftw_color = 'green'
+                top_leftw_color = [-0.4667, -0.0745, -0.9686]
                 bot_leftw = 'ou else'
                 bot_leftw_color = 'black'
                 leftw = '"E" = else'
@@ -1245,23 +1249,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             #check couleur mots de droite
             if '"I" = Lettres' in label_right:
                 rightw = '"I" = Lettres'
-                rightw_color = 'black'
+                rightw_color = [-0.9137, -0.7490, -0.6941]
             elif '"I" = Féminin  ' in label_right:
                 rightw = '"I" = Féminin'
-                rightw_color = 'green'
+                rightw_color = [-0.4667, -0.0745, -0.9686]
             elif '"I" = Féminin ou Lettres' in label_right:
                 top_rightw = '"I" = Féminin'
-                top_rightw_color = 'green'
+                top_rightw_color = [-0.4667, -0.0745, -0.9686]
                 bot_rightw = 'ou Lettres'
-                bot_rightw_color = 'black'
+                bot_rightw_color = [-0.9137, -0.7490, -0.6941]
             elif '"I" = Sciences' in label_right:
                 rightw = '"I" = Sciences'
-                rightw_color = 'black'
+                rightw_color = [-0.9137, -0.7490, -0.6941]
             elif '"I" = Féminin ou Sciences' in label_right:
                 top_rightw = '"I" = Féminin'
-                top_rightw_color = 'green'
+                top_rightw_color = [-0.4667, -0.0745, -0.9686]
                 bot_rightw = 'ou Sciences'
-                bot_rightw_color = 'black'
+                bot_rightw_color = [-0.9137, -0.7490, -0.6941]
             
             ready_end.keys = []
             ready_end.rt = []
@@ -1479,18 +1483,18 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisExp.addData('ready.stopped', globalClock.getTime(format='float'))
             # Run 'End Routine' code from text_color_2
             top_leftw = ''
-            top_leftw_color = 'black'
+            top_leftw_color = [-0.9137, -0.7490, -0.6941]
             bot_leftw = ''
-            bot_leftw_color = 'black'
+            bot_leftw_color = [-0.9137, -0.7490, -0.6941]
             leftw = ''
-            leftw_color = 'black'
+            leftw_color = [-0.9137, -0.7490, -0.6941]
             
             rightw = ''
-            rightw_color = 'black'
+            rightw_color = [-0.9137, -0.7490, -0.6941]
             top_rightw = ''
-            top_rightw_color = 'black'
+            top_rightw_color = [-0.9137, -0.7490, -0.6941]
             bot_rightw = ''
-            bot_rightw_color = 'black'
+            bot_rightw_color = [-0.9137, -0.7490, -0.6941]
             # the Routine "ready" was not non-slip safe, so reset the non-slip timer
             routineTimer.reset()
             
@@ -1533,10 +1537,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     leftw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"E" = Masculin  ' in label_left:
                     leftw = '"E" = Masculin'
-                    leftw_color = 'green'
+                    leftw_color = [-0.4667, -0.0745, -0.9686]
                 elif '"E" = Masculin ou Sciences'  in label_left:
                     top_leftw = '"E" = Masculin'
-                    top_leftw_color = 'green'
+                    top_leftw_color = [-0.4667, -0.0745, -0.9686]
                     bot_leftw = 'ou Sciences'
                     bot_leftw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"E" = Lettres' in label_left:
@@ -1544,12 +1548,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     leftw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"E" = Masculin ou Lettres' in label_left:
                     top_leftw = '"E" = Masculin'
-                    top_leftw_color = 'green'
+                    top_leftw_color = [-0.4667, -0.0745, -0.9686]
                     bot_leftw = 'ou Lettres'
                     bot_leftw_color = [-0.9137, -0.7490, -0.6941]
                 else:
                     top_leftw = '"E" = elsem'
-                    top_leftw_color = 'green'
+                    top_leftw_color = [-0.4667, -0.0745, -0.9686]
                     bot_leftw = 'ou else'
                     bot_leftw_color = [-0.9137, -0.7490, -0.6941]
                     leftw = '"E" = else'
@@ -1561,10 +1565,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     rightw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"I" = Féminin  ' in label_right:
                     rightw = '"I" = Féminin'
-                    rightw_color = 'green'
+                    rightw_color = [-0.4667, -0.0745, -0.9686]
                 elif '"I" = Féminin ou Lettres' in label_right:
                     top_rightw = '"I" = Féminin'
-                    top_rightw_color = 'green'
+                    top_rightw_color = [-0.4667, -0.0745, -0.9686]
                     bot_rightw = 'ou Lettres'
                     bot_rightw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"I" = Sciences' in label_right:
@@ -1572,13 +1576,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                     rightw_color = [-0.9137, -0.7490, -0.6941]
                 elif '"I" = Féminin ou Sciences' in label_right:
                     top_rightw = '"I" = Féminin'
-                    top_rightw_color = 'green'
+                    top_rightw_color = [-0.4667, -0.0745, -0.9686]
                     bot_rightw = 'ou Sciences'
                     bot_rightw_color = [-0.9137, -0.7490, -0.6941]
                 '''
                 else:
                     top_rightw = '"I" = elsef'
-                    top_rightw_color = 'green'
+                    top_rightw_color = 'green' [-0.4667, -0.0745, -0.9686]
                     bot_rightw = 'ou else'
                     bot_rightw_color = 'black'
                     rightw = '"I" = else'

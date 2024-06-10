@@ -18,7 +18,7 @@ const psychoJS = new PsychoJS({
 // open window:
 psychoJS.openWindow({
   fullscr: true,
-  color: new util.Color([0,0,0]),
+  color: new util.Color([0.95, 0.95, 0.91]),
   units: 'height',
   waitBlanking: true,
   backgroundImage: '',
@@ -55,6 +55,7 @@ flowScheduler.add(restartLoopEnd);
 
 
 
+
 flowScheduler.add(endRoutineBegin());
 flowScheduler.add(endRoutineEachFrame());
 flowScheduler.add(endRoutineEnd());
@@ -69,12 +70,17 @@ psychoJS.start({
   resources: [
     // resources:
     {'name': 'instructs.xlsx', 'path': 'instructs.xlsx'},
-    {'name': 'blocks_order.xlsx', 'path': 'blocks_order.xlsx'},
-    {'name': 'pos_neg_train.xlsx', 'path': 'pos_neg_train.xlsx'},
-    {'name': 'cong_train.xlsx', 'path': 'cong_train.xlsx'},
-    {'name': 'cong_test.xlsx', 'path': 'cong_test.xlsx'},
-    {'name': 'incong_train.xlsx', 'path': 'incong_train.xlsx'},
-    {'name': 'incong_test.xlsx', 'path': 'incong_test.xlsx'},
+    {'name': 'blocks_order - long.xlsx', 'path': 'blocks_order - long.xlsx'},
+    {'name': 'pos_neg_train - 20.xlsx', 'path': 'pos_neg_train - 20.xlsx'},
+    {'name': 'cong_train - long.xlsx', 'path': 'cong_train - long.xlsx'},
+    {'name': 'cong_test - 20.xlsx', 'path': 'cong_test - 20.xlsx'},
+    {'name': 'cong_test - 40.xlsx', 'path': 'cong_test - 40.xlsx'},
+    {'name': 'incong_train - long.xlsx', 'path': 'incong_train - long.xlsx'},
+    {'name': 'incong_test - 20.xlsx', 'path': 'incong_test - 20.xlsx'},
+    {'name': 'incong_test - 40.xlsx', 'path': 'incong_test - 40.xlsx'},
+    {'name': 'Images/mosaiques2.png', 'path': 'Images/mosaiques2.png'},
+    {'name': 'Images/logoSENSE_S4.png', 'path': 'Images/logoSENSE_S4.png'},
+    {'name': 'Images/Mots.png', 'path': 'Images/Mots.png'},
   ]
 });
 
@@ -114,43 +120,88 @@ async function updateInfo() {
 var welcomeClock;
 var welcome_text;
 var welcome_end;
+var mosaique;
+var logo;
 var instructionsClock;
 var instructions_text;
 var instructions_end;
+var mosaique_2;
 var wordsClock;
 var all_words;
 var words_end;
+var mosaique_3;
+var Mots;
 var readyClock;
+var top_leftw;
+var top_leftw_color;
+var bot_leftw;
+var bot_leftw_color;
+var leftw;
+var leftw_color;
+var rightw;
+var rightw_color;
+var top_rightw;
+var top_rightw_color;
+var bot_rightw;
+var bot_rightw_color;
 var ready_text;
 var ready_end;
-var ready_cat_left;
-var ready_cat_right;
+var rightcat_2;
+var top_rightcat_2;
+var bot_rightcat_2;
+var leftcat_2;
+var bot_leftcat_2;
+var top_leftcat_2;
 var trialClock;
+var rightcat_color;
+var text_stim_color;
+var liste_mots_genre;
+var liste_mots_sciences;
 var rt_block3;
+var corr_rt_block3;
+var incorr_rt_block3;
 var err_block3;
-var rt_block5;
-var err_block5;
+var rt_block4;
+var corr_rt_block4;
+var incorr_rt_block4;
+var err_block4;
+var rt_block6;
+var corr_rt_block6;
+var incorr_rt_block6;
+var err_block6;
+var rt_block7;
+var corr_rt_block7;
+var incorr_rt_block7;
+var err_block7;
 var fast_responses;
 var slow_responses;
 var total_responses;
 var num_errors;
 var fixation;
-var trial_cat_left;
-var trial_cat_right;
 var text_stim;
 var keyboard_resp;
 var error_msg;
+var rightcat;
+var top_rightcat;
+var bot_rightcat;
+var leftcat;
+var bot_leftcat;
+var top_leftcat;
 var transitionClock;
 var cross;
 var scoreClock;
 var score_feedback;
-var score_meaning;
 var end_score;
 var err_feedback;
-var score_bis;
+var adapted_fb;
+var skip_score;
+var score2Clock;
+var score_meaning_2;
+var end_score_2;
 var endClock;
 var text;
 var end_key_resp;
+var mosaique_4;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -159,17 +210,37 @@ async function experimentInit() {
   welcome_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'welcome_text',
-    text: "Bienvenue dans ce Test d'Associations Implicites. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
+    text: "Bienvenue dans ce Test d'Associations Implicites Sciences et Genre. \n\nPour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
   
   welcome_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  mosaique = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'mosaique', units : 'norm', 
+    image : 'Images/mosaiques2.png', mask : undefined,
+    anchor : 'bottom-left',
+    ori : 0.0, pos : [(- 1), (- 1)], size : undefined,
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -2.0 
+  });
+  logo = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'logo', units : undefined, 
+    image : 'Images/logoSENSE_S4.png', mask : undefined,
+    anchor : 'center',
+    ori : 0.0, pos : [0, 0.4], size : [(0.1803 * 2), (0.0669 * 2)],
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -3.0 
+  });
   // Initialize components for Routine "instructions"
   instructionsClock = new util.Clock();
   instructions_text = new visual.TextStim({
@@ -180,30 +251,74 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
   
   instructions_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  mosaique_2 = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'mosaique_2', units : 'norm', 
+    image : 'Images/mosaiques2.png', mask : undefined,
+    anchor : 'bottom-left',
+    ori : 0.0, pos : [(- 1), (- 1)], size : undefined,
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -2.0 
+  });
   // Initialize components for Routine "words"
   wordsClock = new util.Clock();
   all_words = new visual.TextStim({
     win: psychoJS.window,
     name: 'all_words',
-    text: "Voici les catégories et les mots associés utilisés lors de ce test : \nFéminin : Demoiselle, Femme, Tante, Fille, Féminin\n\nMasculin : Garçon, Homme, Oncle, Fils, Masculin\n\nSciences : Biologie, Physique, Chimie, Mathématiques, Informatique\n\nLettres : Philosophie, Humanités, Arts, Littérature, Latin\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
+    text: "Voici les catégories et les mots associés utilisés lors de ce test : \n\n\n\n\n\nAppuyez sur la barre espace pour passer à l'étape suivante.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
   
   words_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  mosaique_3 = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'mosaique_3', units : 'norm', 
+    image : 'Images/mosaiques2.png', mask : undefined,
+    anchor : 'bottom-left',
+    ori : 0.0, pos : [(- 1), (- 1)], size : undefined,
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -2.0 
+  });
+  Mots = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'Mots', units : undefined, 
+    image : 'Images/Mots.png', mask : undefined,
+    anchor : 'center',
+    ori : 0.0, pos : [0, 0], size : [(1.386 * 0.93), (0.267 * 0.93)],
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -3.0 
+  });
   // Initialize components for Routine "ready"
   readyClock = new util.Clock();
+  // Run 'Begin Experiment' code from text_color_2
+  top_leftw = "";
+  top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  bot_leftw = "";
+  bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  leftw = "";
+  leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  rightw = "";
+  rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  top_rightw = "";
+  top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  bot_rightw = "";
+  bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  
   ready_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'ready_text',
@@ -212,27 +327,15 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: 0.0 
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
+    depth: -1.0 
   });
   
   ready_end = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  ready_cat_left = new visual.TextStim({
+  rightcat_2 = new visual.TextStim({
     win: psychoJS.window,
-    name: 'ready_cat_left',
-    text: '',
-    font: 'Arial',
-    units: undefined, 
-    pos: [(- 0.4), 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
-  });
-  
-  ready_cat_right = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'ready_cat_right',
+    name: 'rightcat_2',
     text: '',
     font: 'Arial',
     units: undefined, 
@@ -242,13 +345,102 @@ async function experimentInit() {
     depth: -3.0 
   });
   
+  top_rightcat_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'top_rightcat_2',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -4.0 
+  });
+  
+  bot_rightcat_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'bot_rightcat_2',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -5.0 
+  });
+  
+  leftcat_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'leftcat_2',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -6.0 
+  });
+  
+  bot_leftcat_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'bot_leftcat_2',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -7.0 
+  });
+  
+  top_leftcat_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'top_leftcat_2',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -8.0 
+  });
+  
   // Initialize components for Routine "trial"
   trialClock = new util.Clock();
+  // Run 'Begin Experiment' code from text_color
+  top_leftw = "";
+  top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  bot_leftw = "";
+  bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  leftw = "";
+  leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  rightw = "";
+  rightcat_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  top_rightw = "";
+  top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  bot_rightw = "";
+  bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+  liste_mots_genre = ["Demoiselle", "Gar\u00e7on", "Femme", "Homme", "Tante", "Oncle", "Fille", "Fils", "F\u00e9minin", "Masculin"];
+  liste_mots_sciences = ["Biologie", "Philosophie", "Physique", "Humanit\u00e9s", "Chimie", "Arts", "Math\u00e9matiques", "Litt\u00e9rature", "Informatique", "Latin"];
+  
   // Run 'Begin Experiment' code from compute_score
   rt_block3 = [];
+  corr_rt_block3 = [];
+  incorr_rt_block3 = [];
   err_block3 = 0;
-  rt_block5 = [];
-  err_block5 = 0;
+  rt_block4 = [];
+  corr_rt_block4 = [];
+  incorr_rt_block4 = [];
+  err_block4 = 0;
+  rt_block6 = [];
+  corr_rt_block6 = [];
+  incorr_rt_block6 = [];
+  err_block6 = 0;
+  rt_block7 = [];
+  corr_rt_block7 = [];
+  incorr_rt_block7 = [];
+  err_block7 = 0;
   fast_responses = 0;
   slow_responses = 0;
   total_responses = 0;
@@ -262,32 +454,8 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
-  });
-  
-  trial_cat_left = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'trial_cat_left',
-    text: '',
-    font: 'Arial',
-    units: undefined, 
-    pos: [(- 0.4), 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([0, 0, 0]),  opacity: undefined,
     depth: -3.0 
-  });
-  
-  trial_cat_right = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'trial_cat_right',
-    text: '',
-    font: 'Arial',
-    units: undefined, 
-    pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -4.0 
   });
   
   text_stim = new visual.TextStim({
@@ -299,7 +467,7 @@ async function experimentInit() {
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('white'),  opacity: undefined,
-    depth: -5.0 
+    depth: -4.0 
   });
   
   keyboard_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -313,7 +481,79 @@ async function experimentInit() {
     pos: [0, (- 0.1)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color([1.0, (- 1.0), (- 1.0)]),  opacity: 1.0,
+    depth: -6.0 
+  });
+  
+  rightcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'rightcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
     depth: -7.0 
+  });
+  
+  top_rightcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'top_rightcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -8.0 
+  });
+  
+  bot_rightcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'bot_rightcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -9.0 
+  });
+  
+  leftcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'leftcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -10.0 
+  });
+  
+  bot_leftcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'bot_leftcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -11.0 
+  });
+  
+  top_leftcat = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'top_leftcat',
+    text: '',
+    font: 'Arial',
+    units: undefined, 
+    pos: [(- 0.4), 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -12.0 
   });
   
   // Initialize components for Routine "transition"
@@ -326,7 +566,7 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([0, 0, 0]),  opacity: undefined,
     depth: 0.0 
   });
   
@@ -338,22 +578,10 @@ async function experimentInit() {
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.3], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: -1.0 
-  });
-  
-  score_meaning = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'score_meaning',
-    text: "Un score positif indique que vous avez tendance à associer les hommes aux sciences et les femmes aux lettres, ce qui correspond à la vision stéréotypée. Plus il est élevé, plus les associations sont fortes. \nA l'inverse, un score négatif indique une association forte entre les femmes et les sciences et les hommes et les lettres.\n\nPour terminer le test, appuyez sur la barre espace.",
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.1)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
   });
   
   end_score = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -366,21 +594,49 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0.3], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -4.0 
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
+    depth: -3.0 
   });
   
-  score_bis = new visual.TextStim({
+  adapted_fb = new visual.TextStim({
     win: psychoJS.window,
-    name: 'score_bis',
+    name: 'adapted_fb',
     text: '',
     font: 'Arial',
     units: undefined, 
-    pos: [0, (- 0.4)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
+    depth: -4.0 
+  });
+  
+  skip_score = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'skip_score',
+    text: 'Appuyez sur la barre espace pour terminer le test',
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, (- 0.3)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: -5.0 
   });
+  
+  // Initialize components for Routine "score2"
+  score2Clock = new util.Clock();
+  score_meaning_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'score_meaning_2',
+    text: "Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.\n\nA titre de comparaison :\n- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)\n- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)\n\nPour terminer le test, appuyez sur la barre espace.",
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
+    depth: 0.0 
+  });
+  
+  end_score_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "end"
   endClock = new util.Clock();
@@ -392,12 +648,22 @@ async function experimentInit() {
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
   
   end_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  mosaique_4 = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'mosaique_4', units : 'norm', 
+    image : 'Images/mosaiques2.png', mask : undefined,
+    anchor : 'bottom-left',
+    ori : 0.0, pos : [(- 1), (- 1)], size : undefined,
+    color : new util.Color([1,1,1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -2.0 
+  });
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
   routineTimer = new util.CountdownTimer();  // to track time remaining of each (non-slip) routine
@@ -444,6 +710,9 @@ function restartLoopBegin(restartLoopScheduler, snapshot) {
       restartLoopScheduler.add(scoreRoutineBegin(snapshot));
       restartLoopScheduler.add(scoreRoutineEachFrame());
       restartLoopScheduler.add(scoreRoutineEnd(snapshot));
+      restartLoopScheduler.add(score2RoutineBegin(snapshot));
+      restartLoopScheduler.add(score2RoutineEachFrame());
+      restartLoopScheduler.add(score2RoutineEnd(snapshot));
       restartLoopScheduler.add(restartLoopEndIteration(restartLoopScheduler, snapshot));
     });
     
@@ -524,7 +793,7 @@ function blocksLoopBegin(blocksLoopScheduler, snapshot) {
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
-      trialList: 'blocks_order.xlsx',
+      trialList: 'blocks_order - long.xlsx',
       seed: undefined, name: 'blocks'
     });
     psychoJS.experiment.addLoop(blocks); // add the loop to the experiment
@@ -699,6 +968,8 @@ function welcomeRoutineBegin(snapshot) {
     welcomeComponents = [];
     welcomeComponents.push(welcome_text);
     welcomeComponents.push(welcome_end);
+    welcomeComponents.push(mosaique);
+    welcomeComponents.push(logo);
     
     welcomeComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -748,6 +1019,26 @@ function welcomeRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    
+    // *mosaique* updates
+    if (t >= 0.0 && mosaique.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mosaique.tStart = t;  // (not accounting for frame time here)
+      mosaique.frameNStart = frameN;  // exact frame index
+      
+      mosaique.setAutoDraw(true);
+    }
+    
+    
+    // *logo* updates
+    if (t >= 0.0 && logo.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      logo.tStart = t;  // (not accounting for frame time here)
+      logo.frameNStart = frameN;  // exact frame index
+      
+      logo.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -818,6 +1109,7 @@ function instructionsRoutineBegin(snapshot) {
     instructionsComponents = [];
     instructionsComponents.push(instructions_text);
     instructionsComponents.push(instructions_end);
+    instructionsComponents.push(mosaique_2);
     
     instructionsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -867,6 +1159,16 @@ function instructionsRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    
+    // *mosaique_2* updates
+    if (t >= 0.0 && mosaique_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mosaique_2.tStart = t;  // (not accounting for frame time here)
+      mosaique_2.frameNStart = frameN;  // exact frame index
+      
+      mosaique_2.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -936,6 +1238,8 @@ function wordsRoutineBegin(snapshot) {
     wordsComponents = [];
     wordsComponents.push(all_words);
     wordsComponents.push(words_end);
+    wordsComponents.push(mosaique_3);
+    wordsComponents.push(Mots);
     
     wordsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -987,6 +1291,26 @@ function wordsRoutineEachFrame() {
       }
     }
     
+    
+    // *mosaique_3* updates
+    if (t >= 0.0 && mosaique_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mosaique_3.tStart = t;  // (not accounting for frame time here)
+      mosaique_3.frameNStart = frameN;  // exact frame index
+      
+      mosaique_3.setAutoDraw(true);
+    }
+    
+    
+    // *Mots* updates
+    if (t >= 0.0 && Mots.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Mots.tStart = t;  // (not accounting for frame time here)
+      Mots.frameNStart = frameN;  // exact frame index
+      
+      Mots.setAutoDraw(true);
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1035,6 +1359,7 @@ function wordsRoutineEnd(snapshot) {
 }
 
 
+var _pj;
 var _ready_end_allKeys;
 var readyComponents;
 function readyRoutineBegin(snapshot) {
@@ -1048,17 +1373,114 @@ function readyRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('ready.started', globalClock.getTime());
+    // Run 'Begin Routine' code from text_color_2
+    var _pj;
+    function _pj_snippets(container) {
+        function in_es6(left, right) {
+            if (((right instanceof Array) || ((typeof right) === "string"))) {
+                return (right.indexOf(left) > (- 1));
+            } else {
+                if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {
+                    return right.has(left);
+                } else {
+                    return (left in right);
+                }
+            }
+        }
+        container["in_es6"] = in_es6;
+        return container;
+    }
+    _pj = {};
+    _pj_snippets(_pj);
+    if (_pj.in_es6("\"E\" = Sciences", label_left)) {
+        leftw = "\"E\" = Sciences";
+        leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    } else {
+        if (_pj.in_es6("\"E\" = Masculin  ", label_left)) {
+            leftw = "\"E\" = Masculin";
+            leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        } else {
+            if (_pj.in_es6("\"E\" = Masculin ou Sciences", label_left)) {
+                top_leftw = "\"E\" = Masculin";
+                top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                bot_leftw = "ou Sciences";
+                bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            } else {
+                if (_pj.in_es6("\"E\" = Lettres", label_left)) {
+                    leftw = "\"E\" = Lettres";
+                    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                } else {
+                    if (_pj.in_es6("\"E\" = Masculin ou Lettres", label_left)) {
+                        top_leftw = "\"E\" = Masculin";
+                        top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_leftw = "ou Lettres";
+                        bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                    } else {
+                        top_leftw = "\"E\" = elsem";
+                        top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_leftw = "ou else";
+                        bot_leftw_color = "black";
+                        leftw = "\"E\" = else";
+                        leftw_color = "black";
+                    }
+                }
+            }
+        }
+    }
+    if (_pj.in_es6("\"I\" = Lettres", label_right)) {
+        rightw = "\"I\" = Lettres";
+        rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    } else {
+        if (_pj.in_es6("\"I\" = F\u00e9minin  ", label_right)) {
+            rightw = "\"I\" = F\u00e9minin";
+            rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        } else {
+            if (_pj.in_es6("\"I\" = F\u00e9minin ou Lettres", label_right)) {
+                top_rightw = "\"I\" = F\u00e9minin";
+                top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                bot_rightw = "ou Lettres";
+                bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            } else {
+                if (_pj.in_es6("\"I\" = Sciences", label_right)) {
+                    rightw = "\"I\" = Sciences";
+                    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                } else {
+                    if (_pj.in_es6("\"I\" = F\u00e9minin ou Sciences", label_right)) {
+                        top_rightw = "\"I\" = F\u00e9minin";
+                        top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_rightw = "ou Sciences";
+                        bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                    }
+                }
+            }
+        }
+    }
+    
     ready_end.keys = undefined;
     ready_end.rt = undefined;
     _ready_end_allKeys = [];
-    ready_cat_left.setText(label_left);
-    ready_cat_right.setText(label_right);
+    rightcat_2.setColor(new util.Color(rightw_color));
+    rightcat_2.setText(rightw);
+    top_rightcat_2.setColor(new util.Color(top_rightw_color));
+    top_rightcat_2.setText(top_rightw);
+    bot_rightcat_2.setColor(new util.Color(bot_rightw_color));
+    bot_rightcat_2.setText(bot_rightw);
+    leftcat_2.setColor(new util.Color(leftw_color));
+    leftcat_2.setText(leftw);
+    bot_leftcat_2.setColor(new util.Color(bot_leftw_color));
+    bot_leftcat_2.setText(bot_leftw);
+    top_leftcat_2.setColor(new util.Color(top_leftw_color));
+    top_leftcat_2.setText(top_leftw);
     // keep track of which components have finished
     readyComponents = [];
     readyComponents.push(ready_text);
     readyComponents.push(ready_end);
-    readyComponents.push(ready_cat_left);
-    readyComponents.push(ready_cat_right);
+    readyComponents.push(rightcat_2);
+    readyComponents.push(top_rightcat_2);
+    readyComponents.push(bot_rightcat_2);
+    readyComponents.push(leftcat_2);
+    readyComponents.push(bot_leftcat_2);
+    readyComponents.push(top_leftcat_2);
     
     readyComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1111,23 +1533,63 @@ function readyRoutineEachFrame() {
     }
     
     
-    // *ready_cat_left* updates
-    if (t >= 0.0 && ready_cat_left.status === PsychoJS.Status.NOT_STARTED) {
+    // *rightcat_2* updates
+    if (t >= 0 && rightcat_2.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      ready_cat_left.tStart = t;  // (not accounting for frame time here)
-      ready_cat_left.frameNStart = frameN;  // exact frame index
+      rightcat_2.tStart = t;  // (not accounting for frame time here)
+      rightcat_2.frameNStart = frameN;  // exact frame index
       
-      ready_cat_left.setAutoDraw(true);
+      rightcat_2.setAutoDraw(true);
     }
     
     
-    // *ready_cat_right* updates
-    if (t >= 0.0 && ready_cat_right.status === PsychoJS.Status.NOT_STARTED) {
+    // *top_rightcat_2* updates
+    if (t >= 0 && top_rightcat_2.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      ready_cat_right.tStart = t;  // (not accounting for frame time here)
-      ready_cat_right.frameNStart = frameN;  // exact frame index
+      top_rightcat_2.tStart = t;  // (not accounting for frame time here)
+      top_rightcat_2.frameNStart = frameN;  // exact frame index
       
-      ready_cat_right.setAutoDraw(true);
+      top_rightcat_2.setAutoDraw(true);
+    }
+    
+    
+    // *bot_rightcat_2* updates
+    if (t >= 0 && bot_rightcat_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      bot_rightcat_2.tStart = t;  // (not accounting for frame time here)
+      bot_rightcat_2.frameNStart = frameN;  // exact frame index
+      
+      bot_rightcat_2.setAutoDraw(true);
+    }
+    
+    
+    // *leftcat_2* updates
+    if (t >= 0 && leftcat_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      leftcat_2.tStart = t;  // (not accounting for frame time here)
+      leftcat_2.frameNStart = frameN;  // exact frame index
+      
+      leftcat_2.setAutoDraw(true);
+    }
+    
+    
+    // *bot_leftcat_2* updates
+    if (t >= 0 && bot_leftcat_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      bot_leftcat_2.tStart = t;  // (not accounting for frame time here)
+      bot_leftcat_2.frameNStart = frameN;  // exact frame index
+      
+      bot_leftcat_2.setAutoDraw(true);
+    }
+    
+    
+    // *top_leftcat_2* updates
+    if (t >= 0 && top_leftcat_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      top_leftcat_2.tStart = t;  // (not accounting for frame time here)
+      top_leftcat_2.frameNStart = frameN;  // exact frame index
+      
+      top_leftcat_2.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -1166,6 +1628,20 @@ function readyRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('ready.stopped', globalClock.getTime());
+    // Run 'End Routine' code from text_color_2
+    top_leftw = "";
+    top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    bot_leftw = "";
+    bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    leftw = "";
+    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    rightw = "";
+    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    top_rightw = "";
+    top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    bot_rightw = "";
+    bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    
     ready_end.stop();
     // the Routine "ready" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1193,24 +1669,137 @@ function trialRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('trial.started', globalClock.getTime());
+    // Run 'Begin Routine' code from text_color
+    var _pj;
+    function _pj_snippets(container) {
+        function in_es6(left, right) {
+            if (((right instanceof Array) || ((typeof right) === "string"))) {
+                return (right.indexOf(left) > (- 1));
+            } else {
+                if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {
+                    return right.has(left);
+                } else {
+                    return (left in right);
+                }
+            }
+        }
+        container["in_es6"] = in_es6;
+        return container;
+    }
+    _pj = {};
+    _pj_snippets(_pj);
+    if (_pj.in_es6("\"E\" = Sciences", label_left)) {
+        leftw = "\"E\" = Sciences";
+        leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    } else {
+        if (_pj.in_es6("\"E\" = Masculin  ", label_left)) {
+            leftw = "\"E\" = Masculin";
+            leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        } else {
+            if (_pj.in_es6("\"E\" = Masculin ou Sciences", label_left)) {
+                top_leftw = "\"E\" = Masculin";
+                top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                bot_leftw = "ou Sciences";
+                bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            } else {
+                if (_pj.in_es6("\"E\" = Lettres", label_left)) {
+                    leftw = "\"E\" = Lettres";
+                    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                } else {
+                    if (_pj.in_es6("\"E\" = Masculin ou Lettres", label_left)) {
+                        top_leftw = "\"E\" = Masculin";
+                        top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_leftw = "ou Lettres";
+                        bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                    } else {
+                        top_leftw = "\"E\" = elsem";
+                        top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_leftw = "ou else";
+                        bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                        leftw = "\"E\" = else";
+                        leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                    }
+                }
+            }
+        }
+    }
+    if (_pj.in_es6("\"I\" = Lettres", label_right)) {
+        rightw = "\"I\" = Lettres";
+        rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    } else {
+        if (_pj.in_es6("\"I\" = F\u00e9minin  ", label_right)) {
+            rightw = "\"I\" = F\u00e9minin";
+            rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        } else {
+            if (_pj.in_es6("\"I\" = F\u00e9minin ou Lettres", label_right)) {
+                top_rightw = "\"I\" = F\u00e9minin";
+                top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                bot_rightw = "ou Lettres";
+                bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            } else {
+                if (_pj.in_es6("\"I\" = Sciences", label_right)) {
+                    rightw = "\"I\" = Sciences";
+                    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                } else {
+                    if (_pj.in_es6("\"I\" = F\u00e9minin ou Sciences", label_right)) {
+                        top_rightw = "\"I\" = F\u00e9minin";
+                        top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+                        bot_rightw = "ou Sciences";
+                        bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+                    }
+                }
+            }
+        }
+    }
+    /*
+    else:
+    top_rightw = '"I" = elsef'
+    top_rightw_color = 'green' [-0.4667, -0.0745, -0.9686]
+    bot_rightw = 'ou else'
+    bot_rightw_color = 'black'
+    rightw = '"I" = else'
+    rightw_color = 'black'*/
+    if (_pj.in_es6(stimWord, liste_mots_genre)) {
+        text_stim_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+    } else {
+        if (_pj.in_es6(stimWord, liste_mots_sciences)) {
+            text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+        }
+    }
+    
     // Run 'Begin Routine' code from check_corr
     cor_resp = 1;
     
-    trial_cat_left.setText(label_left);
-    trial_cat_right.setText(label_right);
+    text_stim.setColor(new util.Color(text_stim_color));
     text_stim.setText(stimWord);
     keyboard_resp.keys = undefined;
     keyboard_resp.rt = undefined;
     _keyboard_resp_allKeys = [];
     error_msg.setText('Erreur');
+    rightcat.setColor(new util.Color(rightw_color));
+    rightcat.setText(rightw);
+    top_rightcat.setColor(new util.Color(top_rightw_color));
+    top_rightcat.setText(top_rightw);
+    bot_rightcat.setColor(new util.Color(bot_rightw_color));
+    bot_rightcat.setText(bot_rightw);
+    leftcat.setColor(new util.Color(leftw_color));
+    leftcat.setText(leftw);
+    bot_leftcat.setColor(new util.Color(bot_leftw_color));
+    bot_leftcat.setText(bot_leftw);
+    top_leftcat.setColor(new util.Color(top_leftw_color));
+    top_leftcat.setText(top_leftw);
     // keep track of which components have finished
     trialComponents = [];
     trialComponents.push(fixation);
-    trialComponents.push(trial_cat_left);
-    trialComponents.push(trial_cat_right);
     trialComponents.push(text_stim);
     trialComponents.push(keyboard_resp);
     trialComponents.push(error_msg);
+    trialComponents.push(rightcat);
+    trialComponents.push(top_rightcat);
+    trialComponents.push(bot_rightcat);
+    trialComponents.push(leftcat);
+    trialComponents.push(bot_leftcat);
+    trialComponents.push(top_leftcat);
     
     trialComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1257,26 +1846,6 @@ function trialRoutineEachFrame() {
     frameRemains = 0.0 + 0.5 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (fixation.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       fixation.setAutoDraw(false);
-    }
-    
-    
-    // *trial_cat_left* updates
-    if (t >= 0 && trial_cat_left.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      trial_cat_left.tStart = t;  // (not accounting for frame time here)
-      trial_cat_left.frameNStart = frameN;  // exact frame index
-      
-      trial_cat_left.setAutoDraw(true);
-    }
-    
-    
-    // *trial_cat_right* updates
-    if (t >= 0 && trial_cat_right.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      trial_cat_right.tStart = t;  // (not accounting for frame time here)
-      trial_cat_right.frameNStart = frameN;  // exact frame index
-      
-      trial_cat_right.setAutoDraw(true);
     }
     
     
@@ -1328,6 +1897,66 @@ function trialRoutineEachFrame() {
       error_msg.setAutoDraw(true);
     }
     
+    
+    // *rightcat* updates
+    if (t >= 0 && rightcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      rightcat.tStart = t;  // (not accounting for frame time here)
+      rightcat.frameNStart = frameN;  // exact frame index
+      
+      rightcat.setAutoDraw(true);
+    }
+    
+    
+    // *top_rightcat* updates
+    if (t >= 0 && top_rightcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      top_rightcat.tStart = t;  // (not accounting for frame time here)
+      top_rightcat.frameNStart = frameN;  // exact frame index
+      
+      top_rightcat.setAutoDraw(true);
+    }
+    
+    
+    // *bot_rightcat* updates
+    if (t >= 0 && bot_rightcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      bot_rightcat.tStart = t;  // (not accounting for frame time here)
+      bot_rightcat.frameNStart = frameN;  // exact frame index
+      
+      bot_rightcat.setAutoDraw(true);
+    }
+    
+    
+    // *leftcat* updates
+    if (t >= 0 && leftcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      leftcat.tStart = t;  // (not accounting for frame time here)
+      leftcat.frameNStart = frameN;  // exact frame index
+      
+      leftcat.setAutoDraw(true);
+    }
+    
+    
+    // *bot_leftcat* updates
+    if (t >= 0 && bot_leftcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      bot_leftcat.tStart = t;  // (not accounting for frame time here)
+      bot_leftcat.frameNStart = frameN;  // exact frame index
+      
+      bot_leftcat.setAutoDraw(true);
+    }
+    
+    
+    // *top_leftcat* updates
+    if (t >= 0 && top_leftcat.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      top_leftcat.tStart = t;  // (not accounting for frame time here)
+      top_leftcat.frameNStart = frameN;  // exact frame index
+      
+      top_leftcat.setAutoDraw(true);
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1364,35 +1993,88 @@ function trialRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('trial.stopped', globalClock.getTime());
+    // Run 'End Routine' code from text_color
+    top_leftw = "";
+    top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    bot_leftw = "";
+    bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    leftw = "";
+    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    rightw = "";
+    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    top_rightw = "";
+    top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    bot_rightw = "";
+    bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+    
     // Run 'End Routine' code from compute_score
-    if ((conds_file === "cong_test.xlsx")) {
+    /* Bloc 3 */
+    if ((conds_file === "cong_test - 20.xlsx")) {
         if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === "number") || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {
             rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);
-            if ((keyboard_resp.rt.slice((- 1))[0] < 0.3)) {
-                fast_responses = (fast_responses + 1);
-            }
             if ((keyboard_resp.keys[0] !== CorrAns)) {
                 err_block3 = (err_block3 + 1);
-            }
-        }
-    } else {
-        if ((conds_file === "incong_test.xlsx")) {
-            if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === "number") || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {
-                rt_block5.push(keyboard_resp.rt.slice((- 1))[0]);
-                if ((keyboard_resp.rt.slice((- 1))[0] < 0.3)) {
-                    fast_responses = (fast_responses + 1);
-                }
-                if ((keyboard_resp.keys[0] !== CorrAns)) {
-                    err_block5 = (err_block5 + 1);
+                incorr_rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);
+            } else {
+                if ((keyboard_resp.keys[0] === CorrAns)) {
+                    corr_rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);
                 }
             }
         }
     }
+    /* Bloc 4 */
+    if ((conds_file === "cong_test - 40.xlsx")) {
+        if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === "number") || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {
+            rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);
+            if ((keyboard_resp.keys[0] !== CorrAns)) {
+                err_block4 = (err_block4 + 1);
+                incorr_rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);
+            } else {
+                if ((keyboard_resp.keys[0] === CorrAns)) {
+                    corr_rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);
+                }
+            }
+        }
+    }
+    /* Bloc 6 */
+    if ((conds_file === "incong_test - 20.xlsx")) {
+        if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === "number") || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {
+            rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);
+            if ((keyboard_resp.keys[0] !== CorrAns)) {
+                err_block6 = (err_block6 + 1);
+                incorr_rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);
+            } else {
+                if ((keyboard_resp.keys[0] === CorrAns)) {
+                    corr_rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);
+                }
+            }
+        }
+    }
+    /* Bloc 7 */
+    if ((conds_file === "incong_test - 40.xlsx")) {
+        if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === "number") || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {
+            rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);
+            if ((keyboard_resp.keys[0] !== CorrAns)) {
+                err_block7 = (err_block7 + 1);
+                incorr_rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);
+            } else {
+                if ((keyboard_resp.keys[0] === CorrAns)) {
+                    corr_rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);
+                }
+            }
+        }
+    }
+    /* Autre */
     if (((keyboard_resp.keys[0] !== CorrAns) && keyboard_resp.keys)) {
         num_errors = (num_errors + 1);
     }
     if (((keyboard_resp.rt.slice((- 1))[0] > 3) && keyboard_resp.keys)) {
         slow_responses = (slow_responses + 1);
+    } else {
+        if (((keyboard_resp.rt.slice((- 1))[0] < 0.3) && keyboard_resp.keys)) {
+            fast_responses = (fast_responses + 1);
+        }
     }
     total_responses = (total_responses + 1);
     keyboard_resp.keys = [];
@@ -1440,7 +2122,7 @@ function transitionRoutineBegin(snapshot) {
     transitionClock.reset(); // clock
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
-    routineTimer.add(1.000000);
+    routineTimer.add(0.500000);
     // update component parameters for each repeat
     psychoJS.experiment.addData('transition.started', globalClock.getTime());
     // keep track of which components have finished
@@ -1473,7 +2155,7 @@ function transitionRoutineEachFrame() {
       cross.setAutoDraw(true);
     }
     
-    frameRemains = 0.0 + 1.0 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
+    frameRemains = 0.0 + 0.5 - psychoJS.window.monitorFramePeriod * 0.75;  // most of one frame period left
     if (cross.status === PsychoJS.Status.STARTED && t >= frameRemains) {
       cross.setAutoDraw(false);
     }
@@ -1523,34 +2205,32 @@ function transitionRoutineEnd(snapshot) {
 }
 
 
-var rt_block3_cleaned;
-var rt_block5_cleaned;
-var mean_rt_block3;
-var mean_rt_block5;
-var std_rt_block3;
-var std_rt_block5;
-var sumOfSquares3;
-var sumOfSquares5;
-var variance3;
-var variance5;
-var pooled_std;
-var iat_score;
 var score_msg;
 var err_msg;
-var m3;
-var m5;
-var s3;
-var s5;
-var ps;
-var iscore;
-var sOOs;
-var sOs;
-var svariance;
-var liste_clean;
-var score_sans_err;
-var sse;
-var score_avec_err;
-var sae;
+var feedback_msg;
+var mean_rt_block3;
+var mean_rt_block4;
+var mean_rt_block6;
+var mean_rt_block7;
+var std_rt_block3;
+var std_rt_block4;
+var std_rt_block6;
+var std_rt_block7;
+var pooled_std36;
+var pooled_std47;
+var new_value3;
+var new_value4;
+var new_value6;
+var new_value7;
+var fblock3;
+var fblock4;
+var fblock6;
+var fblock7;
+var mb3;
+var mb4;
+var mb6;
+var mb7;
+var iat_score;
 var _end_score_allKeys;
 var scoreComponents;
 function scoreRoutineBegin(snapshot) {
@@ -1565,121 +2245,139 @@ function scoreRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('score.started', globalClock.getTime());
     // Run 'Begin Routine' code from score
-    rt_block3_cleaned = [];
-    rt_block5_cleaned = [];
+    // Initialisation des variables pour JS
+    score_msg = "";
+    err_msg = "";
+    feedback_msg ="";
     mean_rt_block3 = 0;
-    mean_rt_block5 = 0;
+    mean_rt_block4 = 0;
+    mean_rt_block6 = 0;
+    mean_rt_block7 = 0;
     std_rt_block3 = 0;
-    std_rt_block5 = 0;
-    sumOfSquares3 = 0;
-    sumOfSquares5 = 0;
-    variance3 = 0;
-    variance5 = 0;
-    pooled_std = 0;
+    std_rt_block4 = 0;
+    std_rt_block6 = 0;
+    std_rt_block7 = 0;
+    pooled_std36 = 0;
+    pooled_std47 = 0;
+    new_value3 = 0;
+    new_value4 = 0;
+    new_value6 = 0;
+    new_value7 = 0;
+    fblock3 = [];
+    fblock4 = [];
+    fblock6 = [];
+    fblock7 = [];
+    mb3 = 0;
+    mb4 = 0;
+    mb6 = 0;
+    mb7 = 0;
     iat_score = 0;
-    if (((fast_responses / total_responses) > 0.1)) {
+    
+    // Fonctions utilitaires
+    function moyenne(liste) {
+        return liste.length ? liste.reduce((a, b) => a + b, 0) / liste.length : 0;
+    }
+    
+    function ecartType(liste, moyenne) {
+        if (liste.length > 1) {
+            let variance = liste.reduce((sum, x) => sum + Math.pow(x - moyenne, 2), 0) / (liste.length - 1);
+            return Math.sqrt(variance);
+        }
+        return 0;
+    }
+    
+    function pooledStd(liste1, liste2, std1, std2) {
+        if (liste1.length > 1 && liste2.length > 1) {
+            let pooledVariance = (((liste1.length - 1) * Math.pow(std1, 2)) + ((liste2.length - 1) * Math.pow(std2, 2))) / (liste1.length + liste2.length - 2);
+            return Math.sqrt(pooledVariance);
+        }
+        return 0;
+    }
+    
+    function remplacerIncorrects(parMoyenne, incorrects) {
+        return Array(incorrects.length).fill(parMoyenne + 0.6);
+    }
+    
+    // Calcul des données
+    if ((fast_responses / total_responses) > 0.1) {
         score_msg = "Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.";
-        err_msg = (("Vous avez fait " + num_errors.toString()) + " erreurs.");
+        err_msg = "Vous avez fait " + num_errors + " erreurs.";
+    } else if ((slow_responses / total_responses) > 0.05) {
+        score_msg = "Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.";
+        err_msg = "Vous avez fait " + num_errors + " erreurs.";
     } else {
-        if (((slow_responses / total_responses) > 0.05)) {
-            score_msg = "Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.";
-            err_msg = (("Vous avez fait " + num_errors.toString()) + " erreurs.");
-        } else {
-            rt_block3_cleaned = function () {
-        var _pj_a = [], _pj_b = rt_block3;
-        for (var _pj_c = 0, _pj_d = _pj_b.length; (_pj_c < _pj_d); _pj_c += 1) {
-            var rt = _pj_b[_pj_c];
-            if (((0.2 <= rt) && (rt <= 2))) {
-                _pj_a.push(rt);
-            }
+        // Moyennes des réponses correctes de chaque bloc
+        let corr_mean_rt_block3 = moyenne(corr_rt_block3);
+        let corr_mean_rt_block4 = moyenne(corr_rt_block4);
+        let corr_mean_rt_block6 = moyenne(corr_rt_block6);
+        let corr_mean_rt_block7 = moyenne(corr_rt_block7);
+    
+        // Moyennes des blocs
+        mean_rt_block3 = moyenne(rt_block3);
+        mean_rt_block6 = moyenne(rt_block6);
+        mean_rt_block4 = moyenne(rt_block4);
+        mean_rt_block7 = moyenne(rt_block7);
+    
+        // Écarts types des blocs
+        std_rt_block3 = ecartType(rt_block3, mean_rt_block3);
+        std_rt_block6 = ecartType(rt_block6, mean_rt_block6);
+        std_rt_block4 = ecartType(rt_block4, mean_rt_block4);
+        std_rt_block7 = ecartType(rt_block7, mean_rt_block7);
+    
+        // Pooled std des blocs
+        pooled_std36 = pooledStd(rt_block3, rt_block6, std_rt_block3, std_rt_block6);
+        pooled_std47 = pooledStd(rt_block4, rt_block7, std_rt_block4, std_rt_block7);
+    
+        // Remplacement des RT incorrects
+        incorr_rt_block3 = remplacerIncorrects(mean_rt_block3, incorr_rt_block3);
+        incorr_rt_block4 = remplacerIncorrects(mean_rt_block4, incorr_rt_block4);
+        incorr_rt_block6 = remplacerIncorrects(mean_rt_block6, incorr_rt_block6);
+        incorr_rt_block7 = remplacerIncorrects(mean_rt_block7, incorr_rt_block7);
+    
+        // Fusion des blocs incorrects modifiés et des blocs corrects
+        fblock3 = incorr_rt_block3.concat(corr_rt_block3);
+        fblock4 = incorr_rt_block4.concat(corr_rt_block4);
+        fblock6 = incorr_rt_block6.concat(corr_rt_block6);
+        fblock7 = incorr_rt_block7.concat(corr_rt_block7);
+    
+        // Calcul des moyennes des blocs mis à jour
+        mb3 = moyenne(fblock3);
+        mb4 = moyenne(fblock4);
+        mb6 = moyenne(fblock6);
+        mb7 = moyenne(fblock7);
+    
+        // Score de l'IAT
+        if (((pooled_std36 !== 0) && (pooled_std47 !== 0))) {
+            iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2;
+        } else { 
+            iat_score = 0;
         }
-        return _pj_a;
-    }
-    .call(this);
-            rt_block5_cleaned = function () {
-        var _pj_a = [], _pj_b = rt_block5;
-        for (var _pj_c = 0, _pj_d = _pj_b.length; (_pj_c < _pj_d); _pj_c += 1) {
-            var rt = _pj_b[_pj_c];
-            if (((0.2 <= rt) && (rt <= 2))) {
-                _pj_a.push(rt);
-            }
+        score_msg = "Votre score à l'IAT est de " + iat_score.toFixed(5);
+        if (0 <= iat_score && iat_score <= 0.5) {
+        feedback_msg = "Un score positif inférieur à 0.5 traduit des associations stéréotypiques entre masculin et science et féminin et lettres.";
+        } else if (-0.5 <= iat_score && iat_score < 0) {
+        feedback_msg = "Un score négatif supérieur à -0.5 traduit des associations contre-stéréotypiques entre féminin et science et masculin et lettres.";
+        } else if (iat_score < -0.5) {
+        feedback_msg = "Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et science et masculin et lettres.";
+        } else if (iat_score > 0.5) {
+        feedback_msg = "Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et science et féminin et lettres.";
         }
-        return _pj_a;
-    }
-    .call(this);
-            if (rt_block3_cleaned) {
-                mean_rt_block3 = (util.sum(rt_block3_cleaned) / rt_block3_cleaned.length);
-            } else {
-                mean_rt_block3 = 0;
-            }
-            if (rt_block5_cleaned) {
-                mean_rt_block5 = (util.sum(rt_block5_cleaned) / rt_block5_cleaned.length);
-            } else {
-                mean_rt_block5 = 0;
-            }
-            if ((rt_block3_cleaned.length > 1)) {
-                sumOfSquares3 = rt_block3_cleaned.reduce((sum, x) => sum + Math.pow(x - mean_rt_block3, 2), 0);
-                variance3 = sumOfSquares3 / (rt_block3_cleaned.length - 1);
-                std_rt_block3 = Math.sqrt(variance3);
-            } else {
-                std_rt_block3 = 0;
-            }
-            if ((rt_block5_cleaned.length > 1)) {
-                sumOfSquares5 = rt_block5_cleaned.reduce((sum, x) => sum + Math.pow(x - mean_rt_block5, 2), 0);
-                variance5 = sumOfSquares5 / (rt_block5_cleaned.length - 1);
-                std_rt_block5 = Math.sqrt(variance5);
-            } else {
-                std_rt_block5 = 0;
-            }
-            if (((rt_block3_cleaned.length > 1) && (rt_block5_cleaned.length > 1))) {
-                pooled_std = ((((rt_block3_cleaned.length - 1) * Math.pow(std_rt_block3, 2)) + ((rt_block5_cleaned.length - 1) * Math.pow(std_rt_block5, 2))) / Math.pow(((rt_block3_cleaned.length + rt_block5_cleaned.length) - 2), 0.5));
-            } else {
-                pooled_std = 0;
-            }
-            if (((num_errors === 0) && (pooled_std !== 0))) {
-                iat_score = ((mean_rt_block5 - mean_rt_block3) / pooled_std);
-            } else {
-                if ((pooled_std !== 0)) {
-                    iat_score = (((mean_rt_block5 + (err_block5 / num_errors)) - (mean_rt_block3 + (err_block3 / num_errors))) / pooled_std);
-                } else {
-                    iat_score = 0;
-                }
-            }
-            score_msg = ("Votre score à l'IAT est de " + iat_score.toString().slice(0, 5));
-            err_msg = (("Vous avez fait " + num_errors.toString()) + " erreurs");
-        }
+    
     }
     
-    
-    /* DEBUG */ 
-    m3 = mean_rt_block3.toString();
-    m5 = mean_rt_block5.toString();
-    s3 = std_rt_block3.toString();
-    s5 = std_rt_block5.toString();
-    ps = pooled_std.toString();
-    iscore = iat_score.toString();
-    sOOs = rt_block3_cleaned.reduce((sum, x) => sum + Math.pow(x - mean_rt_block3, 2), 0)
-    sOs = sumOfSquares3.toString();
-    svariance = variance3.toString();
-    liste_clean = rt_block3_cleaned.map(rt => rt.toFixed(1)).join(', ');
-    score_sans_err = ((mean_rt_block5 - mean_rt_block3) / pooled_std);
-    sse = score_sans_err.toString();
-    sse = ("Score sans erreur" + score_sans_err.toString().slice(0, 5));
-    score_avec_err = (((mean_rt_block5 + (err_block5 / num_errors)) - (mean_rt_block3 + (err_block3 / num_errors))) / pooled_std);
-    sae = score_avec_err.toString();
     score_feedback.setText(score_msg);
     end_score.keys = undefined;
     end_score.rt = undefined;
     _end_score_allKeys = [];
     err_feedback.setText(err_msg);
-    score_bis.setText(sse);
+    adapted_fb.setText(feedback_msg);
     // keep track of which components have finished
     scoreComponents = [];
     scoreComponents.push(score_feedback);
-    scoreComponents.push(score_meaning);
     scoreComponents.push(end_score);
     scoreComponents.push(err_feedback);
-    scoreComponents.push(score_bis);
+    scoreComponents.push(adapted_fb);
+    scoreComponents.push(skip_score);
     
     scoreComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1705,16 +2403,6 @@ function scoreRoutineEachFrame() {
       score_feedback.frameNStart = frameN;  // exact frame index
       
       score_feedback.setAutoDraw(true);
-    }
-    
-    
-    // *score_meaning* updates
-    if (t >= 0.0 && score_meaning.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      score_meaning.tStart = t;  // (not accounting for frame time here)
-      score_meaning.frameNStart = frameN;  // exact frame index
-      
-      score_meaning.setAutoDraw(true);
     }
     
     
@@ -1758,13 +2446,23 @@ function scoreRoutineEachFrame() {
     }
     
     
-    // *score_bis* updates
-    if (t >= 0.0 && score_bis.status === PsychoJS.Status.NOT_STARTED) {
+    // *adapted_fb* updates
+    if (t >= 0.0 && adapted_fb.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      score_bis.tStart = t;  // (not accounting for frame time here)
-      score_bis.frameNStart = frameN;  // exact frame index
+      adapted_fb.tStart = t;  // (not accounting for frame time here)
+      adapted_fb.frameNStart = frameN;  // exact frame index
       
-      score_bis.setAutoDraw(true);
+      adapted_fb.setAutoDraw(true);
+    }
+    
+    
+    // *skip_score* updates
+    if (t >= 0.0 && skip_score.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      skip_score.tStart = t;  // (not accounting for frame time here)
+      skip_score.frameNStart = frameN;  // exact frame index
+      
+      skip_score.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -1816,6 +2514,132 @@ function scoreRoutineEnd(snapshot) {
 }
 
 
+var _end_score_2_allKeys;
+var score2Components;
+function score2RoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'score2' ---
+    t = 0;
+    score2Clock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('score2.started', globalClock.getTime());
+    end_score_2.keys = undefined;
+    end_score_2.rt = undefined;
+    _end_score_2_allKeys = [];
+    // keep track of which components have finished
+    score2Components = [];
+    score2Components.push(score_meaning_2);
+    score2Components.push(end_score_2);
+    
+    score2Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function score2RoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'score2' ---
+    // get current time
+    t = score2Clock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *score_meaning_2* updates
+    if (t >= 0.0 && score_meaning_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      score_meaning_2.tStart = t;  // (not accounting for frame time here)
+      score_meaning_2.frameNStart = frameN;  // exact frame index
+      
+      score_meaning_2.setAutoDraw(true);
+    }
+    
+    
+    // *end_score_2* updates
+    if (t >= 0.1 && end_score_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      end_score_2.tStart = t;  // (not accounting for frame time here)
+      end_score_2.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      end_score_2.clock.reset();
+      end_score_2.start();
+    }
+    
+    if (end_score_2.status === PsychoJS.Status.STARTED) {
+      let theseKeys = end_score_2.getKeys({keyList: ['space'], waitRelease: false});
+      _end_score_2_allKeys = _end_score_2_allKeys.concat(theseKeys);
+      if (_end_score_2_allKeys.length > 0) {
+        end_score_2.keys = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].name;  // just the last key pressed
+        end_score_2.rt = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].rt;
+        end_score_2.duration = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].duration;
+        // was this correct?
+        if (end_score_2.keys == "'space'") {
+            end_score_2.corr = 1;
+        } else {
+            end_score_2.corr = 0;
+        }
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    score2Components.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function score2RoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'score2' ---
+    score2Components.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    psychoJS.experiment.addData('score2.stopped', globalClock.getTime());
+    end_score_2.stop();
+    // the Routine "score2" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
 var _end_key_resp_allKeys;
 var endComponents;
 function endRoutineBegin(snapshot) {
@@ -1836,6 +2660,7 @@ function endRoutineBegin(snapshot) {
     endComponents = [];
     endComponents.push(text);
     endComponents.push(end_key_resp);
+    endComponents.push(mosaique_4);
     
     endComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1885,6 +2710,16 @@ function endRoutineEachFrame() {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    
+    // *mosaique_4* updates
+    if (t >= 0.0 && mosaique_4.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      mosaique_4.tStart = t;  // (not accounting for frame time here)
+      mosaique_4.frameNStart = frameN;  // exact frame index
+      
+      mosaique_4.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)

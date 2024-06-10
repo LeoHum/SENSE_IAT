@@ -2,14 +2,6 @@
  * Sense_Iat *
  ******************/
 
-import { core, data, sound, util, visual, hardware } from './lib/psychojs-2024.1.4.js';
-const { PsychoJS } = core;
-const { TrialHandler, MultiStairHandler } = data;
-const { Scheduler } = util;
-//some handy aliases as in the psychopy scripts;
-const { abs, sin, cos, PI: pi, sqrt } = Math;
-const { round } = util;
-
 
 // store info about the experiment session:
 let expName = 'SENSE_IAT';  // from the Builder filename that created this script
@@ -202,10 +194,8 @@ var score_feedback;
 var end_score;
 var err_feedback;
 var adapted_fb;
-var skip_score;
 var score2Clock;
 var score_meaning_2;
-var end_score_2;
 var endClock;
 var text;
 var end_key_resp;
@@ -345,7 +335,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -357,7 +347,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'top_rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -369,7 +359,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'bot_rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -470,7 +460,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'text_stim',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -496,7 +486,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -508,7 +498,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'top_rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -520,7 +510,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'bot_rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -618,24 +608,12 @@ async function experimentInit() {
     depth: -4.0 
   });
   
-  skip_score = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'skip_score',
-    text: 'Appuyez sur la barre espace pour terminer le test',
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.3)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
-    depth: -5.0 
-  });
-  
   // Initialize components for Routine "score2"
   score2Clock = new util.Clock();
   score_meaning_2 = new visual.TextStim({
     win: psychoJS.window,
     name: 'score_meaning_2',
-    text: "Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.\n\nA titre de comparaison :\n- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)\n- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)\n\nPour terminer le test, appuyez sur la barre espace.",
+    text: "Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.\n\n- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)\n- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)\n\nPour terminer le test, appuyez sur la barre espace.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -643,8 +621,6 @@ async function experimentInit() {
     color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
-  
-  end_score_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "end"
   endClock = new util.Clock();
@@ -697,8 +673,9 @@ function restartLoopBegin(restartLoopScheduler, snapshot) {
     currentLoop = restart;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisRestart of restart) {
+    restart.forEach(function() {
       snapshot = restart.getSnapshot();
+    
       restartLoopScheduler.add(importConditions(snapshot));
       restartLoopScheduler.add(welcomeRoutineBegin(snapshot));
       restartLoopScheduler.add(welcomeRoutineEachFrame());
@@ -721,7 +698,7 @@ function restartLoopBegin(restartLoopScheduler, snapshot) {
       restartLoopScheduler.add(score2RoutineEachFrame());
       restartLoopScheduler.add(score2RoutineEnd(snapshot));
       restartLoopScheduler.add(restartLoopEndIteration(restartLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -745,14 +722,15 @@ function instructions_loopLoopBegin(instructions_loopLoopScheduler, snapshot) {
     currentLoop = instructions_loop;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisInstructions_loop of instructions_loop) {
+    instructions_loop.forEach(function() {
       snapshot = instructions_loop.getSnapshot();
+    
       instructions_loopLoopScheduler.add(importConditions(snapshot));
       instructions_loopLoopScheduler.add(instructionsRoutineBegin(snapshot));
       instructions_loopLoopScheduler.add(instructionsRoutineEachFrame());
       instructions_loopLoopScheduler.add(instructionsRoutineEnd(snapshot));
       instructions_loopLoopScheduler.add(instructions_loopLoopEndIteration(instructions_loopLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -806,8 +784,9 @@ function blocksLoopBegin(blocksLoopScheduler, snapshot) {
     currentLoop = blocks;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisBlock of blocks) {
+    blocks.forEach(function() {
       snapshot = blocks.getSnapshot();
+    
       blocksLoopScheduler.add(importConditions(snapshot));
       blocksLoopScheduler.add(readyRoutineBegin(snapshot));
       blocksLoopScheduler.add(readyRoutineEachFrame());
@@ -817,7 +796,7 @@ function blocksLoopBegin(blocksLoopScheduler, snapshot) {
       blocksLoopScheduler.add(trialsLoopScheduler);
       blocksLoopScheduler.add(trialsLoopEnd);
       blocksLoopScheduler.add(blocksLoopEndIteration(blocksLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -841,8 +820,9 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
     currentLoop = trials;  // we're now the current loop
     
     // Schedule all the trials in the trialList:
-    for (const thisTrial of trials) {
+    trials.forEach(function() {
       snapshot = trials.getSnapshot();
+    
       trialsLoopScheduler.add(importConditions(snapshot));
       trialsLoopScheduler.add(trialRoutineBegin(snapshot));
       trialsLoopScheduler.add(trialRoutineEachFrame());
@@ -851,7 +831,7 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
       trialsLoopScheduler.add(transitionRoutineEachFrame());
       trialsLoopScheduler.add(transitionRoutineEnd(snapshot));
       trialsLoopScheduler.add(trialsLoopEndIteration(trialsLoopScheduler, snapshot));
-    }
+    });
     
     return Scheduler.Event.NEXT;
   }
@@ -975,9 +955,10 @@ function welcomeRoutineBegin(snapshot) {
     welcomeComponents.push(mosaique);
     welcomeComponents.push(logo);
     
-    for (const thisComponent of welcomeComponents)
+    welcomeComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1055,11 +1036,11 @@ function welcomeRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of welcomeComponents)
+    welcomeComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1074,11 +1055,11 @@ function welcomeRoutineEachFrame() {
 function welcomeRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'welcome' ---
-    for (const thisComponent of welcomeComponents) {
+    welcomeComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     welcome_end.stop();
     // the Routine "welcome" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1114,9 +1095,10 @@ function instructionsRoutineBegin(snapshot) {
     instructionsComponents.push(instructions_end);
     instructionsComponents.push(mosaique_2);
     
-    for (const thisComponent of instructionsComponents)
+    instructionsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1184,11 +1166,11 @@ function instructionsRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of instructionsComponents)
+    instructionsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1203,11 +1185,11 @@ function instructionsRoutineEachFrame() {
 function instructionsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'instructions' ---
-    for (const thisComponent of instructionsComponents) {
+    instructionsComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     instructions_end.stop();
     // the Routine "instructions" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1243,9 +1225,10 @@ function wordsRoutineBegin(snapshot) {
     wordsComponents.push(mosaique_3);
     wordsComponents.push(Mots);
     
-    for (const thisComponent of wordsComponents)
+    wordsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1323,11 +1306,11 @@ function wordsRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of wordsComponents)
+    wordsComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1342,11 +1325,11 @@ function wordsRoutineEachFrame() {
 function wordsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'words' ---
-    for (const thisComponent of wordsComponents) {
+    wordsComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     words_end.stop();
     // the Routine "words" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1483,9 +1466,10 @@ function readyRoutineBegin(snapshot) {
     readyComponents.push(bot_leftcat_2);
     readyComponents.push(top_leftcat_2);
     
-    for (const thisComponent of readyComponents)
+    readyComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1603,11 +1587,11 @@ function readyRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of readyComponents)
+    readyComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1622,11 +1606,11 @@ function readyRoutineEachFrame() {
 function readyRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'ready' ---
-    for (const thisComponent of readyComponents) {
+    readyComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('ready.stopped', globalClock.getTime());
     // Run 'End Routine' code from text_color_2
     top_leftw = "";
@@ -1760,10 +1744,10 @@ function trialRoutineBegin(snapshot) {
     rightw = '"I" = else'
     rightw_color = 'black'*/
     if (_pj.in_es6(stimWord, liste_mots_genre)) {
-        text_stim_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        text_stim_color = "green";
     } else {
         if (_pj.in_es6(stimWord, liste_mots_sciences)) {
-            text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            text_stim_color = "black";
         }
     }
     
@@ -1801,9 +1785,10 @@ function trialRoutineBegin(snapshot) {
     trialComponents.push(bot_leftcat);
     trialComponents.push(top_leftcat);
     
-    for (const thisComponent of trialComponents)
+    trialComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -1967,11 +1952,11 @@ function trialRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of trialComponents)
+    trialComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -1986,11 +1971,11 @@ function trialRoutineEachFrame() {
 function trialRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'trial' ---
-    for (const thisComponent of trialComponents) {
+    trialComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('trial.stopped', globalClock.getTime());
     // Run 'End Routine' code from text_color
     top_leftw = "";
@@ -2128,9 +2113,10 @@ function transitionRoutineBegin(snapshot) {
     transitionComponents = [];
     transitionComponents.push(cross);
     
-    for (const thisComponent of transitionComponents)
+    transitionComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2169,11 +2155,11 @@ function transitionRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of transitionComponents)
+    transitionComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine && routineTimer.getTime() > 0) {
@@ -2188,11 +2174,11 @@ function transitionRoutineEachFrame() {
 function transitionRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'transition' ---
-    for (const thisComponent of transitionComponents) {
+    transitionComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('transition.stopped', globalClock.getTime());
     // Routines running outside a loop should always advance the datafile row
     if (currentLoop === psychoJS.experiment) {
@@ -2205,30 +2191,6 @@ function transitionRoutineEnd(snapshot) {
 
 var score_msg;
 var err_msg;
-var feedback_msg;
-var mean_rt_block3;
-var mean_rt_block4;
-var mean_rt_block6;
-var mean_rt_block7;
-var std_rt_block3;
-var std_rt_block4;
-var std_rt_block6;
-var std_rt_block7;
-var pooled_std36;
-var pooled_std47;
-var new_value3;
-var new_value4;
-var new_value6;
-var new_value7;
-var fblock3;
-var fblock4;
-var fblock6;
-var fblock7;
-var mb3;
-var mb4;
-var mb6;
-var mb7;
-var iat_score;
 var _end_score_allKeys;
 var scoreComponents;
 function scoreRoutineBegin(snapshot) {
@@ -2244,32 +2206,31 @@ function scoreRoutineBegin(snapshot) {
     psychoJS.experiment.addData('score.started', globalClock.getTime());
     // Run 'Begin Routine' code from score
     // Initialisation des variables pour JS
-    score_msg = "";
-    err_msg = "";
-    feedback_msg ="";
-    mean_rt_block3 = 0;
-    mean_rt_block4 = 0;
-    mean_rt_block6 = 0;
-    mean_rt_block7 = 0;
-    std_rt_block3 = 0;
-    std_rt_block4 = 0;
-    std_rt_block6 = 0;
-    std_rt_block7 = 0;
-    pooled_std36 = 0;
-    pooled_std47 = 0;
-    new_value3 = 0;
-    new_value4 = 0;
-    new_value6 = 0;
-    new_value7 = 0;
-    fblock3 = [];
-    fblock4 = [];
-    fblock6 = [];
-    fblock7 = [];
-    mb3 = 0;
-    mb4 = 0;
-    mb6 = 0;
-    mb7 = 0;
-    iat_score = 0;
+    let score_msg = "";
+    let err_msg = "";
+    let mean_rt_block3 = 0;
+    let mean_rt_block4 = 0;
+    let mean_rt_block6 = 0;
+    let mean_rt_block7 = 0;
+    let std_rt_block3 = 0;
+    let std_rt_block4 = 0;
+    let std_rt_block6 = 0;
+    let std_rt_block7 = 0;
+    let pooled_std36 = 0;
+    let pooled_std47 = 0;
+    let new_value3 = 0;
+    let new_value4 = 0;
+    let new_value6 = 0;
+    let new_value7 = 0;
+    let fblock3 = [];
+    let fblock4 = [];
+    let fblock6 = [];
+    let fblock7 = [];
+    let mb3 = 0;
+    let mb4 = 0;
+    let mb6 = 0;
+    let mb7 = 0;
+    let iat_score = 0;
     
     // Fonctions utilitaires
     function moyenne(liste) {
@@ -2351,16 +2312,6 @@ function scoreRoutineBegin(snapshot) {
             iat_score = 0;
         }
         score_msg = "Votre score à l'IAT est de " + iat_score.toFixed(5);
-        if (0 <= iat_score && iat_score <= 0.5) {
-        feedback_msg = "Un score positif inférieur à 0.5 traduit des associations stéréotypiques entre masculin et science et féminin et lettres.";
-        } else if (-0.5 <= iat_score && iat_score < 0) {
-        feedback_msg = "Un score négatif supérieur à -0.5 traduit des associations contre-stéréotypiques entre féminin et science et masculin et lettres.";
-        } else if (iat_score < -0.5) {
-        feedback_msg = "Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et science et masculin et lettres.";
-        } else if (iat_score > 0.5) {
-        feedback_msg = "Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et science et féminin et lettres.";
-        }
-    
     }
     
     score_feedback.setText(score_msg);
@@ -2375,11 +2326,11 @@ function scoreRoutineBegin(snapshot) {
     scoreComponents.push(end_score);
     scoreComponents.push(err_feedback);
     scoreComponents.push(adapted_fb);
-    scoreComponents.push(skip_score);
     
-    for (const thisComponent of scoreComponents)
+    scoreComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2452,16 +2403,6 @@ function scoreRoutineEachFrame() {
       adapted_fb.setAutoDraw(true);
     }
     
-    
-    // *skip_score* updates
-    if (t >= 0.0 && skip_score.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      skip_score.tStart = t;  // (not accounting for frame time here)
-      skip_score.frameNStart = frameN;  // exact frame index
-      
-      skip_score.setAutoDraw(true);
-    }
-    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2473,11 +2414,11 @@ function scoreRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of scoreComponents)
+    scoreComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2492,11 +2433,11 @@ function scoreRoutineEachFrame() {
 function scoreRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'score' ---
-    for (const thisComponent of scoreComponents) {
+    scoreComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('score.stopped', globalClock.getTime());
     end_score.stop();
     // the Routine "score" was not non-slip safe, so reset the non-slip timer
@@ -2511,7 +2452,6 @@ function scoreRoutineEnd(snapshot) {
 }
 
 
-var _end_score_2_allKeys;
 var score2Components;
 function score2RoutineBegin(snapshot) {
   return async function () {
@@ -2524,17 +2464,14 @@ function score2RoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('score2.started', globalClock.getTime());
-    end_score_2.keys = undefined;
-    end_score_2.rt = undefined;
-    _end_score_2_allKeys = [];
     // keep track of which components have finished
     score2Components = [];
     score2Components.push(score_meaning_2);
-    score2Components.push(end_score_2);
     
-    for (const thisComponent of score2Components)
+    score2Components.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2557,36 +2494,6 @@ function score2RoutineEachFrame() {
       score_meaning_2.setAutoDraw(true);
     }
     
-    
-    // *end_score_2* updates
-    if (t >= 0.1 && end_score_2.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      end_score_2.tStart = t;  // (not accounting for frame time here)
-      end_score_2.frameNStart = frameN;  // exact frame index
-      
-      // keyboard checking is just starting
-      end_score_2.clock.reset();
-      end_score_2.start();
-    }
-    
-    if (end_score_2.status === PsychoJS.Status.STARTED) {
-      let theseKeys = end_score_2.getKeys({keyList: ['space'], waitRelease: false});
-      _end_score_2_allKeys = _end_score_2_allKeys.concat(theseKeys);
-      if (_end_score_2_allKeys.length > 0) {
-        end_score_2.keys = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].name;  // just the last key pressed
-        end_score_2.rt = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].rt;
-        end_score_2.duration = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].duration;
-        // was this correct?
-        if (end_score_2.keys == "'space'") {
-            end_score_2.corr = 1;
-        } else {
-            end_score_2.corr = 0;
-        }
-        // a response ends the routine
-        continueRoutine = false;
-      }
-    }
-    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2598,11 +2505,11 @@ function score2RoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of score2Components)
+    score2Components.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2617,13 +2524,12 @@ function score2RoutineEachFrame() {
 function score2RoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'score2' ---
-    for (const thisComponent of score2Components) {
+    score2Components.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('score2.stopped', globalClock.getTime());
-    end_score_2.stop();
     // the Routine "score2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -2658,9 +2564,10 @@ function endRoutineBegin(snapshot) {
     endComponents.push(end_key_resp);
     endComponents.push(mosaique_4);
     
-    for (const thisComponent of endComponents)
+    endComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
         thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
     return Scheduler.Event.NEXT;
   }
 }
@@ -2728,11 +2635,11 @@ function endRoutineEachFrame() {
     }
     
     continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of endComponents)
+    endComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
         continueRoutine = true;
-        break;
       }
+    });
     
     // refresh the screen if continuing
     if (continueRoutine) {
@@ -2747,11 +2654,11 @@ function endRoutineEachFrame() {
 function endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'end' ---
-    for (const thisComponent of endComponents) {
+    endComponents.forEach( function(thisComponent) {
       if (typeof thisComponent.setAutoDraw === 'function') {
         thisComponent.setAutoDraw(false);
       }
-    }
+    });
     psychoJS.experiment.addData('end.stopped', globalClock.getTime());
     end_key_resp.stop();
     // the Routine "end" was not non-slip safe, so reset the non-slip timer

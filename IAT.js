@@ -202,10 +202,8 @@ var score_feedback;
 var end_score;
 var err_feedback;
 var adapted_fb;
-var skip_score;
 var score2Clock;
 var score_meaning_2;
-var end_score_2;
 var endClock;
 var text;
 var end_key_resp;
@@ -345,7 +343,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -357,7 +355,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'top_rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -369,7 +367,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'bot_rightcat_2',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -470,7 +468,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'text_stim',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -496,7 +494,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.4], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -508,7 +506,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'top_rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.43], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -520,7 +518,7 @@ async function experimentInit() {
     win: psychoJS.window,
     name: 'bot_rightcat',
     text: '',
-    font: 'Arial',
+    font: 'black',
     units: undefined, 
     pos: [0.4, 0.37], height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
@@ -618,24 +616,12 @@ async function experimentInit() {
     depth: -4.0 
   });
   
-  skip_score = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'skip_score',
-    text: 'Appuyez sur la barre espace pour terminer le test',
-    font: 'Arial',
-    units: undefined, 
-    pos: [0, (- 0.3)], height: 0.05,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
-    depth: -5.0 
-  });
-  
   // Initialize components for Routine "score2"
   score2Clock = new util.Clock();
   score_meaning_2 = new visual.TextStim({
     win: psychoJS.window,
     name: 'score_meaning_2',
-    text: "Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.\n\nA titre de comparaison :\n- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)\n- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)\n\nPour terminer le test, appuyez sur la barre espace.",
+    text: "Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.\n\n- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)\n- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)\n\nPour terminer le test, appuyez sur la barre espace.",
     font: 'Arial',
     units: undefined, 
     pos: [0, 0], height: 0.05,  wrapWidth: undefined, ori: 0.0,
@@ -643,8 +629,6 @@ async function experimentInit() {
     color: new util.Color([(- 0.349), (- 0.1373), (- 0.0196)]),  opacity: undefined,
     depth: 0.0 
   });
-  
-  end_score_2 = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "end"
   endClock = new util.Clock();
@@ -1760,10 +1744,10 @@ function trialRoutineBegin(snapshot) {
     rightw = '"I" = else'
     rightw_color = 'black'*/
     if (_pj.in_es6(stimWord, liste_mots_genre)) {
-        text_stim_color = [(- 0.4667), (- 0.0745), (- 0.9686)];
+        text_stim_color = "green";
     } else {
         if (_pj.in_es6(stimWord, liste_mots_sciences)) {
-            text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];
+            text_stim_color = "black";
         }
     }
     
@@ -2205,30 +2189,6 @@ function transitionRoutineEnd(snapshot) {
 
 var score_msg;
 var err_msg;
-var feedback_msg;
-var mean_rt_block3;
-var mean_rt_block4;
-var mean_rt_block6;
-var mean_rt_block7;
-var std_rt_block3;
-var std_rt_block4;
-var std_rt_block6;
-var std_rt_block7;
-var pooled_std36;
-var pooled_std47;
-var new_value3;
-var new_value4;
-var new_value6;
-var new_value7;
-var fblock3;
-var fblock4;
-var fblock6;
-var fblock7;
-var mb3;
-var mb4;
-var mb6;
-var mb7;
-var iat_score;
 var _end_score_allKeys;
 var scoreComponents;
 function scoreRoutineBegin(snapshot) {
@@ -2244,32 +2204,31 @@ function scoreRoutineBegin(snapshot) {
     psychoJS.experiment.addData('score.started', globalClock.getTime());
     // Run 'Begin Routine' code from score
     // Initialisation des variables pour JS
-    score_msg = "";
-    err_msg = "";
-    feedback_msg ="";
-    mean_rt_block3 = 0;
-    mean_rt_block4 = 0;
-    mean_rt_block6 = 0;
-    mean_rt_block7 = 0;
-    std_rt_block3 = 0;
-    std_rt_block4 = 0;
-    std_rt_block6 = 0;
-    std_rt_block7 = 0;
-    pooled_std36 = 0;
-    pooled_std47 = 0;
-    new_value3 = 0;
-    new_value4 = 0;
-    new_value6 = 0;
-    new_value7 = 0;
-    fblock3 = [];
-    fblock4 = [];
-    fblock6 = [];
-    fblock7 = [];
-    mb3 = 0;
-    mb4 = 0;
-    mb6 = 0;
-    mb7 = 0;
-    iat_score = 0;
+    let score_msg = "";
+    let err_msg = "";
+    let mean_rt_block3 = 0;
+    let mean_rt_block4 = 0;
+    let mean_rt_block6 = 0;
+    let mean_rt_block7 = 0;
+    let std_rt_block3 = 0;
+    let std_rt_block4 = 0;
+    let std_rt_block6 = 0;
+    let std_rt_block7 = 0;
+    let pooled_std36 = 0;
+    let pooled_std47 = 0;
+    let new_value3 = 0;
+    let new_value4 = 0;
+    let new_value6 = 0;
+    let new_value7 = 0;
+    let fblock3 = [];
+    let fblock4 = [];
+    let fblock6 = [];
+    let fblock7 = [];
+    let mb3 = 0;
+    let mb4 = 0;
+    let mb6 = 0;
+    let mb7 = 0;
+    let iat_score = 0;
     
     // Fonctions utilitaires
     function moyenne(liste) {
@@ -2351,16 +2310,6 @@ function scoreRoutineBegin(snapshot) {
             iat_score = 0;
         }
         score_msg = "Votre score à l'IAT est de " + iat_score.toFixed(5);
-        if (0 <= iat_score && iat_score <= 0.5) {
-        feedback_msg = "Un score positif inférieur à 0.5 traduit des associations stéréotypiques entre masculin et science et féminin et lettres.";
-        } else if (-0.5 <= iat_score && iat_score < 0) {
-        feedback_msg = "Un score négatif supérieur à -0.5 traduit des associations contre-stéréotypiques entre féminin et science et masculin et lettres.";
-        } else if (iat_score < -0.5) {
-        feedback_msg = "Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et science et masculin et lettres.";
-        } else if (iat_score > 0.5) {
-        feedback_msg = "Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et science et féminin et lettres.";
-        }
-    
     }
     
     score_feedback.setText(score_msg);
@@ -2375,7 +2324,6 @@ function scoreRoutineBegin(snapshot) {
     scoreComponents.push(end_score);
     scoreComponents.push(err_feedback);
     scoreComponents.push(adapted_fb);
-    scoreComponents.push(skip_score);
     
     for (const thisComponent of scoreComponents)
       if ('status' in thisComponent)
@@ -2452,16 +2400,6 @@ function scoreRoutineEachFrame() {
       adapted_fb.setAutoDraw(true);
     }
     
-    
-    // *skip_score* updates
-    if (t >= 0.0 && skip_score.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      skip_score.tStart = t;  // (not accounting for frame time here)
-      skip_score.frameNStart = frameN;  // exact frame index
-      
-      skip_score.setAutoDraw(true);
-    }
-    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2511,7 +2449,6 @@ function scoreRoutineEnd(snapshot) {
 }
 
 
-var _end_score_2_allKeys;
 var score2Components;
 function score2RoutineBegin(snapshot) {
   return async function () {
@@ -2524,13 +2461,9 @@ function score2RoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     psychoJS.experiment.addData('score2.started', globalClock.getTime());
-    end_score_2.keys = undefined;
-    end_score_2.rt = undefined;
-    _end_score_2_allKeys = [];
     // keep track of which components have finished
     score2Components = [];
     score2Components.push(score_meaning_2);
-    score2Components.push(end_score_2);
     
     for (const thisComponent of score2Components)
       if ('status' in thisComponent)
@@ -2555,36 +2488,6 @@ function score2RoutineEachFrame() {
       score_meaning_2.frameNStart = frameN;  // exact frame index
       
       score_meaning_2.setAutoDraw(true);
-    }
-    
-    
-    // *end_score_2* updates
-    if (t >= 0.1 && end_score_2.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      end_score_2.tStart = t;  // (not accounting for frame time here)
-      end_score_2.frameNStart = frameN;  // exact frame index
-      
-      // keyboard checking is just starting
-      end_score_2.clock.reset();
-      end_score_2.start();
-    }
-    
-    if (end_score_2.status === PsychoJS.Status.STARTED) {
-      let theseKeys = end_score_2.getKeys({keyList: ['space'], waitRelease: false});
-      _end_score_2_allKeys = _end_score_2_allKeys.concat(theseKeys);
-      if (_end_score_2_allKeys.length > 0) {
-        end_score_2.keys = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].name;  // just the last key pressed
-        end_score_2.rt = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].rt;
-        end_score_2.duration = _end_score_2_allKeys[_end_score_2_allKeys.length - 1].duration;
-        // was this correct?
-        if (end_score_2.keys == "'space'") {
-            end_score_2.corr = 1;
-        } else {
-            end_score_2.corr = 0;
-        }
-        // a response ends the routine
-        continueRoutine = false;
-      }
     }
     
     // check for quit (typically the Esc key)
@@ -2623,7 +2526,6 @@ function score2RoutineEnd(snapshot) {
       }
     }
     psychoJS.experiment.addData('score2.stopped', globalClock.getTime());
-    end_score_2.stop();
     // the Routine "score2" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     

@@ -32,7 +32,7 @@
     <Param val="avg" valType="str" updates="None" name="blendMode"/>
     <Param val="float" valType="str" updates="None" name="clockFormat"/>
     <Param val="{'thisRow.t': 'priority.CRITICAL', 'expName': 'priority.LOW'}" valType="dict" updates="None" name="colPriority"/>
-    <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+    <Param val="0.9500, 0.9500, 0.9100" valType="color" updates="None" name="color"/>
     <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
     <Param val="100.1.1.1" valType="str" updates="None" name="elAddress"/>
     <Param val="FILTER_LEVEL_2" valType="str" updates="None" name="elDataFiltering"/>
@@ -95,7 +95,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <TextComponent name="welcome_text" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -115,7 +115,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Bienvenue dans ce Test d'Associations Implicites. &amp;#10;&amp;#10;Pour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.&amp;#10;&amp;#10;Appuyez sur la barre espace pour passer à l'étape suivante." valType="str" updates="constant" name="text"/>
+        <Param val="Bienvenue dans ce Test d'Associations Implicites Sciences et Genre. &amp;#10;&amp;#10;Pour effectuer ce test, vous n'aurez besoin que de votre clavier. Il durera environ 5 minutes. Vous pouvez quitter le test à tout moment en appuyant sur la touche échap de votre clavier.&amp;#10;&amp;#10;Appuyez sur la barre espace pour passer à l'étape suivante." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -140,6 +140,62 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <ImageComponent name="mosaique" plugin="None">
+        <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/mosaiques2.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="mosaique" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-1, -1)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="norm" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
+      <ImageComponent name="logo" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/logoSENSE_S4.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="logo" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(0.1803*2, 0.0669*2)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
     </Routine>
     <Routine name="instructions">
       <RoutineSettingsComponent name="instructions" plugin="None">
@@ -158,7 +214,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <TextComponent name="instructions_text" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -203,6 +259,34 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <ImageComponent name="mosaique_2" plugin="None">
+        <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/mosaiques2.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="mosaique_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-1, -1)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="norm" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
     </Routine>
     <Routine name="words">
       <RoutineSettingsComponent name="words" plugin="None">
@@ -221,7 +305,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <TextComponent name="all_words" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -234,14 +318,14 @@
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
-        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Voici les catégories et les mots associés utilisés lors de ce test : &amp;#10;Féminin : Demoiselle, Femme, Tante, Fille, Féminin&amp;#10;&amp;#10;Masculin : Garçon, Homme, Oncle, Fils, Masculin&amp;#10;&amp;#10;Sciences : Biologie, Physique, Chimie, Mathématiques, Informatique&amp;#10;&amp;#10;Lettres : Philosophie, Humanités, Arts, Littérature, Latin&amp;#10;&amp;#10;Appuyez sur la barre espace pour passer à l'étape suivante." valType="str" updates="constant" name="text"/>
+        <Param val="Voici les catégories et les mots associés utilisés lors de ce test : &amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;&amp;#10;Appuyez sur la barre espace pour passer à l'étape suivante." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -266,6 +350,62 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <ImageComponent name="mosaique_3" plugin="None">
+        <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/mosaiques2.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="mosaique_3" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-1, -1)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="norm" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
+      <ImageComponent name="Mots" plugin="None">
+        <Param val="center" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/Mots.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="Mots" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="(1.386*0.93, 0.267*0.93)" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
     </Routine>
     <Routine name="ready">
       <RoutineSettingsComponent name="ready" plugin="None">
@@ -283,8 +423,25 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
+      <CodeComponent name="text_color_2" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="top_leftw = ''&amp;#10;top_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_leftw = ''&amp;#10;bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;leftw = ''&amp;#10;leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;rightw = ''&amp;#10;rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;top_rightw = ''&amp;#10;top_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_rightw = ''&amp;#10;bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="top_leftw = &quot;&quot;;&amp;#10;top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_leftw = &quot;&quot;;&amp;#10;bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;leftw = &quot;&quot;;&amp;#10;leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;rightw = &quot;&quot;;&amp;#10;rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;top_rightw = &quot;&quot;;&amp;#10;top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_rightw = &quot;&quot;;&amp;#10;bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;if (_pj.in_es6(&quot;\&quot;E\&quot; = Sciences&quot;, label_left)) {&amp;#10;    leftw = &quot;\&quot;E\&quot; = Sciences&quot;;&amp;#10;    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;} else {&amp;#10;    if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin  &quot;, label_left)) {&amp;#10;        leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;        leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin ou Sciences&quot;, label_left)) {&amp;#10;            top_leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;            top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;            bot_leftw = &quot;ou Sciences&quot;;&amp;#10;            bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;        } else {&amp;#10;            if (_pj.in_es6(&quot;\&quot;E\&quot; = Lettres&quot;, label_left)) {&amp;#10;                leftw = &quot;\&quot;E\&quot; = Lettres&quot;;&amp;#10;                leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;            } else {&amp;#10;                if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin ou Lettres&quot;, label_left)) {&amp;#10;                    top_leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;                    top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_leftw = &quot;ou Lettres&quot;;&amp;#10;                    bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                } else {&amp;#10;                    top_leftw = &quot;\&quot;E\&quot; = elsem&quot;;&amp;#10;                    top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_leftw = &quot;ou else&quot;;&amp;#10;                    bot_leftw_color = &quot;black&quot;;&amp;#10;                    leftw = &quot;\&quot;E\&quot; = else&quot;;&amp;#10;                    leftw_color = &quot;black&quot;;&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;\&quot;I\&quot; = Lettres&quot;, label_right)) {&amp;#10;    rightw = &quot;\&quot;I\&quot; = Lettres&quot;;&amp;#10;    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;} else {&amp;#10;    if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin  &quot;, label_right)) {&amp;#10;        rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;        rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin ou Lettres&quot;, label_right)) {&amp;#10;            top_rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;            top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;            bot_rightw = &quot;ou Lettres&quot;;&amp;#10;            bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;        } else {&amp;#10;            if (_pj.in_es6(&quot;\&quot;I\&quot; = Sciences&quot;, label_right)) {&amp;#10;                rightw = &quot;\&quot;I\&quot; = Sciences&quot;;&amp;#10;                rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;            } else {&amp;#10;                if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin ou Sciences&quot;, label_right)) {&amp;#10;                    top_rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;                    top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_rightw = &quot;ou Sciences&quot;;&amp;#10;                    bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="#check couleur mots de gauche&amp;#10;if '&quot;E&quot; = Sciences' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Sciences'&amp;#10;    leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Masculin  ' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Masculin'&amp;#10;    leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;elif '&quot;E&quot; = Masculin ou Sciences'  in label_left:&amp;#10;    top_leftw = '&quot;E&quot; = Masculin'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou Sciences'&amp;#10;    bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Lettres' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Lettres'&amp;#10;    leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Masculin ou Lettres' in label_left:&amp;#10;    top_leftw = '&quot;E&quot; = Masculin'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou Lettres'&amp;#10;    bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;else:&amp;#10;    top_leftw = '&quot;E&quot; = elsem'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou else'&amp;#10;    bot_leftw_color = 'black'&amp;#10;    leftw = '&quot;E&quot; = else'&amp;#10;    leftw_color = 'black'&amp;#10;&amp;#10;#check couleur mots de droite&amp;#10;if '&quot;I&quot; = Lettres' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Lettres'&amp;#10;    rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Féminin  ' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Féminin'&amp;#10;    rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;elif '&quot;I&quot; = Féminin ou Lettres' in label_right:&amp;#10;    top_rightw = '&quot;I&quot; = Féminin'&amp;#10;    top_rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_rightw = 'ou Lettres'&amp;#10;    bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Sciences' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Sciences'&amp;#10;    rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Féminin ou Sciences' in label_right:&amp;#10;    top_rightw = '&quot;I&quot; = Féminin'&amp;#10;    top_rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_rightw = 'ou Sciences'&amp;#10;    bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="top_leftw = &quot;&quot;;&amp;#10;top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_leftw = &quot;&quot;;&amp;#10;bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;leftw = &quot;&quot;;&amp;#10;leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;rightw = &quot;&quot;;&amp;#10;rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;top_rightw = &quot;&quot;;&amp;#10;top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_rightw = &quot;&quot;;&amp;#10;bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="top_leftw = ''&amp;#10;top_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_leftw = ''&amp;#10;bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;leftw = ''&amp;#10;leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;rightw = ''&amp;#10;rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;top_rightw = ''&amp;#10;top_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_rightw = ''&amp;#10;bot_rightw_color = [-0.9137, -0.7490, -0.6941]" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="text_color_2" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <TextComponent name="ready_text" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -329,8 +486,8 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
-      <TextComponent name="ready_cat_left" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+      <TextComponent name="rightcat_2" plugin="None">
+        <Param val="$rightw_color" valType="color" updates="set every repeat" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -339,44 +496,148 @@
         <Param val="Arial" valType="str" updates="constant" name="font"/>
         <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
         <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="ready_cat_left" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(-0.4, 0.4)" valType="list" updates="constant" name="pos"/>
-        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$label_left" valType="str" updates="set every repeat" name="text"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <TextComponent name="ready_cat_right" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="ready_cat_right" valType="code" updates="None" name="name"/>
+        <Param val="rightcat_2" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0.4, 0.4)" valType="list" updates="constant" name="pos"/>
         <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$label_right" valType="str" updates="set every repeat" name="text"/>
+        <Param val="$rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="top_rightcat_2" plugin="None">
+        <Param val="$top_rightw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="top_rightcat_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0.4, 0.43)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$top_rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="bot_rightcat_2" plugin="None">
+        <Param val="$bot_rightw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="bot_rightcat_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0.4, 0.37)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$bot_rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="leftcat_2" plugin="None">
+        <Param val="$leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="leftcat_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$leftw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="bot_leftcat_2" plugin="None">
+        <Param val="$bot_leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="bot_leftcat_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.37)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$bot_leftw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="top_leftcat_2" plugin="None">
+        <Param val="$top_leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="top_leftcat_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.43)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$top_leftw" valType="str" updates="set every repeat" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -398,6 +659,23 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
+      <CodeComponent name="text_color" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="top_leftw = ''&amp;#10;top_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_leftw = ''&amp;#10;bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;leftw = ''&amp;#10;leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;rightw = ''&amp;#10;rightcat_color = [-0.9137, -0.7490, -0.6941]&amp;#10;top_rightw = ''&amp;#10;top_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_rightw = ''&amp;#10;bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;text_stim_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;liste_mots_genre = [&amp;#10;    &quot;Demoiselle&quot;, &quot;Garçon&quot;, &quot;Femme&quot;, &quot;Homme&quot;, &amp;#10;    &quot;Tante&quot;, &quot;Oncle&quot;, &quot;Fille&quot;, &quot;Fils&quot;, &amp;#10;    &quot;Féminin&quot;, &quot;Masculin&quot;&amp;#10;]&amp;#10;&amp;#10;liste_mots_sciences = [&amp;#10;    &quot;Biologie&quot;, &quot;Philosophie&quot;, &quot;Physique&quot;, &amp;#10;    &quot;Humanités&quot;, &quot;Chimie&quot;, &quot;Arts&quot;, &amp;#10;    &quot;Mathématiques&quot;, &quot;Littérature&quot;, &amp;#10;    &quot;Informatique&quot;, &quot;Latin&quot;&amp;#10;]" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="top_leftw = &quot;&quot;;&amp;#10;top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_leftw = &quot;&quot;;&amp;#10;bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;leftw = &quot;&quot;;&amp;#10;leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;rightw = &quot;&quot;;&amp;#10;rightcat_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;top_rightw = &quot;&quot;;&amp;#10;top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_rightw = &quot;&quot;;&amp;#10;bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;liste_mots_genre = [&quot;Demoiselle&quot;, &quot;Gar\u00e7on&quot;, &quot;Femme&quot;, &quot;Homme&quot;, &quot;Tante&quot;, &quot;Oncle&quot;, &quot;Fille&quot;, &quot;Fils&quot;, &quot;F\u00e9minin&quot;, &quot;Masculin&quot;];&amp;#10;liste_mots_sciences = [&quot;Biologie&quot;, &quot;Philosophie&quot;, &quot;Physique&quot;, &quot;Humanit\u00e9s&quot;, &quot;Chimie&quot;, &quot;Arts&quot;, &quot;Math\u00e9matiques&quot;, &quot;Litt\u00e9rature&quot;, &quot;Informatique&quot;, &quot;Latin&quot;];&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="var _pj;&amp;#10;function _pj_snippets(container) {&amp;#10;    function in_es6(left, right) {&amp;#10;        if (((right instanceof Array) || ((typeof right) === &quot;string&quot;))) {&amp;#10;            return (right.indexOf(left) &gt; (- 1));&amp;#10;        } else {&amp;#10;            if (((right instanceof Map) || (right instanceof Set) || (right instanceof WeakMap) || (right instanceof WeakSet))) {&amp;#10;                return right.has(left);&amp;#10;            } else {&amp;#10;                return (left in right);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;    container[&quot;in_es6&quot;] = in_es6;&amp;#10;    return container;&amp;#10;}&amp;#10;_pj = {};&amp;#10;_pj_snippets(_pj);&amp;#10;if (_pj.in_es6(&quot;\&quot;E\&quot; = Sciences&quot;, label_left)) {&amp;#10;    leftw = &quot;\&quot;E\&quot; = Sciences&quot;;&amp;#10;    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;} else {&amp;#10;    if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin  &quot;, label_left)) {&amp;#10;        leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;        leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin ou Sciences&quot;, label_left)) {&amp;#10;            top_leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;            top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;            bot_leftw = &quot;ou Sciences&quot;;&amp;#10;            bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;        } else {&amp;#10;            if (_pj.in_es6(&quot;\&quot;E\&quot; = Lettres&quot;, label_left)) {&amp;#10;                leftw = &quot;\&quot;E\&quot; = Lettres&quot;;&amp;#10;                leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;            } else {&amp;#10;                if (_pj.in_es6(&quot;\&quot;E\&quot; = Masculin ou Lettres&quot;, label_left)) {&amp;#10;                    top_leftw = &quot;\&quot;E\&quot; = Masculin&quot;;&amp;#10;                    top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_leftw = &quot;ou Lettres&quot;;&amp;#10;                    bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                } else {&amp;#10;                    top_leftw = &quot;\&quot;E\&quot; = elsem&quot;;&amp;#10;                    top_leftw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_leftw = &quot;ou else&quot;;&amp;#10;                    bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                    leftw = &quot;\&quot;E\&quot; = else&quot;;&amp;#10;                    leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;if (_pj.in_es6(&quot;\&quot;I\&quot; = Lettres&quot;, label_right)) {&amp;#10;    rightw = &quot;\&quot;I\&quot; = Lettres&quot;;&amp;#10;    rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;} else {&amp;#10;    if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin  &quot;, label_right)) {&amp;#10;        rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;        rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;    } else {&amp;#10;        if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin ou Lettres&quot;, label_right)) {&amp;#10;            top_rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;            top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;            bot_rightw = &quot;ou Lettres&quot;;&amp;#10;            bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;        } else {&amp;#10;            if (_pj.in_es6(&quot;\&quot;I\&quot; = Sciences&quot;, label_right)) {&amp;#10;                rightw = &quot;\&quot;I\&quot; = Sciences&quot;;&amp;#10;                rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;            } else {&amp;#10;                if (_pj.in_es6(&quot;\&quot;I\&quot; = F\u00e9minin ou Sciences&quot;, label_right)) {&amp;#10;                    top_rightw = &quot;\&quot;I\&quot; = F\u00e9minin&quot;;&amp;#10;                    top_rightw_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;                    bot_rightw = &quot;ou Sciences&quot;;&amp;#10;                    bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;                }&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;/*&amp;#10;else:&amp;#10;top_rightw = '&quot;I&quot; = elsef'&amp;#10;top_rightw_color = 'green' [-0.4667, -0.0745, -0.9686]&amp;#10;bot_rightw = 'ou else'&amp;#10;bot_rightw_color = 'black'&amp;#10;rightw = '&quot;I&quot; = else'&amp;#10;rightw_color = 'black'*/&amp;#10;if (_pj.in_es6(stimWord, liste_mots_genre)) {&amp;#10;    text_stim_color = [(- 0.4667), (- 0.0745), (- 0.9686)];&amp;#10;} else {&amp;#10;    if (_pj.in_es6(stimWord, liste_mots_sciences)) {&amp;#10;        text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="#check couleur mots de gauche&amp;#10;if '&quot;E&quot; = Sciences' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Sciences'&amp;#10;    leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Masculin  ' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Masculin'&amp;#10;    leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;elif '&quot;E&quot; = Masculin ou Sciences'  in label_left:&amp;#10;    top_leftw = '&quot;E&quot; = Masculin'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou Sciences'&amp;#10;    bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Lettres' in label_left:&amp;#10;    leftw = '&quot;E&quot; = Lettres'&amp;#10;    leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;E&quot; = Masculin ou Lettres' in label_left:&amp;#10;    top_leftw = '&quot;E&quot; = Masculin'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou Lettres'&amp;#10;    bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;else:&amp;#10;    top_leftw = '&quot;E&quot; = elsem'&amp;#10;    top_leftw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_leftw = 'ou else'&amp;#10;    bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;    leftw = '&quot;E&quot; = else'&amp;#10;    leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;#check couleur mots de droite&amp;#10;if '&quot;I&quot; = Lettres' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Lettres'&amp;#10;    rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Féminin  ' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Féminin'&amp;#10;    rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;elif '&quot;I&quot; = Féminin ou Lettres' in label_right:&amp;#10;    top_rightw = '&quot;I&quot; = Féminin'&amp;#10;    top_rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_rightw = 'ou Lettres'&amp;#10;    bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Sciences' in label_right:&amp;#10;    rightw = '&quot;I&quot; = Sciences'&amp;#10;    rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;elif '&quot;I&quot; = Féminin ou Sciences' in label_right:&amp;#10;    top_rightw = '&quot;I&quot; = Féminin'&amp;#10;    top_rightw_color = [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_rightw = 'ou Sciences'&amp;#10;    bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;'''&amp;#10;else:&amp;#10;    top_rightw = '&quot;I&quot; = elsef'&amp;#10;    top_rightw_color = 'green' [-0.4667, -0.0745, -0.9686]&amp;#10;    bot_rightw = 'ou else'&amp;#10;    bot_rightw_color = 'black'&amp;#10;    rightw = '&quot;I&quot; = else'&amp;#10;    rightw_color = 'black'&amp;#10;'''&amp;#10;&amp;#10;#check couleur stimulus&amp;#10;if stimWord in liste_mots_genre:&amp;#10;    text_stim_color = [-0.4667, -0.0745, -0.9686]&amp;#10;elif stimWord in liste_mots_sciences:&amp;#10;    text_stim_color = [-0.9137, -0.7490, -0.6941]" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="top_leftw = &quot;&quot;;&amp;#10;top_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_leftw = &quot;&quot;;&amp;#10;bot_leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;leftw = &quot;&quot;;&amp;#10;leftw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;rightw = &quot;&quot;;&amp;#10;rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;top_rightw = &quot;&quot;;&amp;#10;top_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;bot_rightw = &quot;&quot;;&amp;#10;bot_rightw_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;text_stim_color = [(- 0.9137), (- 0.749), (- 0.6941)];&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="top_leftw = ''&amp;#10;top_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_leftw = ''&amp;#10;bot_leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;leftw = ''&amp;#10;leftw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;&amp;#10;rightw = ''&amp;#10;rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;top_rightw = ''&amp;#10;top_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;bot_rightw = ''&amp;#10;bot_rightw_color = [-0.9137, -0.7490, -0.6941]&amp;#10;text_stim_color = [-0.9137, -0.7490, -0.6941]" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="text_color" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <CodeComponent name="check_corr" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
@@ -418,8 +696,8 @@
       <CodeComponent name="compute_score" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
-        <Param val="rt_block3 = []&amp;#10;err_block3 = 0 &amp;#10;rt_block5 = []&amp;#10;err_block5 = 0&amp;#10;fast_responses = 0&amp;#10;slow_responses = 0&amp;#10;total_responses = 0&amp;#10;num_errors = 0" valType="extendedCode" updates="constant" name="Begin Experiment"/>
-        <Param val="rt_block3 = [];&amp;#10;err_block3 = 0;&amp;#10;rt_block5 = [];&amp;#10;err_block5 = 0;&amp;#10;fast_responses = 0;&amp;#10;slow_responses = 0;&amp;#10;total_responses = 0;&amp;#10;num_errors = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="rt_block3 = []&amp;#10;corr_rt_block3 = []&amp;#10;incorr_rt_block3 = []&amp;#10;err_block3 = 0 &amp;#10;&amp;#10;rt_block4 = []&amp;#10;corr_rt_block4 = []&amp;#10;incorr_rt_block4 = []&amp;#10;err_block4 = 0&amp;#10;&amp;#10;rt_block6 = []&amp;#10;corr_rt_block6 = []&amp;#10;incorr_rt_block6 = []&amp;#10;err_block6 = 0&amp;#10;&amp;#10;rt_block7 = []&amp;#10;corr_rt_block7 = []&amp;#10;incorr_rt_block7 = []&amp;#10;err_block7 = 0&amp;#10;&amp;#10;fast_responses = 0&amp;#10;slow_responses = 0&amp;#10;total_responses = 0&amp;#10;num_errors = 0" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="rt_block3 = [];&amp;#10;corr_rt_block3 = [];&amp;#10;incorr_rt_block3 = [];&amp;#10;err_block3 = 0;&amp;#10;rt_block4 = [];&amp;#10;corr_rt_block4 = [];&amp;#10;incorr_rt_block4 = [];&amp;#10;err_block4 = 0;&amp;#10;rt_block6 = [];&amp;#10;corr_rt_block6 = [];&amp;#10;incorr_rt_block6 = [];&amp;#10;err_block6 = 0;&amp;#10;rt_block7 = [];&amp;#10;corr_rt_block7 = [];&amp;#10;incorr_rt_block7 = [];&amp;#10;err_block7 = 0;&amp;#10;fast_responses = 0;&amp;#10;slow_responses = 0;&amp;#10;total_responses = 0;&amp;#10;num_errors = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
@@ -427,13 +705,13 @@
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
-        <Param val="if ((conds_file === &quot;cong_test.xlsx&quot;)) {&amp;#10;    if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;        rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        if ((keyboard_resp.rt.slice((- 1))[0] &lt; 0.3)) {&amp;#10;            fast_responses = (fast_responses + 1);&amp;#10;        }&amp;#10;        if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;            err_block3 = (err_block3 + 1);&amp;#10;        }&amp;#10;    }&amp;#10;} else {&amp;#10;    if ((conds_file === &quot;incong_test.xlsx&quot;)) {&amp;#10;        if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;            rt_block5.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;            if ((keyboard_resp.rt.slice((- 1))[0] &lt; 0.3)) {&amp;#10;                fast_responses = (fast_responses + 1);&amp;#10;            }&amp;#10;            if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;                err_block5 = (err_block5 + 1);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;if (((keyboard_resp.keys[0] !== CorrAns) &amp;&amp; keyboard_resp.keys)) {&amp;#10;    num_errors = (num_errors + 1);&amp;#10;}&amp;#10;if (((keyboard_resp.rt.slice((- 1))[0] &gt; 3) &amp;&amp; keyboard_resp.keys)) {&amp;#10;    slow_responses = (slow_responses + 1);&amp;#10;}&amp;#10;total_responses = (total_responses + 1);&amp;#10;keyboard_resp.keys = [];&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
-        <Param val="if conds_file == &quot;cong_test.xlsx&quot;: #ajout du temps de réponse pour le bloc congruent&amp;#10;    if isinstance(keyboard_resp.rt[-1], float):&amp;#10;        rt_block3.append(keyboard_resp.rt[-1])&amp;#10;        if keyboard_resp.rt[-1] &lt; 0.3: #vérification si la réponse est trop rapide&amp;#10;            fast_responses = fast_responses + 1&amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc congruent&amp;#10;            err_block3 = err_block3 + 1&amp;#10;elif conds_file == &quot;incong_test.xlsx&quot;: #ajout du temps de réponse pour le bloc incongruent&amp;#10;    if isinstance(keyboard_resp.rt[-1], float):&amp;#10;        rt_block5.append(keyboard_resp.rt[-1]) #vérification si la réponse est trop rapide&amp;#10;        if keyboard_resp.rt[-1] &lt; 0.3:&amp;#10;            fast_responses = fast_responses + 1&amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc incongruent&amp;#10;            err_block5 = err_block5 + 1&amp;#10;&amp;#10;if keyboard_resp.keys[0] != CorrAns and keyboard_resp.keys: #store le nb total d'erreurs&amp;#10;    num_errors = num_errors+ 1&amp;#10;    &amp;#10;if keyboard_resp.rt[-1] &gt; 3 and keyboard_resp.keys: #verification si la réponse est trop lente&amp;#10;    slow_responses = slow_responses + 1 &amp;#10;&amp;#10;total_responses = total_responses + 1 #nb total d'essais&amp;#10;&amp;#10;keyboard_resp.keys = []" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="/* Bloc 3 */&amp;#10;if ((conds_file === &quot;cong_test - 20.xlsx&quot;)) {&amp;#10;    if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;        rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;            err_block3 = (err_block3 + 1);&amp;#10;            incorr_rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        } else {&amp;#10;            if ((keyboard_resp.keys[0] === CorrAns)) {&amp;#10;                corr_rt_block3.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;/* Bloc 4 */&amp;#10;if ((conds_file === &quot;cong_test - 40.xlsx&quot;)) {&amp;#10;    if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;        rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;            err_block4 = (err_block4 + 1);&amp;#10;            incorr_rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        } else {&amp;#10;            if ((keyboard_resp.keys[0] === CorrAns)) {&amp;#10;                corr_rt_block4.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;/* Bloc 6 */&amp;#10;if ((conds_file === &quot;incong_test - 20.xlsx&quot;)) {&amp;#10;    if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;        rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;            err_block6 = (err_block6 + 1);&amp;#10;            incorr_rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        } else {&amp;#10;            if ((keyboard_resp.keys[0] === CorrAns)) {&amp;#10;                corr_rt_block6.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;/* Bloc 7 */&amp;#10;if ((conds_file === &quot;incong_test - 40.xlsx&quot;)) {&amp;#10;    if ((((typeof keyboard_resp.rt.slice((- 1))[0]) === &quot;number&quot;) || (keyboard_resp.rt.slice((- 1))[0] instanceof Number))) {&amp;#10;        rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        if ((keyboard_resp.keys[0] !== CorrAns)) {&amp;#10;            err_block7 = (err_block7 + 1);&amp;#10;            incorr_rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;        } else {&amp;#10;            if ((keyboard_resp.keys[0] === CorrAns)) {&amp;#10;                corr_rt_block7.push(keyboard_resp.rt.slice((- 1))[0]);&amp;#10;            }&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;/* Autre */&amp;#10;if (((keyboard_resp.keys[0] !== CorrAns) &amp;&amp; keyboard_resp.keys)) {&amp;#10;    num_errors = (num_errors + 1);&amp;#10;}&amp;#10;if (((keyboard_resp.rt.slice((- 1))[0] &gt; 3) &amp;&amp; keyboard_resp.keys)) {&amp;#10;    slow_responses = (slow_responses + 1);&amp;#10;} else {&amp;#10;    if (((keyboard_resp.rt.slice((- 1))[0] &lt; 0.3) &amp;&amp; keyboard_resp.keys)) {&amp;#10;        fast_responses = (fast_responses + 1);&amp;#10;    }&amp;#10;}&amp;#10;total_responses = (total_responses + 1);&amp;#10;keyboard_resp.keys = [];&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="'''Bloc 3'''&amp;#10;if conds_file == &quot;cong_test - 20.xlsx&quot;: #ajout du temps de réponse pour le bloc 3&amp;#10;    if isinstance(keyboard_resp.rt[-1], float): #évite le bug tant qu'aucune touche n'est touchée&amp;#10;        rt_block3.append(keyboard_resp.rt[-1]) #ajoute rt aux rép du bloc &amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc 4&amp;#10;            err_block3 = err_block3 + 1 &amp;#10;            incorr_rt_block3.append(keyboard_resp.rt[-1]) #ajoute rt aux rép incorrectes du bloc&amp;#10;        elif keyboard_resp.keys[0] == CorrAns:&amp;#10;            corr_rt_block3.append(keyboard_resp.rt[-1]) #ajoute rt aux rép correctes du bloc&amp;#10;&amp;#10;&amp;#10;'''Bloc 4'''&amp;#10;if conds_file == &quot;cong_test - 40.xlsx&quot;: #ajout du temps de réponse pour le bloc 4&amp;#10;    if isinstance(keyboard_resp.rt[-1], float): #évite le bug tant qu'aucune touche n'est touchée&amp;#10;        rt_block4.append(keyboard_resp.rt[-1]) #ajoute rt aux rép du bloc &amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc 4&amp;#10;            err_block4 = err_block4 + 1 &amp;#10;            incorr_rt_block4.append(keyboard_resp.rt[-1]) #ajoute rt aux rép incorrectes du bloc&amp;#10;        elif keyboard_resp.keys[0] == CorrAns:&amp;#10;            corr_rt_block4.append(keyboard_resp.rt[-1]) #ajoute rt aux rép correctes du bloc&amp;#10;&amp;#10;'''Bloc 6'''&amp;#10;if conds_file == &quot;incong_test - 20.xlsx&quot;: #ajout du temps de réponse pour le bloc 6&amp;#10;    if isinstance(keyboard_resp.rt[-1], float): #évite le bug tant qu'aucune touche n'est touchée&amp;#10;        rt_block6.append(keyboard_resp.rt[-1]) #ajoute rt aux rép du bloc &amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc 4&amp;#10;            err_block6 = err_block6 + 1 &amp;#10;            incorr_rt_block6.append(keyboard_resp.rt[-1]) #ajoute rt aux rép incorrectes du bloc&amp;#10;        elif keyboard_resp.keys[0] == CorrAns:&amp;#10;            corr_rt_block6.append(keyboard_resp.rt[-1]) #ajoute rt aux rép correctes du bloc&amp;#10;&amp;#10;'''Bloc 7'''&amp;#10;if conds_file == &quot;incong_test - 40.xlsx&quot;: #ajout du temps de réponse pour le bloc 7&amp;#10;    if isinstance(keyboard_resp.rt[-1], float): #évite le bug tant qu'aucune touche n'est touchée&amp;#10;        rt_block7.append(keyboard_resp.rt[-1]) #ajoute rt aux rép du bloc &amp;#10;        if keyboard_resp.keys[0] != CorrAns: #calcul du nb d'erreurs du bloc 4&amp;#10;            err_block7 = err_block7 + 1 &amp;#10;            incorr_rt_block7.append(keyboard_resp.rt[-1]) #ajoute rt aux rép incorrectes du bloc&amp;#10;        elif keyboard_resp.keys[0] == CorrAns:&amp;#10;            corr_rt_block7.append(keyboard_resp.rt[-1]) #ajoute rt aux rép correctes du bloc&amp;#10;&amp;#10;'''Autre'''&amp;#10;if keyboard_resp.keys[0] != CorrAns and keyboard_resp.keys: #store le nb total d'erreurs&amp;#10;    num_errors = num_errors+ 1&amp;#10;            &amp;#10;if keyboard_resp.rt[-1] &gt; 3 and keyboard_resp.keys: #verification si la réponse est trop lente&amp;#10;    slow_responses = slow_responses + 1 &amp;#10;elif keyboard_resp.rt[-1] &lt; 0.3 and keyboard_resp.keys : #vérification si la réponse est trop rapide&amp;#10;    fast_responses = fast_responses + 1&amp;#10;&amp;#10;total_responses = total_responses + 1 #nb total d'essais&amp;#10;&amp;#10;keyboard_resp.keys = []" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
         <Param val="compute_score" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <TextComponent name="fixation" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="0, 0, 0" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -458,60 +736,8 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
-      <TextComponent name="trial_cat_left" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="trial_cat_left" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(-0.4, 0.4)" valType="list" updates="constant" name="pos"/>
-        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$label_left" valType="str" updates="set every repeat" name="text"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
-      <TextComponent name="trial_cat_right" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="trial_cat_right" valType="code" updates="None" name="name"/>
-        <Param val="" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0.4, 0.4)" valType="list" updates="constant" name="pos"/>
-        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="" valType="code" updates="None" name="startEstim"/>
-        <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="$label_right" valType="str" updates="set every repeat" name="text"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
       <TextComponent name="text_stim" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="$text_stim_color" valType="color" updates="set every repeat" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -582,6 +808,162 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
+      <TextComponent name="rightcat" plugin="None">
+        <Param val="$rightw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="rightcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0.4, 0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="top_rightcat" plugin="None">
+        <Param val="$top_rightw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="top_rightcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0.4, 0.43)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$top_rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="bot_rightcat" plugin="None">
+        <Param val="$bot_rightw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="bot_rightcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0.4, 0.37)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$bot_rightw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="leftcat" plugin="None">
+        <Param val="$leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="leftcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$leftw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="bot_leftcat" plugin="None">
+        <Param val="$bot_leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="bot_leftcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.37)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$bot_leftw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="top_leftcat" plugin="None">
+        <Param val="$top_leftw_color" valType="color" updates="set every repeat" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="top_leftcat" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-0.4, 0.43)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$top_leftw" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
     </Routine>
     <Routine name="transition">
       <RoutineSettingsComponent name="transition" plugin="None">
@@ -600,7 +982,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <TextComponent name="cross" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="0, 0, 0" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -618,7 +1000,7 @@
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="1.0" valType="code" updates="constant" name="stopVal"/>
+        <Param val="0.5" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="+" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
@@ -647,8 +1029,8 @@
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
-        <Param val="rt_block3_cleaned = [];&amp;#10;rt_block5_cleaned = [];&amp;#10;mean_rt_block3 = 0;&amp;#10;mean_rt_block5 = 0;&amp;#10;std_rt_block3 = 0;&amp;#10;std_rt_block5 = 0;&amp;#10;sumOfSquares3 = 0;&amp;#10;sumOfSquares5 = 0;&amp;#10;variance3 = 0;&amp;#10;variance5 = 0;&amp;#10;pooled_std = 0;&amp;#10;iat_score = 0;&amp;#10;if (((fast_responses / total_responses) &gt; 0.1)) {&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;;&amp;#10;    err_msg = ((&quot;Vous avez fait &quot; + num_errors.toString()) + &quot; erreurs.&quot;);&amp;#10;} else {&amp;#10;    if (((slow_responses / total_responses) &gt; 0.05)) {&amp;#10;        score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;;&amp;#10;        err_msg = ((&quot;Vous avez fait &quot; + num_errors.toString()) + &quot; erreurs.&quot;);&amp;#10;    } else {&amp;#10;        rt_block3_cleaned = function () {&amp;#10;    var _pj_a = [], _pj_b = rt_block3;&amp;#10;    for (var _pj_c = 0, _pj_d = _pj_b.length; (_pj_c &lt; _pj_d); _pj_c += 1) {&amp;#10;        var rt = _pj_b[_pj_c];&amp;#10;        if (((0.2 &lt;= rt) &amp;&amp; (rt &lt;= 2))) {&amp;#10;            _pj_a.push(rt);&amp;#10;        }&amp;#10;    }&amp;#10;    return _pj_a;&amp;#10;}&amp;#10;.call(this);&amp;#10;        rt_block5_cleaned = function () {&amp;#10;    var _pj_a = [], _pj_b = rt_block5;&amp;#10;    for (var _pj_c = 0, _pj_d = _pj_b.length; (_pj_c &lt; _pj_d); _pj_c += 1) {&amp;#10;        var rt = _pj_b[_pj_c];&amp;#10;        if (((0.2 &lt;= rt) &amp;&amp; (rt &lt;= 2))) {&amp;#10;            _pj_a.push(rt);&amp;#10;        }&amp;#10;    }&amp;#10;    return _pj_a;&amp;#10;}&amp;#10;.call(this);&amp;#10;        if (rt_block3_cleaned) {&amp;#10;            mean_rt_block3 = (util.sum(rt_block3_cleaned) / rt_block3_cleaned.length);&amp;#10;        } else {&amp;#10;            mean_rt_block3 = 0;&amp;#10;        }&amp;#10;        if (rt_block5_cleaned) {&amp;#10;            mean_rt_block5 = (util.sum(rt_block5_cleaned) / rt_block5_cleaned.length);&amp;#10;        } else {&amp;#10;            mean_rt_block5 = 0;&amp;#10;        }&amp;#10;        if ((rt_block3_cleaned.length &gt; 1)) {&amp;#10;            sumOfSquares3 = rt_block3_cleaned.reduce((sum, x) =&gt; sum + Math.pow(x - mean_rt_block3, 2), 0);&amp;#10;            variance3 = sumOfSquares3 / (rt_block3_cleaned.length - 1);&amp;#10;            std_rt_block3 = Math.sqrt(variance3);&amp;#10;        } else {&amp;#10;            std_rt_block3 = 0;&amp;#10;        }&amp;#10;        if ((rt_block5_cleaned.length &gt; 1)) {&amp;#10;            sumOfSquares5 = rt_block5_cleaned.reduce((sum, x) =&gt; sum + Math.pow(x - mean_rt_block5, 2), 0);&amp;#10;            variance5 = sumOfSquares5 / (rt_block5_cleaned.length - 1);&amp;#10;            std_rt_block5 = Math.sqrt(variance5);&amp;#10;        } else {&amp;#10;            std_rt_block5 = 0;&amp;#10;        }&amp;#10;        if (((rt_block3_cleaned.length &gt; 1) &amp;&amp; (rt_block5_cleaned.length &gt; 1))) {&amp;#10;            pooled_std = ((((rt_block3_cleaned.length - 1) * Math.pow(std_rt_block3, 2)) + ((rt_block5_cleaned.length - 1) * Math.pow(std_rt_block5, 2))) / Math.pow(((rt_block3_cleaned.length + rt_block5_cleaned.length) - 2), 0.5));&amp;#10;        } else {&amp;#10;            pooled_std = 0;&amp;#10;        }&amp;#10;        if (((num_errors === 0) &amp;&amp; (pooled_std !== 0))) {&amp;#10;            iat_score = ((mean_rt_block5 - mean_rt_block3) / pooled_std);&amp;#10;        } else {&amp;#10;            if ((pooled_std !== 0)) {&amp;#10;                iat_score = (((mean_rt_block5 + (err_block5 / num_errors)) - (mean_rt_block3 + (err_block3 / num_errors))) / pooled_std);&amp;#10;            } else {&amp;#10;                iat_score = 0;&amp;#10;            }&amp;#10;        }&amp;#10;        score_msg = (&quot;Votre score à l'IAT est de &quot; + iat_score.toString().slice(0, 5));&amp;#10;        err_msg = ((&quot;Vous avez fait &quot; + num_errors.toString()) + &quot; erreurs&quot;);&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;&amp;#10;/* DEBUG */ &amp;#10;m3 = mean_rt_block3.toString();&amp;#10;m5 = mean_rt_block5.toString();&amp;#10;s3 = std_rt_block3.toString();&amp;#10;s5 = std_rt_block5.toString();&amp;#10;ps = pooled_std.toString();&amp;#10;iscore = iat_score.toString();&amp;#10;sOOs = rt_block3_cleaned.reduce((sum, x) =&gt; sum + Math.pow(x - mean_rt_block3, 2), 0)&amp;#10;sOs = sumOfSquares3.toString();&amp;#10;svariance = variance3.toString();&amp;#10;liste_clean = rt_block3_cleaned.map(rt =&gt; rt.toFixed(1)).join(', ');&amp;#10;score_sans_err = ((mean_rt_block5 - mean_rt_block3) / pooled_std);&amp;#10;sse = score_sans_err.toString();&amp;#10;sse = (&quot;Score sans erreur&quot; + score_sans_err.toString().slice(0, 5));&amp;#10;score_avec_err = (((mean_rt_block5 + (err_block5 / num_errors)) - (mean_rt_block3 + (err_block3 / num_errors))) / pooled_std);&amp;#10;sae = score_avec_err.toString();" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="rt_block3_cleaned = []&amp;#10;rt_block5_cleaned = []&amp;#10;mean_rt_block3 = 0&amp;#10;mean_rt_block5 = 0&amp;#10;std_rt_block3 = 0&amp;#10;std_rt_block5 = 0&amp;#10;pooled_std = 0&amp;#10;iat_score = 0&amp;#10;&amp;#10;# Calcul des données&amp;#10;if (fast_responses / total_responses) &gt; 0.1:&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;elif (slow_responses / total_responses) &gt; 0.05:&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;else:&amp;#10;    # Retirer les éléments aberrants&amp;#10;    rt_block3_cleaned = [rt for rt in rt_block3 if 0.2 &lt;= rt &lt;= 2]&amp;#10;    rt_block5_cleaned = [rt for rt in rt_block5 if 0.2 &lt;= rt &lt;= 2]&amp;#10;&amp;#10;    # Calcul des moyennes&amp;#10;    if rt_block3_cleaned:&amp;#10;        mean_rt_block3 = sum(rt_block3_cleaned) / len(rt_block3_cleaned)&amp;#10;    else:&amp;#10;        mean_rt_block3 = 0&amp;#10;&amp;#10;    if rt_block5_cleaned:&amp;#10;        mean_rt_block5 = sum(rt_block5_cleaned) / len(rt_block5_cleaned)&amp;#10;    else:&amp;#10;        mean_rt_block5 = 0&amp;#10;&amp;#10;    # Calcul des écarts types&amp;#10;    if len(rt_block3_cleaned) &gt; 1:&amp;#10;        std_rt_block3 = (sum((x - mean_rt_block3) ** 2 for x in rt_block3_cleaned) / (len(rt_block3_cleaned) - 1)) ** 0.5&amp;#10;    else:&amp;#10;        std_rt_block3 = 0&amp;#10;&amp;#10;    if len(rt_block5_cleaned) &gt; 1:&amp;#10;        std_rt_block5 = (sum((x - mean_rt_block5) ** 2 for x in rt_block5_cleaned) / (len(rt_block5_cleaned) - 1)) ** 0.5&amp;#10;    else:&amp;#10;        std_rt_block5 = 0&amp;#10;&amp;#10;    # Calcul de l'écart type groupé&amp;#10;    if len(rt_block3_cleaned) &gt; 1 and len(rt_block5_cleaned) &gt; 1:&amp;#10;        pooled_std = ((len(rt_block3_cleaned) - 1) * std_rt_block3 ** 2 + (len(rt_block5_cleaned) - 1) * std_rt_block5 ** 2) / (len(rt_block3_cleaned) + len(rt_block5_cleaned) - 2) ** 0.5&amp;#10;    else:&amp;#10;        pooled_std = 0&amp;#10;&amp;#10;    # Calcul du score IAT&amp;#10;    if num_errors == 0 and pooled_std != 0:&amp;#10;        iat_score = (mean_rt_block5 - mean_rt_block3) / pooled_std #score sans prendre en compte les erreurs&amp;#10;    elif pooled_std != 0:&amp;#10;        iat_score = ((mean_rt_block5 + err_block5 / num_errors) - (mean_rt_block3 + err_block3 / num_errors)) / pooled_std&amp;#10;    else:&amp;#10;        iat_score = 0&amp;#10;&amp;#10;    # Affichage des résultats&amp;#10;    score_msg = &quot;Votre score à l'IAT est de &quot;+str(iat_score)[:5]&amp;#10;    err_msg = &quot;Vous avez fait &quot;+str(num_errors)+&quot; erreurs&quot;&amp;#10;&amp;#10;''' DEBUG '''&amp;#10;m3 = str(mean_rt_block3)&amp;#10;m5 = str(mean_rt_block5)&amp;#10;&amp;#10;s3 = str(std_rt_block3)&amp;#10;s5 = str(std_rt_block5)&amp;#10;&amp;#10;ps = str(pooled_std)&amp;#10;iscore = str(iat_score)&amp;#10;&amp;#10;sOs = str(2)&amp;#10;variance = str(2)&amp;#10;sse = str((mean_rt_block5 - mean_rt_block3) / pooled_std)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="// Initialisation des variables pour JS&amp;#10;score_msg = &quot;&quot;;&amp;#10;err_msg = &quot;&quot;;&amp;#10;feedback_msg =&quot;&quot;;&amp;#10;mean_rt_block3 = 0;&amp;#10;mean_rt_block4 = 0;&amp;#10;mean_rt_block6 = 0;&amp;#10;mean_rt_block7 = 0;&amp;#10;std_rt_block3 = 0;&amp;#10;std_rt_block4 = 0;&amp;#10;std_rt_block6 = 0;&amp;#10;std_rt_block7 = 0;&amp;#10;pooled_std36 = 0;&amp;#10;pooled_std47 = 0;&amp;#10;new_value3 = 0;&amp;#10;new_value4 = 0;&amp;#10;new_value6 = 0;&amp;#10;new_value7 = 0;&amp;#10;fblock3 = [];&amp;#10;fblock4 = [];&amp;#10;fblock6 = [];&amp;#10;fblock7 = [];&amp;#10;mb3 = 0;&amp;#10;mb4 = 0;&amp;#10;mb6 = 0;&amp;#10;mb7 = 0;&amp;#10;iat_score = 0;&amp;#10;&amp;#10;// Fonctions utilitaires&amp;#10;function moyenne(liste) {&amp;#10;    return liste.length ? liste.reduce((a, b) =&gt; a + b, 0) / liste.length : 0;&amp;#10;}&amp;#10;&amp;#10;function ecartType(liste, moyenne) {&amp;#10;    if (liste.length &gt; 1) {&amp;#10;        let variance = liste.reduce((sum, x) =&gt; sum + Math.pow(x - moyenne, 2), 0) / (liste.length - 1);&amp;#10;        return Math.sqrt(variance);&amp;#10;    }&amp;#10;    return 0;&amp;#10;}&amp;#10;&amp;#10;function pooledStd(liste1, liste2, std1, std2) {&amp;#10;    if (liste1.length &gt; 1 &amp;&amp; liste2.length &gt; 1) {&amp;#10;        let pooledVariance = (((liste1.length - 1) * Math.pow(std1, 2)) + ((liste2.length - 1) * Math.pow(std2, 2))) / (liste1.length + liste2.length - 2);&amp;#10;        return Math.sqrt(pooledVariance);&amp;#10;    }&amp;#10;    return 0;&amp;#10;}&amp;#10;&amp;#10;function remplacerIncorrects(parMoyenne, incorrects) {&amp;#10;    return Array(incorrects.length).fill(parMoyenne + 0.6);&amp;#10;}&amp;#10;&amp;#10;// Calcul des données&amp;#10;if ((fast_responses / total_responses) &gt; 0.1) {&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + num_errors + &quot; erreurs.&quot;;&amp;#10;} else if ((slow_responses / total_responses) &gt; 0.05) {&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + num_errors + &quot; erreurs.&quot;;&amp;#10;} else {&amp;#10;    // Moyennes des réponses correctes de chaque bloc&amp;#10;    let corr_mean_rt_block3 = moyenne(corr_rt_block3);&amp;#10;    let corr_mean_rt_block4 = moyenne(corr_rt_block4);&amp;#10;    let corr_mean_rt_block6 = moyenne(corr_rt_block6);&amp;#10;    let corr_mean_rt_block7 = moyenne(corr_rt_block7);&amp;#10;&amp;#10;    // Moyennes des blocs&amp;#10;    mean_rt_block3 = moyenne(rt_block3);&amp;#10;    mean_rt_block6 = moyenne(rt_block6);&amp;#10;    mean_rt_block4 = moyenne(rt_block4);&amp;#10;    mean_rt_block7 = moyenne(rt_block7);&amp;#10;&amp;#10;    // Écarts types des blocs&amp;#10;    std_rt_block3 = ecartType(rt_block3, mean_rt_block3);&amp;#10;    std_rt_block6 = ecartType(rt_block6, mean_rt_block6);&amp;#10;    std_rt_block4 = ecartType(rt_block4, mean_rt_block4);&amp;#10;    std_rt_block7 = ecartType(rt_block7, mean_rt_block7);&amp;#10;&amp;#10;    // Pooled std des blocs&amp;#10;    pooled_std36 = pooledStd(rt_block3, rt_block6, std_rt_block3, std_rt_block6);&amp;#10;    pooled_std47 = pooledStd(rt_block4, rt_block7, std_rt_block4, std_rt_block7);&amp;#10;&amp;#10;    // Remplacement des RT incorrects&amp;#10;    incorr_rt_block3 = remplacerIncorrects(mean_rt_block3, incorr_rt_block3);&amp;#10;    incorr_rt_block4 = remplacerIncorrects(mean_rt_block4, incorr_rt_block4);&amp;#10;    incorr_rt_block6 = remplacerIncorrects(mean_rt_block6, incorr_rt_block6);&amp;#10;    incorr_rt_block7 = remplacerIncorrects(mean_rt_block7, incorr_rt_block7);&amp;#10;&amp;#10;    // Fusion des blocs incorrects modifiés et des blocs corrects&amp;#10;    fblock3 = incorr_rt_block3.concat(corr_rt_block3);&amp;#10;    fblock4 = incorr_rt_block4.concat(corr_rt_block4);&amp;#10;    fblock6 = incorr_rt_block6.concat(corr_rt_block6);&amp;#10;    fblock7 = incorr_rt_block7.concat(corr_rt_block7);&amp;#10;&amp;#10;    // Calcul des moyennes des blocs mis à jour&amp;#10;    mb3 = moyenne(fblock3);&amp;#10;    mb4 = moyenne(fblock4);&amp;#10;    mb6 = moyenne(fblock6);&amp;#10;    mb7 = moyenne(fblock7);&amp;#10;&amp;#10;    // Score de l'IAT&amp;#10;    if (((pooled_std36 !== 0) &amp;&amp; (pooled_std47 !== 0))) {&amp;#10;        iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2;&amp;#10;    } else { &amp;#10;        iat_score = 0;&amp;#10;    }&amp;#10;    score_msg = &quot;Votre score à l'IAT est de &quot; + iat_score.toFixed(5);&amp;#10;    if (0 &lt;= iat_score &amp;&amp; iat_score &lt;= 0.5) {&amp;#10;    feedback_msg = &quot;Un score positif inférieur à 0.5 traduit des associations stéréotypiques entre masculin et science et féminin et lettres.&quot;;&amp;#10;    } else if (-0.5 &lt;= iat_score &amp;&amp; iat_score &lt; 0) {&amp;#10;    feedback_msg = &quot;Un score négatif supérieur à -0.5 traduit des associations contre-stéréotypiques entre féminin et science et masculin et lettres.&quot;;&amp;#10;    } else if (iat_score &lt; -0.5) {&amp;#10;    feedback_msg = &quot;Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et science et masculin et lettres.&quot;;&amp;#10;    } else if (iat_score &gt; 0.5) {&amp;#10;    feedback_msg = &quot;Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et science et féminin et lettres.&quot;;&amp;#10;    }&amp;#10;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="# Initialisation des variables pour JS&amp;#10;score_msg = &quot;&quot;&amp;#10;err_msg = &quot;&quot;&amp;#10;feedback_msg = &quot;&quot;&amp;#10;mean_rt_block3 = 0&amp;#10;mean_rt_block4 = 0&amp;#10;mean_rt_block6 = 0&amp;#10;mean_rt_block7 = 0&amp;#10;std_rt_block3 = 0&amp;#10;std_rt_block4 = 0&amp;#10;std_rt_block6 = 0&amp;#10;std_rt_block7 = 0&amp;#10;pooled_std36 = 0&amp;#10;pooled_std47 = 0&amp;#10;new_value3 = 0&amp;#10;new_value4 = 0&amp;#10;new_value6 = 0&amp;#10;new_value7 = 0&amp;#10;fblock3 = []&amp;#10;fblock4 = []&amp;#10;fblock6 = []&amp;#10;fblock7 = []&amp;#10;mb3 = 0&amp;#10;mb4 = 0&amp;#10;mb6 = 0&amp;#10;mb7 = 0&amp;#10;iat_score = 0&amp;#10;&amp;#10;# Fonctions utilitaires&amp;#10;def moyenne(liste):&amp;#10;    return sum(liste) / len(liste) if liste else 0&amp;#10;&amp;#10;def ecart_type(liste, moyenne):&amp;#10;    if len(liste) &gt; 1:&amp;#10;        variance = sum((x - moyenne) ** 2 for x in liste) / (len(liste) - 1)&amp;#10;        return variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def pooled_std(liste1, liste2, std1, std2):&amp;#10;    if len(liste1) &gt; 1 and len(liste2) &gt; 1:&amp;#10;        pooled_variance = ((len(liste1) - 1) * std1 ** 2 + (len(liste2) - 1) * std2 ** 2) / (len(liste1) + len(liste2) - 2)&amp;#10;        return pooled_variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def remplacer_incorrects(par_moyenne, incorrects):&amp;#10;    return [par_moyenne + 0.6] * len(incorrects)&amp;#10;&amp;#10;# Calcul des données&amp;#10;if (fast_responses / total_responses) &gt; 0.1:&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;elif (slow_responses / total_responses) &gt; 0.05:&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;else:&amp;#10;    # Moyennes des réponses correctes de chaque bloc&amp;#10;    corr_mean_rt_block3 = moyenne(corr_rt_block3)&amp;#10;    corr_mean_rt_block4 = moyenne(corr_rt_block4)&amp;#10;    corr_mean_rt_block6 = moyenne(corr_rt_block6)&amp;#10;    corr_mean_rt_block7 = moyenne(corr_rt_block7)&amp;#10;    &amp;#10;    # Moyennes des blocs&amp;#10;    mean_rt_block3 = moyenne(rt_block3)&amp;#10;    mean_rt_block6 = moyenne(rt_block6)&amp;#10;    mean_rt_block4 = moyenne(rt_block4)&amp;#10;    mean_rt_block7 = moyenne(rt_block7)&amp;#10;    &amp;#10;    # Écarts types des blocs&amp;#10;    std_rt_block3 = ecart_type(rt_block3, mean_rt_block3)&amp;#10;    std_rt_block6 = ecart_type(rt_block6, mean_rt_block6)&amp;#10;    std_rt_block4 = ecart_type(rt_block4, mean_rt_block4)&amp;#10;    std_rt_block7 = ecart_type(rt_block7, mean_rt_block7)&amp;#10;    &amp;#10;    # Pooled std des blocs&amp;#10;    pooled_std36 = pooled_std(rt_block3, rt_block6, std_rt_block3, std_rt_block6)&amp;#10;    pooled_std47 = pooled_std(rt_block4, rt_block7, std_rt_block4, std_rt_block7)&amp;#10;    &amp;#10;    # Remplacement des RT incorrects&amp;#10;    incorr_rt_block3 = remplacer_incorrects(mean_rt_block3, incorr_rt_block3)&amp;#10;    incorr_rt_block4 = remplacer_incorrects(mean_rt_block4, incorr_rt_block4)&amp;#10;    incorr_rt_block6 = remplacer_incorrects(mean_rt_block6, incorr_rt_block6)&amp;#10;    incorr_rt_block7 = remplacer_incorrects(mean_rt_block7, incorr_rt_block7)&amp;#10;    &amp;#10;    # Fusion des blocs incorrects modifiés et des blocs corrects&amp;#10;    fblock3 = incorr_rt_block3 + corr_rt_block3&amp;#10;    fblock4 = incorr_rt_block4 + corr_rt_block4&amp;#10;    fblock6 = incorr_rt_block6 + corr_rt_block6&amp;#10;    fblock7 = incorr_rt_block7 + corr_rt_block7&amp;#10;    &amp;#10;    # Calcul des moyennes des blocs mis à jour&amp;#10;    mb3 = moyenne(fblock3)&amp;#10;    mb4 = moyenne(fblock4)&amp;#10;    mb6 = moyenne(fblock6)&amp;#10;    mb7 = moyenne(fblock7)&amp;#10;    &amp;#10;    # Score de l'IAT&amp;#10;    if pooled_std36 != 0 and pooled_std47 != 0:&amp;#10;        iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2&amp;#10;    else: &amp;#10;        iat_score = 0&amp;#10;    score_msg = &quot;Votre score à l'IAT est de &quot; + str(iat_score)[:5]&amp;#10;    # message adapté en fonction du score&amp;#10;    if 0 &lt;= iat_score &lt;= 0.5:&amp;#10;        feedback_msg = &quot;Un score compris entre 0 et 0.5 traduit des associations stéréotypiques entre masculin et science et féminin et lettres.&quot;&amp;#10;    elif -0.5 &lt;= iat_score &lt; 0:&amp;#10;        feedback_msg = &quot;Un score négatif compris entre -0,5 et 0 traduit des associations contre-stéréotypiques entre féminin et science et masculin et lettres.&quot;&amp;#10;    elif iat_score &lt; -0.5:&amp;#10;        feedback_msg = &quot;Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et science et masculin et lettres.&quot;&amp;#10;    elif iat_score &gt; 0.5:&amp;#10;        feedback_msg = &quot;Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et science et féminin et lettres.&quot;&amp;#10;        &amp;#10;        &amp;#10;        &amp;#10;        " valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Both" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -660,7 +1042,7 @@
         <Param val="score" valType="code" updates="None" name="name"/>
       </CodeComponent>
       <TextComponent name="score_feedback" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -672,7 +1054,7 @@
         <Param val="score_feedback" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, 0.4)" valType="list" updates="constant" name="pos"/>
+        <Param val="(0, 0.3)" valType="list" updates="constant" name="pos"/>
         <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -686,10 +1068,10 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <TextComponent name="score_meaning" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="None" name="disabled"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Arial" valType="str" updates="constant" name="font"/>
@@ -698,7 +1080,7 @@
         <Param val="score_meaning" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, -0.1)" valType="list" updates="constant" name="pos"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
@@ -706,7 +1088,7 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Un score positif indique que vous avez tendance à associer les hommes aux sciences et les femmes aux lettres, ce qui correspond à la vision stéréotypée. Plus il est élevé, plus les associations sont fortes. &amp;#10;A l'inverse, un score négatif indique une association forte entre les femmes et les sciences et les hommes et les lettres.&amp;#10;&amp;#10;Pour terminer le test, appuyez sur la barre espace." valType="str" updates="constant" name="text"/>
+        <Param val="Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.&amp;#10;&amp;#10;- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)&amp;#10;- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)&amp;#10;&amp;#10;Pour terminer le test, appuyez sur la barre espace." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -732,7 +1114,7 @@
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
       <TextComponent name="err_feedback" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -758,10 +1140,10 @@
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <TextComponent name="score_bis" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="black" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="None" name="disabled"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="None" valType="str" updates="constant" name="flip"/>
         <Param val="Arial" valType="str" updates="constant" name="font"/>
@@ -779,6 +1161,58 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
         <Param val="$sse" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="adapted_fb" plugin="None">
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="adapted_fb" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="$feedback_msg" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="skip_score" plugin="None">
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="skip_score" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.3)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Appuyez sur la barre espace pour terminer le test" valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
@@ -801,7 +1235,7 @@
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
       <TextComponent name="text" plugin="None">
-        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
         <Param val="1" valType="num" updates="constant" name="contrast"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
@@ -846,6 +1280,97 @@
         <Param val="False" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
+      <ImageComponent name="mosaique_4" plugin="None">
+        <Param val="bottom-left" valType="str" updates="constant" name="anchor"/>
+        <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="False" valType="bool" updates="constant" name="flipHoriz"/>
+        <Param val="False" valType="bool" updates="constant" name="flipVert"/>
+        <Param val="Images/mosaiques2.png" valType="file" updates="constant" name="image"/>
+        <Param val="linear" valType="str" updates="constant" name="interpolate"/>
+        <Param val="" valType="str" updates="constant" name="mask"/>
+        <Param val="mosaique_4" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(-1, -1)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="list" updates="constant" name="size"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="128" valType="num" updates="constant" name="texture resolution"/>
+        <Param val="norm" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+      </ImageComponent>
+    </Routine>
+    <Routine name="score2">
+      <RoutineSettingsComponent name="score2" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="score2" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <TextComponent name="score_meaning_2" plugin="None">
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="score_meaning_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Le score peut être positif ou négatif, entre -2 et +2. Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur absolue est élevée, plus les associations sont fortes.&amp;#10;&amp;#10;A titre de comparaison :&amp;#10;- Le score moyen d'un échantillon français est de 0.43 (Nosek et al., 2009)&amp;#10;- Le score moyen de 61 pays est de 0.38 (Nosek et al., 2009)&amp;#10;&amp;#10;Pour terminer le test, appuyez sur la barre espace." valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="end_score_2" plugin="None">
+        <Param val="'space'," valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="'space'" valType="str" updates="constant" name="correctAns"/>
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="False" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="end_score_2" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.1" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="nothing" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
     </Routine>
   </Routines>
   <Flow>
@@ -877,8 +1402,8 @@
     <Routine name="words"/>
     <LoopInitiator loopType="TrialHandler" name="blocks">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[{'conds_file': 'pos_neg_train.xlsx', 'label_left': '&quot;E&quot; = Sciences', 'label_right': '&quot;I&quot; =  Lettres'}, {'conds_file': 'cong_train.xlsx', 'label_left': '&quot;E&quot; = Masculin', 'label_right': '&quot;I&quot; =  Féminin'}, {'conds_file': 'cong_test.xlsx', 'label_left': '&quot;E&quot; = Masculin\nou Sciences', 'label_right': '&quot;I&quot; =  Féminin\nou Lettres'}, {'conds_file': 'incong_train.xlsx', 'label_left': '&quot;E&quot; = Féminin', 'label_right': '&quot;I&quot; =  Masculin'}, {'conds_file': 'incong_test.xlsx', 'label_left': '&quot;E&quot; = Féminin\nou Sciences', 'label_right': '&quot;I&quot; =  Masculin\nou Lettres'}]" valType="str"/>
-      <Param name="conditionsFile" updates="None" val="blocks_order.xlsx" valType="file"/>
+      <Param name="conditions" updates="None" val="[{'conds_file': 'pos_neg_train - 20.xlsx', 'label_left': '&quot;E&quot; = Sciences', 'label_right': '&quot;I&quot; = Lettres'}, {'conds_file': 'cong_train - long.xlsx', 'label_left': '&quot;E&quot; = Masculin  ', 'label_right': '&quot;I&quot; = Féminin  '}, {'conds_file': 'cong_test - 20.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Sciences', 'label_right': '&quot;I&quot; = Féminin ou Lettres'}, {'conds_file': 'cong_test - 40.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Sciences', 'label_right': '&quot;I&quot; = Féminin ou Lettres'}, {'conds_file': 'incong_train - long.xlsx', 'label_left': '&quot;E&quot; = Lettres', 'label_right': '&quot;I&quot; = Sciences'}, {'conds_file': 'incong_test - 20.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Lettres', 'label_right': '&quot;I&quot; = Féminin ou Sciences'}, {'conds_file': 'incong_test - 40.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Lettres', 'label_right': '&quot;I&quot; = Féminin ou Sciences'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="blocks_order - long.xlsx" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
       <Param name="loopType" updates="None" val="sequential" valType="str"/>
@@ -903,6 +1428,7 @@
     <LoopTerminator name="trials"/>
     <LoopTerminator name="blocks"/>
     <Routine name="score"/>
+    <Routine name="score2"/>
     <LoopTerminator name="restart"/>
     <Routine name="end"/>
   </Flow>
