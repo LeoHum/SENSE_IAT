@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\p00688\AppData\Local\Programs\PsychoPy\lib\site-packages\psychopy\app\coder\coder.py", line 2145, in closeFrame
+    if checkSave and self.checkSave() == 0:
+  File "C:\Users\p00688\AppData\Local\Programs\PsychoPy\lib\site-packages\psychopy\app\coder\coder.py", line 2122, in checkSave
+    sys.stdout.flush()
+AttributeError: 'NoneType' object has no attribute 'flush'
