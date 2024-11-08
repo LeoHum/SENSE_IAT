@@ -21,12 +21,12 @@
     <Param val="False" valType="bool" updates="None" name="Save log file"/>
     <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
     <Param val="False" valType="bool" updates="None" name="Save wide csv file"/>
-    <Param val="2" valType="num" updates="None" name="Screen"/>
+    <Param val="1" valType="num" updates="None" name="Screen"/>
     <Param val="False" valType="bool" updates="None" name="Show info dlg"/>
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
     <Param val="height" valType="str" updates="None" name="Units"/>
     <Param val="" valType="str" updates="None" name="Use version"/>
-    <Param val="[1920, 1080]" valType="list" updates="None" name="Window size (pixels)"/>
+    <Param val="[1280, 720]" valType="list" updates="None" name="Window size (pixels)"/>
     <Param val="none" valType="str" updates="None" name="backgroundFit"/>
     <Param val="" valType="str" updates="None" name="backgroundImg"/>
     <Param val="avg" valType="str" updates="None" name="blendMode"/>
@@ -68,7 +68,7 @@
     <Param val="1000" valType="num" updates="None" name="plPupilRemoteTimeoutMs"/>
     <Param val="False" valType="bool" updates="None" name="plPupillometryOnly"/>
     <Param val="psychopy_iohub_surface" valType="str" updates="None" name="plSurfaceName"/>
-    <Param val="0" valType="code" updates="None" name="runMode"/>
+    <Param val="1" valType="code" updates="None" name="runMode"/>
     <Param val="False" valType="bool" updates="None" name="rush"/>
     <Param val="time" valType="str" updates="None" name="sortColumns"/>
     <Param val="" valType="str" updates="None" name="tbLicenseFile"/>
@@ -1030,7 +1030,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
         <Param val="// Initialisation des variables pour JS&amp;#10;score_msg = &quot;&quot;;&amp;#10;err_msg = &quot;&quot;;&amp;#10;feedback_msg =&quot;&quot;;&amp;#10;mean_rt_block3 = 0;&amp;#10;mean_rt_block4 = 0;&amp;#10;mean_rt_block6 = 0;&amp;#10;mean_rt_block7 = 0;&amp;#10;std_rt_block3 = 0;&amp;#10;std_rt_block4 = 0;&amp;#10;std_rt_block6 = 0;&amp;#10;std_rt_block7 = 0;&amp;#10;pooled_std36 = 0;&amp;#10;pooled_std47 = 0;&amp;#10;new_value3 = 0;&amp;#10;new_value4 = 0;&amp;#10;new_value6 = 0;&amp;#10;new_value7 = 0;&amp;#10;fblock3 = [];&amp;#10;fblock4 = [];&amp;#10;fblock6 = [];&amp;#10;fblock7 = [];&amp;#10;mb3 = 0;&amp;#10;mb4 = 0;&amp;#10;mb6 = 0;&amp;#10;mb7 = 0;&amp;#10;iat_score = 0;&amp;#10;&amp;#10;// Fonctions utilitaires&amp;#10;function moyenne(liste) {&amp;#10;    return liste.length ? liste.reduce((a, b) =&gt; a + b, 0) / liste.length : 0;&amp;#10;}&amp;#10;&amp;#10;function ecartType(liste, moyenne) {&amp;#10;    if (liste.length &gt; 1) {&amp;#10;        let variance = liste.reduce((sum, x) =&gt; sum + Math.pow(x - moyenne, 2), 0) / (liste.length - 1);&amp;#10;        return Math.sqrt(variance);&amp;#10;    }&amp;#10;    return 0;&amp;#10;}&amp;#10;&amp;#10;function pooledStd(liste1, liste2, std1, std2) {&amp;#10;    if (liste1.length &gt; 1 &amp;&amp; liste2.length &gt; 1) {&amp;#10;        let pooledVariance = (((liste1.length - 1) * Math.pow(std1, 2)) + ((liste2.length - 1) * Math.pow(std2, 2))) / (liste1.length + liste2.length - 2);&amp;#10;        return Math.sqrt(pooledVariance);&amp;#10;    }&amp;#10;    return 0;&amp;#10;}&amp;#10;&amp;#10;function remplacerIncorrects(parMoyenne, incorrects) {&amp;#10;    return Array(incorrects.length).fill(parMoyenne + 0.6);&amp;#10;}&amp;#10;&amp;#10;// Calcul des données&amp;#10;if ((fast_responses / total_responses) &gt; 0.1) {&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + num_errors + &quot; erreurs.&quot;;&amp;#10;} else if ((slow_responses / total_responses) &gt; 0.05) {&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + num_errors + &quot; erreurs.&quot;;&amp;#10;} else {&amp;#10;    // Moyennes des réponses correctes de chaque bloc&amp;#10;    let corr_mean_rt_block3 = moyenne(corr_rt_block3);&amp;#10;    let corr_mean_rt_block4 = moyenne(corr_rt_block4);&amp;#10;    let corr_mean_rt_block6 = moyenne(corr_rt_block6);&amp;#10;    let corr_mean_rt_block7 = moyenne(corr_rt_block7);&amp;#10;&amp;#10;    // Moyennes des blocs&amp;#10;    mean_rt_block3 = moyenne(rt_block3);&amp;#10;    mean_rt_block6 = moyenne(rt_block6);&amp;#10;    mean_rt_block4 = moyenne(rt_block4);&amp;#10;    mean_rt_block7 = moyenne(rt_block7);&amp;#10;&amp;#10;    // Écarts types des blocs&amp;#10;    std_rt_block3 = ecartType(rt_block3, mean_rt_block3);&amp;#10;    std_rt_block6 = ecartType(rt_block6, mean_rt_block6);&amp;#10;    std_rt_block4 = ecartType(rt_block4, mean_rt_block4);&amp;#10;    std_rt_block7 = ecartType(rt_block7, mean_rt_block7);&amp;#10;&amp;#10;    // Pooled std des blocs&amp;#10;    pooled_std36 = pooledStd(rt_block3, rt_block6, std_rt_block3, std_rt_block6);&amp;#10;    pooled_std47 = pooledStd(rt_block4, rt_block7, std_rt_block4, std_rt_block7);&amp;#10;&amp;#10;    // Remplacement des RT incorrects&amp;#10;    incorr_rt_block3 = remplacerIncorrects(mean_rt_block3, incorr_rt_block3);&amp;#10;    incorr_rt_block4 = remplacerIncorrects(mean_rt_block4, incorr_rt_block4);&amp;#10;    incorr_rt_block6 = remplacerIncorrects(mean_rt_block6, incorr_rt_block6);&amp;#10;    incorr_rt_block7 = remplacerIncorrects(mean_rt_block7, incorr_rt_block7);&amp;#10;&amp;#10;    // Fusion des blocs incorrects modifiés et des blocs corrects&amp;#10;    fblock3 = incorr_rt_block3.concat(corr_rt_block3);&amp;#10;    fblock4 = incorr_rt_block4.concat(corr_rt_block4);&amp;#10;    fblock6 = incorr_rt_block6.concat(corr_rt_block6);&amp;#10;    fblock7 = incorr_rt_block7.concat(corr_rt_block7);&amp;#10;&amp;#10;    // Calcul des moyennes des blocs mis à jour&amp;#10;    mb3 = moyenne(fblock3);&amp;#10;    mb4 = moyenne(fblock4);&amp;#10;    mb6 = moyenne(fblock6);&amp;#10;    mb7 = moyenne(fblock7);&amp;#10;&amp;#10;    // Score de l'IAT&amp;#10;    if (((pooled_std36 !== 0) &amp;&amp; (pooled_std47 !== 0))) {&amp;#10;        iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2;&amp;#10;    } else { &amp;#10;        iat_score = 0;&amp;#10;    }&amp;#10;    score_msg = &quot;Votre score à l'IAT est de &quot; + iat_score.toFixed(5);&amp;#10;    if (0 &lt;= iat_score &amp;&amp; iat_score &lt;= 0.5) {&amp;#10;    feedback_msg = &quot;Un score positif inférieur à 0.5 traduit des associations stéréotypiques entre masculin et sciences et féminin et lettres.&quot;;&amp;#10;    } else if (-0.5 &lt;= iat_score &amp;&amp; iat_score &lt; 0) {&amp;#10;    feedback_msg = &quot;Un score négatif supérieur à -0.5 traduit des associations contre-stéréotypiques entre féminin et sciences et masculin et lettres.&quot;;&amp;#10;    } else if (iat_score &lt; -0.5) {&amp;#10;    feedback_msg = &quot;Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et sciences et masculin et lettres.&quot;;&amp;#10;    } else if (iat_score &gt; 0.5) {&amp;#10;    feedback_msg = &quot;Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et sciences et féminin et lettres.&quot;;&amp;#10;    }&amp;#10;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
-        <Param val="# Initialisation des variables pour JS&amp;#10;score_msg = &quot;&quot;&amp;#10;err_msg = &quot;&quot;&amp;#10;feedback_msg = &quot;&quot;&amp;#10;mean_rt_block3 = 0&amp;#10;mean_rt_block4 = 0&amp;#10;mean_rt_block6 = 0&amp;#10;mean_rt_block7 = 0&amp;#10;std_rt_block3 = 0&amp;#10;std_rt_block4 = 0&amp;#10;std_rt_block6 = 0&amp;#10;std_rt_block7 = 0&amp;#10;pooled_std36 = 0&amp;#10;pooled_std47 = 0&amp;#10;new_value3 = 0&amp;#10;new_value4 = 0&amp;#10;new_value6 = 0&amp;#10;new_value7 = 0&amp;#10;fblock3 = []&amp;#10;fblock4 = []&amp;#10;fblock6 = []&amp;#10;fblock7 = []&amp;#10;mb3 = 0&amp;#10;mb4 = 0&amp;#10;mb6 = 0&amp;#10;mb7 = 0&amp;#10;iat_score = 0&amp;#10;&amp;#10;# Fonctions utilitaires&amp;#10;def moyenne(liste):&amp;#10;    return sum(liste) / len(liste) if liste else 0&amp;#10;&amp;#10;def ecart_type(liste, moyenne):&amp;#10;    if len(liste) &gt; 1:&amp;#10;        variance = sum((x - moyenne) ** 2 for x in liste) / (len(liste) - 1)&amp;#10;        return variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def pooled_std(liste1, liste2, std1, std2):&amp;#10;    if len(liste1) &gt; 1 and len(liste2) &gt; 1:&amp;#10;        pooled_variance = ((len(liste1) - 1) * std1 ** 2 + (len(liste2) - 1) * std2 ** 2) / (len(liste1) + len(liste2) - 2)&amp;#10;        return pooled_variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def remplacer_incorrects(par_moyenne, incorrects):&amp;#10;    return [par_moyenne + 0.6] * len(incorrects)&amp;#10;&amp;#10;# Calcul des données&amp;#10;if (fast_responses / total_responses) &gt; 0.1:&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Recommencez le test en répondant correctement et sans vous précipiter.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;elif (slow_responses / total_responses) &gt; 0.05:&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Recommencez le test en répondant correctement le plus rapidement possible.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;else:&amp;#10;    # Moyennes des réponses correctes de chaque bloc&amp;#10;    corr_mean_rt_block3 = moyenne(corr_rt_block3)&amp;#10;    corr_mean_rt_block4 = moyenne(corr_rt_block4)&amp;#10;    corr_mean_rt_block6 = moyenne(corr_rt_block6)&amp;#10;    corr_mean_rt_block7 = moyenne(corr_rt_block7)&amp;#10;    &amp;#10;    # Moyennes des blocs&amp;#10;    mean_rt_block3 = moyenne(rt_block3)&amp;#10;    mean_rt_block6 = moyenne(rt_block6)&amp;#10;    mean_rt_block4 = moyenne(rt_block4)&amp;#10;    mean_rt_block7 = moyenne(rt_block7)&amp;#10;    &amp;#10;    # Écarts types des blocs&amp;#10;    std_rt_block3 = ecart_type(rt_block3, mean_rt_block3)&amp;#10;    std_rt_block6 = ecart_type(rt_block6, mean_rt_block6)&amp;#10;    std_rt_block4 = ecart_type(rt_block4, mean_rt_block4)&amp;#10;    std_rt_block7 = ecart_type(rt_block7, mean_rt_block7)&amp;#10;    &amp;#10;    # Pooled std des blocs&amp;#10;    pooled_std36 = pooled_std(rt_block3, rt_block6, std_rt_block3, std_rt_block6)&amp;#10;    pooled_std47 = pooled_std(rt_block4, rt_block7, std_rt_block4, std_rt_block7)&amp;#10;    &amp;#10;    # Remplacement des RT incorrects&amp;#10;    incorr_rt_block3 = remplacer_incorrects(mean_rt_block3, incorr_rt_block3)&amp;#10;    incorr_rt_block4 = remplacer_incorrects(mean_rt_block4, incorr_rt_block4)&amp;#10;    incorr_rt_block6 = remplacer_incorrects(mean_rt_block6, incorr_rt_block6)&amp;#10;    incorr_rt_block7 = remplacer_incorrects(mean_rt_block7, incorr_rt_block7)&amp;#10;    &amp;#10;    # Fusion des blocs incorrects modifiés et des blocs corrects&amp;#10;    fblock3 = incorr_rt_block3 + corr_rt_block3&amp;#10;    fblock4 = incorr_rt_block4 + corr_rt_block4&amp;#10;    fblock6 = incorr_rt_block6 + corr_rt_block6&amp;#10;    fblock7 = incorr_rt_block7 + corr_rt_block7&amp;#10;    &amp;#10;    # Calcul des moyennes des blocs mis à jour&amp;#10;    mb3 = moyenne(fblock3)&amp;#10;    mb4 = moyenne(fblock4)&amp;#10;    mb6 = moyenne(fblock6)&amp;#10;    mb7 = moyenne(fblock7)&amp;#10;    &amp;#10;    # Score de l'IAT&amp;#10;    if pooled_std36 != 0 and pooled_std47 != 0:&amp;#10;        iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2&amp;#10;    else: &amp;#10;        iat_score = 0&amp;#10;    score_msg = &quot;Votre score à l'IAT est de &quot; + str(iat_score)[:5]&amp;#10;    # message adapté en fonction du score&amp;#10;    if 0 &lt;= iat_score &lt;= 0.5:&amp;#10;        feedback_msg = &quot;Un score compris entre 0 et 0.5 traduit des associations stéréotypiques entre masculin et sciences et féminin et lettres.&quot;&amp;#10;    elif -0.5 &lt;= iat_score &lt; 0:&amp;#10;        feedback_msg = &quot;Un score négatif compris entre -0,5 et 0 traduit des associations contre-stéréotypiques entre féminin et sciences et masculin et lettres.&quot;&amp;#10;    elif iat_score &lt; -0.5:&amp;#10;        feedback_msg = &quot;Un score inférieur à -0.5 traduit des associations contre-stéréotypiques fortes entre féminin et sciences et masculin et lettres.&quot;&amp;#10;    elif iat_score &gt; 0.5:&amp;#10;        feedback_msg = &quot;Un score supérieur à 0.5 traduit des associations stéréotypiques fortes entre masculin et sciences et féminin et lettres.&quot;&amp;#10;        &amp;#10;        &amp;#10;        &amp;#10;        " valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="# Initialisation des variables pour JS&amp;#10;score_msg = &quot;&quot;&amp;#10;err_msg = &quot;&quot;&amp;#10;feedback_msg = &quot;&quot;&amp;#10;mean_rt_block3 = 0&amp;#10;mean_rt_block4 = 0&amp;#10;mean_rt_block6 = 0&amp;#10;mean_rt_block7 = 0&amp;#10;std_rt_block3 = 0&amp;#10;std_rt_block4 = 0&amp;#10;std_rt_block6 = 0&amp;#10;std_rt_block7 = 0&amp;#10;pooled_std36 = 0&amp;#10;pooled_std47 = 0&amp;#10;new_value3 = 0&amp;#10;new_value4 = 0&amp;#10;new_value6 = 0&amp;#10;new_value7 = 0&amp;#10;fblock3 = []&amp;#10;fblock4 = []&amp;#10;fblock6 = []&amp;#10;fblock7 = []&amp;#10;mb3 = 0&amp;#10;mb4 = 0&amp;#10;mb6 = 0&amp;#10;mb7 = 0&amp;#10;iat_score = 0&amp;#10;&amp;#10;# Fonctions utilitaires&amp;#10;def moyenne(liste):&amp;#10;    return sum(liste) / len(liste) if liste else 0&amp;#10;&amp;#10;def ecart_type(liste, moyenne):&amp;#10;    if len(liste) &gt; 1:&amp;#10;        variance = sum((x - moyenne) ** 2 for x in liste) / (len(liste) - 1)&amp;#10;        return variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def pooled_std(liste1, liste2, std1, std2):&amp;#10;    if len(liste1) &gt; 1 and len(liste2) &gt; 1:&amp;#10;        pooled_variance = ((len(liste1) - 1) * std1 ** 2 + (len(liste2) - 1) * std2 ** 2) / (len(liste1) + len(liste2) - 2)&amp;#10;        return pooled_variance ** 0.5&amp;#10;    return 0&amp;#10;&amp;#10;def remplacer_incorrects(par_moyenne, incorrects):&amp;#10;    return [par_moyenne + 0.6] * len(incorrects)&amp;#10;&amp;#10;# Calcul des données&amp;#10;if (fast_responses / total_responses) &gt; 0.1:&amp;#10;    score_msg = &quot;Vous avez répondu trop rapidement pour obtenir un score valide. Vous pouvez recommencer le test, répondez correctement et sans vous précipiter.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;elif (slow_responses / total_responses) &gt; 0.05:&amp;#10;    score_msg = &quot;Vous avez répondu trop lentement pour obtenir un score valide. Vous pouvez recommencer le test, répondez correctement le plus rapidement possible.&quot;&amp;#10;    err_msg = &quot;Vous avez fait &quot; + str(num_errors) + &quot; erreurs.&quot;&amp;#10;else:&amp;#10;    # Moyennes des réponses correctes de chaque bloc&amp;#10;    corr_mean_rt_block3 = moyenne(corr_rt_block3)&amp;#10;    corr_mean_rt_block4 = moyenne(corr_rt_block4)&amp;#10;    corr_mean_rt_block6 = moyenne(corr_rt_block6)&amp;#10;    corr_mean_rt_block7 = moyenne(corr_rt_block7)&amp;#10;    &amp;#10;    # Moyennes des blocs&amp;#10;    mean_rt_block3 = moyenne(rt_block3)&amp;#10;    mean_rt_block6 = moyenne(rt_block6)&amp;#10;    mean_rt_block4 = moyenne(rt_block4)&amp;#10;    mean_rt_block7 = moyenne(rt_block7)&amp;#10;    &amp;#10;    # Écarts types des blocs&amp;#10;    std_rt_block3 = ecart_type(rt_block3, mean_rt_block3)&amp;#10;    std_rt_block6 = ecart_type(rt_block6, mean_rt_block6)&amp;#10;    std_rt_block4 = ecart_type(rt_block4, mean_rt_block4)&amp;#10;    std_rt_block7 = ecart_type(rt_block7, mean_rt_block7)&amp;#10;    &amp;#10;    # Pooled std des blocs&amp;#10;    pooled_std36 = pooled_std(rt_block3, rt_block6, std_rt_block3, std_rt_block6)&amp;#10;    pooled_std47 = pooled_std(rt_block4, rt_block7, std_rt_block4, std_rt_block7)&amp;#10;    &amp;#10;    # Remplacement des RT incorrects&amp;#10;    incorr_rt_block3 = remplacer_incorrects(mean_rt_block3, incorr_rt_block3)&amp;#10;    incorr_rt_block4 = remplacer_incorrects(mean_rt_block4, incorr_rt_block4)&amp;#10;    incorr_rt_block6 = remplacer_incorrects(mean_rt_block6, incorr_rt_block6)&amp;#10;    incorr_rt_block7 = remplacer_incorrects(mean_rt_block7, incorr_rt_block7)&amp;#10;    &amp;#10;    # Fusion des blocs incorrects modifiés et des blocs corrects&amp;#10;    fblock3 = incorr_rt_block3 + corr_rt_block3&amp;#10;    fblock4 = incorr_rt_block4 + corr_rt_block4&amp;#10;    fblock6 = incorr_rt_block6 + corr_rt_block6&amp;#10;    fblock7 = incorr_rt_block7 + corr_rt_block7&amp;#10;    &amp;#10;    # Calcul des moyennes des blocs mis à jour&amp;#10;    mb3 = moyenne(fblock3)&amp;#10;    mb4 = moyenne(fblock4)&amp;#10;    mb6 = moyenne(fblock6)&amp;#10;    mb7 = moyenne(fblock7)&amp;#10;    &amp;#10;    # Score de l'IAT&amp;#10;    if pooled_std36 != 0 and pooled_std47 != 0:&amp;#10;        iat_score = ((mb6 - mb3) / pooled_std36 + (mb7 - mb4) / pooled_std47) / 2&amp;#10;    else: &amp;#10;        iat_score = 0&amp;#10;    score_msg = &quot;Votre score à l'IAT est de\n&quot; + str(iat_score)[:5]&amp;#10;    # message adapté en fonction du score&amp;#10;    if 0 &lt;= iat_score &lt;= 0.5:&amp;#10;        feedback_msg = &quot;Un score compris entre 0 et 0.5 traduit des\nassociations stéréotypiques\nentre masculin et sciences et féminin et lettres.&quot;&amp;#10;    elif -0.5 &lt;= iat_score &lt; 0:&amp;#10;        feedback_msg = &quot;Un score négatif compris entre -0,5 et 0 traduit des\nassociations contre-stéréotypiques\nentre féminin et sciences et masculin et lettres.&quot;&amp;#10;    elif iat_score &lt; -0.5:&amp;#10;        feedback_msg = &quot;Un score inférieur à -0.5 traduit des\nassociations contre-stéréotypiques fortes\nentre féminin et sciences et masculin et lettres.&quot;&amp;#10;    elif iat_score &gt; 0.5:&amp;#10;        feedback_msg = &quot;Un score supérieur à 0.5 traduit des\nassociations stéréotypiques fortes\nentre masculin et sciences et féminin et lettres.&quot;&amp;#10;        &amp;#10;        &amp;#10;        &amp;#10;        " valType="extendedCode" updates="constant" name="Begin Routine"/>
         <Param val="Both" valType="str" updates="None" name="Code Type"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
         <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
@@ -1247,6 +1247,23 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
+      <CodeComponent name="repeat_trial" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="if (end_score_2.keys) {&amp;#10;    if (((end_score_2.keys.length &gt; 0) &amp;&amp; (end_score_2.keys.slice((- 1))[0] !== repTrialsAns))) {&amp;#10;        repeat_trials.finished = 1;&amp;#10;    } else {&amp;#10;        if (((end_score_2.keys.length &gt; 0) &amp;&amp; (end_score_2.keys.slice((- 1))[0] === repTrialsAns))) {&amp;#10;            continueRoutine = false;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if end_score_2.keys:&amp;#10;    if len(end_score_2.keys) &gt; 0 and end_score_2.keys[-1] != repTrialsAns: #vérifie si la touche est espace et passe à l'essai suivant le cas échéant&amp;#10;        repeat_trials.finished=1&amp;#10;    elif len(end_score_2.keys) &gt; 0 and end_score_2.keys[-1] == repTrialsAns:&amp;#10;        continueRoutine = False" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="repeat_trial" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <TextComponent name="score_meaning_2" plugin="None">
         <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -1268,17 +1285,17 @@
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur est proche de -2 ou 2, plus les associations sont fortes.&amp;#10;&amp;#10;Le score moyen d'un échantillon français est de 0.43&amp;#10;Le score moyen de 61 pays est de 0.38&amp;#10;&amp;#10;Pour terminer le test, appuyez sur la barre espace." valType="str" updates="constant" name="text"/>
+        <Param val="Un score positif correspond à des associations stéréotypiques et un score négatif à des associations contre-stéréotypiques. Plus sa valeur est proche de -2 ou 2, plus les associations sont fortes.&amp;#10;&amp;#10;Le score moyen d'un échantillon français est de 0.43&amp;#10;Le score moyen international de 0.38&amp;#10;&amp;#10;Pour terminer le test, appuyez sur la barre espace. Pour le recommencer, appuyez sur la touche &quot;E&quot;." valType="str" updates="constant" name="text"/>
         <Param val="from exp settings" valType="str" updates="None" name="units"/>
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
       <KeyboardComponent name="end_score_2" plugin="None">
-        <Param val="'space'," valType="list" updates="constant" name="allowedKeys"/>
-        <Param val="'space'" valType="str" updates="constant" name="correctAns"/>
+        <Param val="'space', 'e'" valType="list" updates="constant" name="allowedKeys"/>
+        <Param val="$repTrialsAns" valType="str" updates="constant" name="correctAns"/>
         <Param val="" valType="str" updates="None" name="deviceLabel"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="False" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
         <Param val="" valType="code" updates="None" name="durationEstim"/>
         <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
         <Param val="end_score_2" valType="code" updates="None" name="name"/>
@@ -1286,14 +1303,14 @@
         <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
-        <Param val="0.1" valType="code" updates="None" name="startVal"/>
+        <Param val="1" valType="code" updates="None" name="startVal"/>
         <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
         <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="nothing" valType="str" updates="constant" name="store"/>
+        <Param val="all keys" valType="str" updates="constant" name="store"/>
         <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
-        <Param val="False" valType="bool" updates="constant" name="syncScreenRefresh"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
-      <ImageComponent name="image" plugin="None">
+      <ImageComponent name="gradient" plugin="None">
         <Param val="center" valType="str" updates="constant" name="anchor"/>
         <Param val="$[1,1,1]" valType="color" updates="constant" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -1305,12 +1322,12 @@
         <Param val="Images/Diagramme Score IAT.png" valType="file" updates="constant" name="image"/>
         <Param val="linear" valType="str" updates="constant" name="interpolate"/>
         <Param val="" valType="str" updates="constant" name="mask"/>
-        <Param val="image" valType="code" updates="None" name="name"/>
+        <Param val="gradient" valType="code" updates="None" name="name"/>
         <Param val="" valType="num" updates="constant" name="opacity"/>
         <Param val="0" valType="num" updates="constant" name="ori"/>
         <Param val="(0, -0.4)" valType="list" updates="constant" name="pos"/>
         <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="(0.8, 0.2)" valType="list" updates="constant" name="size"/>
+        <Param val="(1, 0.2)" valType="list" updates="constant" name="size"/>
         <Param val="" valType="code" updates="None" name="startEstim"/>
         <Param val="time (s)" valType="str" updates="None" name="startType"/>
         <Param val="0.0" valType="code" updates="None" name="startVal"/>
@@ -1470,6 +1487,23 @@
         <Param val="" valType="code" updates="constant" name="stopVal"/>
         <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
       </RoutineSettingsComponent>
+      <CodeComponent name="check_rt" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="slow = 0;&amp;#10;fast = 0;&amp;#10;" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="slow = 0 &amp;#10;fast = 0" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="if ((keyboard_resp_2.keys &amp;&amp; (keyboard_resp_2.rt.slice((- 1))[0] &gt; 3))) {&amp;#10;    slow = 1;&amp;#10;} else {&amp;#10;    if ((keyboard_resp_2.keys &amp;&amp; (keyboard_resp_2.rt.slice((- 1))[0] &lt; 0.3))) {&amp;#10;        fast = 1;&amp;#10;    }&amp;#10;}&amp;#10;keyboard_resp_2.keys = [];&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if keyboard_resp_2.keys and keyboard_resp_2.rt[-1] &gt; 3: #verification si la réponse est trop lente&amp;#10;    slow = 1 &amp;#10;elif keyboard_resp_2.keys and keyboard_resp_2.rt[-1] &lt; 0.3 : #vérification si la réponse est trop rapide&amp;#10;    fast = 1&amp;#10;&amp;#10;keyboard_resp_2.keys = []&amp;#10;" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="check_rt" valType="code" updates="None" name="name"/>
+      </CodeComponent>
       <CodeComponent name="text_color_4" plugin="None">
         <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
@@ -1576,32 +1610,6 @@
         <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
-      <TextComponent name="error_msg_2" plugin="None">
-        <Param val="1.0000, -1.0000, -1.0000" valType="color" updates="constant" name="color"/>
-        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
-        <Param val="1" valType="num" updates="constant" name="contrast"/>
-        <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="" valType="code" updates="None" name="durationEstim"/>
-        <Param val="None" valType="str" updates="constant" name="flip"/>
-        <Param val="Arial" valType="str" updates="constant" name="font"/>
-        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
-        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
-        <Param val="error_msg_2" valType="code" updates="None" name="name"/>
-        <Param val="1" valType="num" updates="constant" name="opacity"/>
-        <Param val="0" valType="num" updates="constant" name="ori"/>
-        <Param val="(0, -0.1)" valType="list" updates="constant" name="pos"/>
-        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
-        <Param val="0.5" valType="code" updates="None" name="startEstim"/>
-        <Param val="condition" valType="str" updates="None" name="startType"/>
-        <Param val="$cor_resp == 0" valType="code" updates="None" name="startVal"/>
-        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
-        <Param val="" valType="code" updates="constant" name="stopVal"/>
-        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
-        <Param val="Erreur" valType="str" updates="set every repeat" name="text"/>
-        <Param val="from exp settings" valType="str" updates="None" name="units"/>
-        <Param val="" valType="code" updates="None" name="validator"/>
-        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
-      </TextComponent>
       <TextComponent name="rightcat_4" plugin="None">
         <Param val="$rightw_color" valType="color" updates="set every repeat" name="color"/>
         <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
@@ -1654,6 +1662,32 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
+      <TextComponent name="error_msg_2" plugin="None">
+        <Param val="1.0000, -1.0000, -1.0000" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="error_msg_2" valType="code" updates="None" name="name"/>
+        <Param val="1" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.1)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="0.5" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="$cor_resp == 0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Erreur" valType="str" updates="set every repeat" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
     </Routine>
     <Routine name="transition_test">
       <RoutineSettingsComponent name="transition_test" plugin="None">
@@ -1697,10 +1731,196 @@
         <Param val="" valType="code" updates="None" name="validator"/>
         <Param val="" valType="num" updates="constant" name="wrapWidth"/>
       </TextComponent>
+      <TextComponent name="error_msg_slow_2" plugin="None">
+        <Param val="1.0000, -1.0000, -1.0000" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="0.5" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="error_msg_slow_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.2)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="0" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="$slow == 1" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="0.5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Trop lent !" valType="str" updates="set every frame" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="msg_error_fast_2" plugin="None">
+        <Param val="1.0000, -1.0000, -1.0000" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="0.5" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="msg_error_fast_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, -0.2)" valType="list" updates="constant" name="pos"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="0" valType="code" updates="None" name="startEstim"/>
+        <Param val="condition" valType="str" updates="None" name="startType"/>
+        <Param val="$fast == 1" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="0.5" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Trop rapide !" valType="str" updates="set every frame" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <TextComponent name="text_2" plugin="None">
+        <Param val="white" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="text_2" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 2)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="0.51" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="" valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <CodeComponent name="code" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="if t&gt;= 0.5:&amp;#10;    continueRoutine = False&amp;#10;    " valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="if ((t &gt;= 0.5)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="code" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="repeat_instructions">
+      <RoutineSettingsComponent name="repeat_instructions" plugin="None">
+        <Param val="none" valType="str" updates="None" name="backgroundFit"/>
+        <Param val="" valType="str" updates="None" name="backgroundImg"/>
+        <Param val="$[0,0,0]" valType="color" updates="None" name="color"/>
+        <Param val="rgb" valType="str" updates="None" name="colorSpace"/>
+        <Param val="" valType="str" updates="constant" name="desc"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="repeat_instructions" valType="code" updates="None" name="name"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="constant" name="skipIf"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="False" valType="bool" updates="None" name="useWindowParams"/>
+      </RoutineSettingsComponent>
+      <CodeComponent name="check_key" plugin="None">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Auto-&gt;JS" valType="str" updates="None" name="Code Type"/>
+        <Param val="&quot;&quot;&quot;if keyboard_resp_repeat.keys:&amp;#10;    if len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] != repAns: #vérifie si la touche est I et passe à l'essai suivant le cas échéant&amp;#10;        repeat_inst.finished=1&amp;#10;    elif len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] == repAns:&amp;#10;        continueRoutine = False&amp;#10;        &quot;&quot;&quot;" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="/*if keyboard_resp_repeat.keys:&amp;#10;if len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] != repAns: #vérifie si la touche est I et passe à l'essai suivant le cas échéant&amp;#10;repeat_inst.finished=1&amp;#10;elif len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] == repAns:&amp;#10;continueRoutine = False&amp;#10;*/&amp;#10;" valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="if (keyboard_resp_repeat.keys) {&amp;#10;    if (((keyboard_resp_repeat.keys.length &gt; 0) &amp;&amp; (keyboard_resp_repeat.keys.slice((- 1))[0] !== repAns))) {&amp;#10;        repeat_inst.finished = 1;&amp;#10;        continueRoutine = false;&amp;#10;    } else {&amp;#10;        if (((keyboard_resp_repeat.keys.length &gt; 0) &amp;&amp; (keyboard_resp_repeat.keys.slice((- 1))[0] === repAns))) {&amp;#10;            continueRoutine = false;&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="if keyboard_resp_repeat.keys:&amp;#10;    if len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] != repAns: #vérifie si la touche est I et passe à l'essai suivant le cas échéant&amp;#10;        repeat_inst.finished=1&amp;#10;        continueRoutine = False&amp;#10;    elif len(keyboard_resp_repeat.keys) &gt; 0 and keyboard_resp_repeat.keys[-1] == repAns:&amp;#10;        continueRoutine = False" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="check_key" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+      <TextComponent name="repeat_text" plugin="None">
+        <Param val="-0.3490, -0.1373, -0.0196" valType="color" updates="constant" name="color"/>
+        <Param val="rgb" valType="str" updates="constant" name="colorSpace"/>
+        <Param val="1" valType="num" updates="constant" name="contrast"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="None" valType="str" updates="constant" name="flip"/>
+        <Param val="Arial" valType="str" updates="constant" name="font"/>
+        <Param val="LTR" valType="str" updates="None" name="languageStyle"/>
+        <Param val="0.05" valType="num" updates="constant" name="letterHeight"/>
+        <Param val="repeat_text" valType="code" updates="None" name="name"/>
+        <Param val="" valType="num" updates="constant" name="opacity"/>
+        <Param val="0" valType="num" updates="constant" name="ori"/>
+        <Param val="(0, 0)" valType="list" updates="constant" name="pos"/>
+        <Param val="True" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="0.0" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="True" valType="bool" updates="None" name="syncScreenRefresh"/>
+        <Param val="Souhaitez-vous répéter les instructions ? &amp;#10;&amp;#10;Appuyez sur la touche &quot;E&quot; pour relire les instructions et repasser la partie d'entraînement. &amp;#10;&amp;#10;Appuyez sur &quot;I&quot; pour débuter le test." valType="str" updates="constant" name="text"/>
+        <Param val="from exp settings" valType="str" updates="None" name="units"/>
+        <Param val="" valType="code" updates="None" name="validator"/>
+        <Param val="" valType="num" updates="constant" name="wrapWidth"/>
+      </TextComponent>
+      <KeyboardComponent name="keyboard_resp_repeat" plugin="None">
+        <Param val="'e','i'" valType="list" updates="set every repeat" name="allowedKeys"/>
+        <Param val="$repAns" valType="str" updates="constant" name="correctAns"/>
+        <Param val="" valType="str" updates="None" name="deviceLabel"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="True" valType="bool" updates="constant" name="discard previous"/>
+        <Param val="" valType="code" updates="None" name="durationEstim"/>
+        <Param val="True" valType="bool" updates="constant" name="forceEndRoutine"/>
+        <Param val="keyboard_resp_repeat" valType="code" updates="None" name="name"/>
+        <Param val="press" valType="str" updates="constant" name="registerOn"/>
+        <Param val="False" valType="bool" updates="None" name="saveStartStop"/>
+        <Param val="" valType="code" updates="None" name="startEstim"/>
+        <Param val="time (s)" valType="str" updates="None" name="startType"/>
+        <Param val="1" valType="code" updates="None" name="startVal"/>
+        <Param val="duration (s)" valType="str" updates="None" name="stopType"/>
+        <Param val="" valType="code" updates="constant" name="stopVal"/>
+        <Param val="all keys" valType="str" updates="constant" name="store"/>
+        <Param val="True" valType="bool" updates="constant" name="storeCorrect"/>
+        <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
+      </KeyboardComponent>
     </Routine>
   </Routines>
   <Flow>
     <Routine name="welcome"/>
+    <LoopInitiator loopType="TrialHandler" name="repeat_inst">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'repAns': 'e'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="rep_inst.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="10" valType="num"/>
+      <Param name="name" updates="None" val="repeat_inst" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="instructions_loop">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'pageNum': 1, 'instruct_text': 'Des mots vous seront présentés un par un au centre de l’écran. \nVous devrez les classer aussi vite que possible sans faire d’erreurs dans la ou les catégories situées en haut à gauche et à droite de l’écran.\nLes touches &quot;E&quot; et &quot;I&quot; seront associées à une catégorie et vous permettront de répondre.'}, {'pageNum': 2, 'instruct_text': &quot;Chaque mot a une classification correcte. En cas d'erreur, vous devez appuyer sur la touche correcte pour continuer.\nLe test ne donne pas de résultat si vous répondez trop rapidement ou trop lentement.\nAppuyez sur la barre espace pour passer à l'étape suivante.&quot;}]" valType="str"/>
@@ -1728,7 +1948,7 @@
     <Routine name="ready_test"/>
     <LoopInitiator loopType="TrialHandler" name="trials_test">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
-      <Param name="conditions" updates="None" val="[]" valType="str"/>
+      <Param name="conditions" updates="None" val="None" valType="str"/>
       <Param name="conditionsFile" updates="None" val="$conds_file_test" valType="file"/>
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="False" valType="bool"/>
@@ -1742,6 +1962,19 @@
     <LoopTerminator name="trials_test"/>
     <LoopTerminator name="blocks_test"/>
     <Routine name="words"/>
+    <Routine name="repeat_instructions"/>
+    <LoopTerminator name="repeat_inst"/>
+    <LoopInitiator loopType="TrialHandler" name="repeat_trials">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[{'repTrialsAns': 'e'}]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="repTrials.xlsx" valType="file"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="False" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="10" valType="num"/>
+      <Param name="name" updates="None" val="repeat_trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
     <LoopInitiator loopType="TrialHandler" name="blocks">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'conds_file': 'pos_neg_train - 20.xlsx', 'label_left': '&quot;E&quot; = Sciences', 'label_right': '&quot;I&quot; = Lettres'}, {'conds_file': 'cong_train - long.xlsx', 'label_left': '&quot;E&quot; = Masculin  ', 'label_right': '&quot;I&quot; = Féminin  '}, {'conds_file': 'cong_test - 20.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Sciences', 'label_right': '&quot;I&quot; = Féminin ou Lettres'}, {'conds_file': 'cong_test - 40.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Sciences', 'label_right': '&quot;I&quot; = Féminin ou Lettres'}, {'conds_file': 'incong_train - long.xlsx', 'label_left': '&quot;E&quot; = Lettres', 'label_right': '&quot;I&quot; = Sciences'}, {'conds_file': 'incong_test - 20.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Lettres', 'label_right': '&quot;I&quot; = Féminin ou Sciences'}, {'conds_file': 'incong_test - 40.xlsx', 'label_left': '&quot;E&quot; = Masculin ou Lettres', 'label_right': '&quot;I&quot; = Féminin ou Sciences'}]" valType="str"/>
@@ -1771,6 +2004,7 @@
     <LoopTerminator name="blocks"/>
     <Routine name="score"/>
     <Routine name="score2"/>
+    <LoopTerminator name="repeat_trials"/>
     <Routine name="end"/>
   </Flow>
 </PsychoPy2experiment>
